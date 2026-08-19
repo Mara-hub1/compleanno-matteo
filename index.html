@@ -9,10 +9,6 @@
 
 <style>
 
-/* =====================================================
-   BASE
-===================================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -30,10 +26,9 @@ body {
     overflow: hidden;
 }
 
-
-/* =====================================================
+/* ================================
    SFONDO
-===================================================== */
+================================ */
 
 body::before {
     content: "";
@@ -42,21 +37,9 @@ body::before {
     z-index: -2;
 
     background:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(255,60,0,.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(255,170,0,.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 80%,
-            rgba(255,0,90,.12),
-            transparent 35%
-        );
+        radial-gradient(circle at 20% 10%, rgba(255,60,0,.20), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(255,170,0,.15), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(255,0,90,.14), transparent 35%);
 
     animation: backgroundMove 12s infinite alternate ease-in-out;
 }
@@ -72,14 +55,15 @@ body::before {
 }
 
 
-/* =====================================================
+/* ================================
    PASSWORD
-===================================================== */
+================================ */
 
 #password-screen {
     position: fixed;
     inset: 0;
-    z-index: 10000;
+
+    z-index: 20000;
 
     display: flex;
     align-items: center;
@@ -90,7 +74,7 @@ body::before {
     background:
         radial-gradient(
             circle at center,
-            rgba(255,120,0,.13),
+            rgba(255,120,0,.15),
             transparent 60%
         ),
         #050505;
@@ -100,26 +84,27 @@ body::before {
     width: 100%;
     max-width: 430px;
 
-    text-align: center;
-
     padding: 45px 25px;
+
+    text-align: center;
 
     border-radius: 30px;
 
     background: rgba(255,255,255,.06);
 
-    border: 1px solid rgba(255,255,255,.12);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.5);
+    border:
+        1px solid rgba(255,255,255,.12);
 
     backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.6);
 
     animation: passwordAppear 1s ease;
 }
 
 .lock {
-    font-size: 58px;
+    font-size: 60px;
 
     margin-bottom: 20px;
 
@@ -145,9 +130,9 @@ body::before {
 .password-box p {
     color: #999;
 
-    margin-bottom: 25px;
-
     line-height: 1.5;
+
+    margin-bottom: 25px;
 }
 
 .password-box input {
@@ -157,7 +142,8 @@ body::before {
 
     border-radius: 15px;
 
-    border: 1px solid rgba(255,255,255,.15);
+    border:
+        1px solid rgba(255,255,255,.15);
 
     background: rgba(0,0,0,.45);
 
@@ -174,7 +160,7 @@ body::before {
     border-color: #ffb300;
 
     box-shadow:
-        0 0 20px rgba(255,179,0,.15);
+        0 0 25px rgba(255,179,0,.15);
 }
 
 .password-box button {
@@ -231,7 +217,6 @@ body::before {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
-
 }
 
 @keyframes lockPulse {
@@ -241,44 +226,111 @@ body::before {
     }
 
     50% {
-        transform: scale(1.1);
+        transform: scale(1.12);
     }
-
 }
 
 
-/* =====================================================
+/* ================================
+   MUSIC BUTTON
+================================ */
+
+#music-button {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    z-index: 1000;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background: rgba(0,0,0,.55);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 100px;
+
+    padding: 12px 16px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+#music-button:hover {
+    transform: scale(1.08);
+
+    border-color: #ffb300;
+}
+
+#music-button.playing {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,59,48,.7),
+            rgba(255,179,0,.7)
+        );
+
+    animation: musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+
+    0%,100% {
+        box-shadow:
+            0 0 0 rgba(255,179,0,0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(255,179,0,.35);
+    }
+}
+
+
+/* ================================
    INTRO
-===================================================== */
+================================ */
 
 .intro {
     position: fixed;
+
     inset: 0;
 
     background: #050505;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     z-index: 9999;
 
     opacity: 0;
+
     visibility: hidden;
 }
 
 .intro.active {
     opacity: 1;
+
     visibility: visible;
 
     animation:
-        introOut 1s ease 2.5s forwards;
+        introOut 1s ease 2.7s forwards;
 }
 
 .intro-content {
     text-align: center;
 
-    animation: introIn 1.2s ease;
+    animation:
+        introIn 1.2s ease;
 }
 
 .intro-small {
@@ -288,13 +340,12 @@ body::before {
 
     font-size: 13px;
 
-    text-transform: uppercase;
-
     margin-bottom: 20px;
 }
 
 .intro-title {
-    font-size: clamp(55px, 16vw, 130px);
+    font-size:
+        clamp(55px,16vw,130px);
 
     font-weight: 1000;
 
@@ -324,8 +375,6 @@ body::before {
     margin-top: 25px;
 
     color: #aaa;
-
-    font-size: 15px;
 }
 
 @keyframes introIn {
@@ -339,7 +388,6 @@ body::before {
         opacity: 1;
         transform: scale(1);
     }
-
 }
 
 @keyframes introOut {
@@ -348,13 +396,12 @@ body::before {
         opacity: 0;
         visibility: hidden;
     }
-
 }
 
 
-/* =====================================================
+/* ================================
    HERO
-===================================================== */
+================================ */
 
 .hero {
     min-height: 100vh;
@@ -384,13 +431,12 @@ body::before {
 
     font-size: 14px;
 
-    text-transform: uppercase;
-
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(55px, 15vw, 140px);
+    font-size:
+        clamp(55px,15vw,140px);
 
     font-weight: 1000;
 
@@ -420,9 +466,7 @@ body::before {
     margin-top: 25px;
 
     font-size:
-        clamp(24px, 6vw, 50px);
-
-    letter-spacing: 2px;
+        clamp(24px,6vw,50px);
 }
 
 .hero p {
@@ -444,7 +488,6 @@ body::before {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 @keyframes gradientMove {
@@ -456,13 +499,12 @@ body::before {
     to {
         background-position: 300%;
     }
-
 }
 
 
-/* =====================================================
+/* ================================
    SCROLL
-===================================================== */
+================================ */
 
 .scroll {
     position: absolute;
@@ -495,13 +537,12 @@ body::before {
         transform:
             translate(-50%,-10px);
     }
-
 }
 
 
-/* =====================================================
+/* ================================
    SEZIONI
-===================================================== */
+================================ */
 
 section {
     max-width: 1050px;
@@ -525,9 +566,9 @@ section {
 }
 
 
-/* =====================================================
+/* ================================
    DATA
-===================================================== */
+================================ */
 
 .date-box {
     display: grid;
@@ -587,9 +628,9 @@ section {
 }
 
 
-/* =====================================================
+/* ================================
    COUNTDOWN
-===================================================== */
+================================ */
 
 .countdown {
     display: grid;
@@ -617,6 +658,31 @@ section {
     padding: 25px 10px;
 
     text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.count::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffb300,
+            transparent
+        );
 }
 
 .count-number {
@@ -626,6 +692,10 @@ section {
     font-weight: 900;
 
     color: #ffb300;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,179,0,.25);
 }
 
 .count-label {
@@ -639,9 +709,9 @@ section {
 }
 
 
-/* =====================================================
+/* ================================
    GRIGLIATA
-===================================================== */
+================================ */
 
 .grill {
     position: relative;
@@ -663,10 +733,54 @@ section {
     overflow: hidden;
 }
 
+.grill::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    left: 50%;
+    bottom: -180px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,70,0,.35),
+            transparent 70%
+        );
+
+    animation:
+        fireGlow 1.5s infinite alternate;
+}
+
+@keyframes fireGlow {
+
+    from {
+        transform:
+            translateX(-50%)
+            scale(.9);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.2);
+    }
+}
+
 .fire {
     text-align: center;
 
     font-size: 80px;
+
+    position: relative;
+
+    z-index: 1;
 
     animation:
         fireMove 1s infinite alternate;
@@ -675,13 +789,14 @@ section {
 @keyframes fireMove {
 
     from {
-        transform: scale(1);
+        transform: scale(1)
+        rotate(-2deg);
     }
 
     to {
-        transform: scale(1.12);
+        transform: scale(1.12)
+        rotate(2deg);
     }
-
 }
 
 .grill-title {
@@ -690,6 +805,10 @@ section {
     font-size: 28px;
 
     margin-top: 15px;
+
+    position: relative;
+
+    z-index: 1;
 }
 
 .grill-sub {
@@ -698,12 +817,16 @@ section {
     color: #999;
 
     margin-top: 10px;
+
+    position: relative;
+
+    z-index: 1;
 }
 
 
-/* =====================================================
+/* ================================
    CIBO
-===================================================== */
+================================ */
 
 .food-grid {
     margin-top: 40px;
@@ -714,6 +837,10 @@ section {
         repeat(5,1fr);
 
     gap: 15px;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .food {
@@ -752,9 +879,9 @@ section {
 }
 
 
-/* =====================================================
+/* ================================
    DRINK
-===================================================== */
+================================ */
 
 .drinks {
     display: flex;
@@ -791,9 +918,58 @@ section {
 }
 
 
-/* =====================================================
+/* ================================
+   TORTA
+================================ */
+
+.cake-section {
+    text-align: center;
+}
+
+.cake {
+    position: relative;
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    font-size: 120px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,100,0,.25)
+        );
+
+    animation:
+        cakeFloat 3s infinite ease-in-out;
+}
+
+@keyframes cakeFloat {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
+}
+
+.cake-text {
+    margin-top: 25px;
+
+    color: #aaa;
+
+    font-size: 16px;
+}
+
+
+/* ================================
    SONDAGGIO
-===================================================== */
+================================ */
 
 .poll {
     text-align: center;
@@ -832,9 +1008,9 @@ section {
 }
 
 
-/* =====================================================
+/* ================================
    FINALE
-===================================================== */
+================================ */
 
 .final {
     text-align: center;
@@ -854,6 +1030,20 @@ section {
         clamp(35px,8vw,70px);
 
     font-weight: 900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3b30,
+            #ffb300,
+            #ff3b81
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
 }
 
 .final p {
@@ -862,12 +1052,14 @@ section {
     color: #999;
 
     font-size: 18px;
+
+    line-height: 1.8;
 }
 
 
-/* =====================================================
+/* ================================
    FOOTER
-===================================================== */
+================================ */
 
 footer {
     text-align: center;
@@ -881,9 +1073,9 @@ footer {
 }
 
 
-/* =====================================================
+/* ================================
    CORIANDOLI
-===================================================== */
+================================ */
 
 .confetti {
     position: fixed;
@@ -919,13 +1111,12 @@ footer {
 
         opacity: 0;
     }
-
 }
 
 
-/* =====================================================
+/* ================================
    MOBILE
-===================================================== */
+================================ */
 
 @media(max-width:700px) {
 
@@ -956,6 +1147,10 @@ footer {
 
     .hero p {
         font-size: 15px;
+    }
+
+    .cake {
+        font-size: 95px;
     }
 
 }
@@ -1012,10 +1207,26 @@ footer {
 
 
 <!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
+<button
+    id="music-button"
+    style="display:none"
+    onclick="toggleMusic()">
+
+    🔇 Musica OFF
+
+</button>
+
+
+<!-- =====================================================
      INTRO
 ===================================================== -->
 
-<div class="intro" id="intro">
+<div
+    class="intro"
+    id="intro">
 
     <div class="intro-content">
 
@@ -1045,7 +1256,7 @@ footer {
     <div class="hero-content">
 
         <div class="hero-label">
-            🎂 Birthday Party 🎂
+            🎂 BIRTHDAY PARTY 🎂
         </div>
 
         <h1>
@@ -1321,6 +1532,27 @@ footer {
 
 
 <!-- =====================================================
+     TORTA
+===================================================== -->
+
+<section class="cake-section">
+
+    <h2 class="section-title">
+        🎂 <span>Non poteva mancare...</span>
+    </h2>
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <div class="cake-text">
+        Una candela in più. Una festa in più. 🔥
+    </div>
+
+</section>
+
+
+<!-- =====================================================
      SONDAGGIO
 ===================================================== -->
 
@@ -1371,9 +1603,7 @@ footer {
 
 
 <footer>
-
     Matteo's Birthday Party · 2026
-
 </footer>
 
 
@@ -1407,23 +1637,31 @@ function checkPassword() {
             "auto";
 
 
+        document.getElementById(
+            "music-button"
+        ).style.display = "block";
+
+
         const intro =
             document.getElementById(
                 "intro"
             );
 
-        intro.classList.add("active");
+
+        intro.classList.add(
+            "active"
+        );
 
 
         for (
             let i = 0;
-            i < 100;
+            i < 120;
             i++
         ) {
 
             setTimeout(
                 createConfetti,
-                i * 25
+                i * 20
             );
 
         }
@@ -1442,7 +1680,7 @@ function checkPassword() {
 }
 
 
-/* ENTER = ACCEDI */
+/* ENTER */
 
 document.getElementById(
     "password-input"
@@ -1450,7 +1688,9 @@ document.getElementById(
     "keydown",
     function(event) {
 
-        if (event.key === "Enter") {
+        if (
+            event.key === "Enter"
+        ) {
 
             checkPassword();
 
@@ -1571,6 +1811,194 @@ setInterval(
 
 
 /* =====================================================
+   MUSICA
+   Web Audio API
+===================================================== */
+
+let audioContext = null;
+
+let musicPlaying = false;
+
+let musicTimer = null;
+
+let musicNodes = [];
+
+
+function startMusic() {
+
+    if (musicPlaying) {
+        return;
+    }
+
+
+    audioContext =
+        new (
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
+
+
+    const master =
+        audioContext.createGain();
+
+
+    master.gain.value =
+        0.06;
+
+
+    master.connect(
+        audioContext.destination
+    );
+
+
+    const notes = [
+        261.63,
+        329.63,
+        392.00,
+        523.25,
+        392.00,
+        329.63
+    ];
+
+
+    let index = 0;
+
+
+    function playNote() {
+
+        if (!musicPlaying) {
+            return;
+        }
+
+
+        const oscillator =
+            audioContext.createOscillator();
+
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type =
+            "sine";
+
+
+        oscillator.frequency.value =
+            notes[index];
+
+
+        gain.gain.setValueAtTime(
+            0,
+            audioContext.currentTime
+        );
+
+
+        gain.gain.linearRampToValueAtTime(
+            0.7,
+            audioContext.currentTime + 0.03
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            audioContext.currentTime + 0.45
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(master);
+
+
+        oscillator.start();
+
+        oscillator.stop(
+            audioContext.currentTime + 0.5
+        );
+
+
+        index =
+            (index + 1) %
+            notes.length;
+
+
+        musicTimer =
+            setTimeout(
+                playNote,
+                420
+            );
+
+    }
+
+
+    musicPlaying = true;
+
+    playNote();
+
+}
+
+
+function stopMusic() {
+
+    musicPlaying = false;
+
+
+    if (musicTimer) {
+
+        clearTimeout(
+            musicTimer
+        );
+
+    }
+
+
+    if (audioContext) {
+
+        audioContext.close();
+
+        audioContext = null;
+
+    }
+
+}
+
+
+function toggleMusic() {
+
+    const button =
+        document.getElementById(
+            "music-button"
+        );
+
+
+    if (!musicPlaying) {
+
+        startMusic();
+
+        button.textContent =
+            "🔊 Musica ON";
+
+        button.classList.add(
+            "playing"
+        );
+
+    } else {
+
+        stopMusic();
+
+        button.textContent =
+            "🔇 Musica OFF";
+
+        button.classList.remove(
+            "playing"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
    CORIANDOLI
 ===================================================== */
 
@@ -1643,7 +2071,9 @@ function createConfetti() {
 
     setTimeout(
         () => {
+
             piece.remove();
+
         },
         7000
     );
@@ -1653,4 +2083,4 @@ function createConfetti() {
 </script>
 
 </body>
-</html>
+   </html>
