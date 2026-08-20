@@ -10,13 +10,19 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Matteo's Birthday Party 🎂">
 <meta property="og:description" content="Grigliata • Drink • Giochi • Mercoledì 26 agosto">
-<meta property="og:image" content="preview.jpg">
+<meta property="og:url" content="https://mara-hub1.github.io/compleanno-matteo/">
+<meta property="og:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
 
 <style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -26,8 +32,10 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(circle at top, #252525 0%, #090909 42%, #030303 100%);
-    color: white;
+        radial-gradient(circle at 20% 0%, #262626 0%, transparent 35%),
+        radial-gradient(circle at 80% 20%, #1b1014 0%, transparent 30%),
+        #050505;
+    color: #fff;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -46,104 +54,160 @@ button {
     display: none !important;
 }
 
-/* =========================
-   INTRO
-========================= */
+/* =====================================================
+   ACCESSO
+===================================================== */
 
-#intro {
+#accessScreen {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background:
-        radial-gradient(circle at center, #292929 0%, #080808 55%, #000 100%);
+    z-index: 99999;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(circle at center, #292929 0%, #090909 55%, #000 100%);
+
+    transition: opacity .7s ease;
+}
+
+.access-box {
+    width: min(430px, 100%);
+    padding: 42px 30px;
+
     text-align: center;
-    transition: opacity .8s ease, visibility .8s ease;
+
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 28px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.6);
 }
 
-#intro.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.intro-content {
-    width: min(90%, 650px);
-    animation: introIn 1.2s ease;
-}
-
-@keyframes introIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(.96);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.intro-emoji {
+.access-icon {
     font-size: 70px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
-.intro-content h1 {
-    font-size: clamp(42px, 9vw, 85px);
-    line-height: .95;
-    letter-spacing: -3px;
+.access-box h1 {
+    font-size: clamp(32px, 8vw, 48px);
+    letter-spacing: -2px;
+    margin-bottom: 12px;
 }
 
-.intro-content p {
-    margin: 25px 0 35px;
-    color: #bdbdbd;
-    font-size: 17px;
+.access-box p {
+    color: #aaa;
+    margin-bottom: 25px;
 }
 
-.enter-btn {
-    border: none;
+.access-box input {
+    width: 100%;
+    padding: 15px;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+
+    background: #111;
     color: white;
-    background: linear-gradient(135deg, #ff1744, #ff6d00);
-    padding: 18px 45px;
-    border-radius: 999px;
+
+    text-align: center;
+    outline: none;
+
+    margin-bottom: 12px;
+}
+
+.access-box input:focus {
+    border-color: #ff416c;
+}
+
+.access-box button {
+    width: 100%;
+    padding: 16px;
+
+    border: none;
+    border-radius: 14px;
+
+    color: white;
     font-weight: 900;
-    font-size: 18px;
-    box-shadow: 0 12px 40px rgba(255, 50, 20, .3);
+
+    background:
+        linear-gradient(135deg, #ff1744, #ff6d00);
+
+    box-shadow:
+        0 12px 35px rgba(255,50,20,.25);
+
     transition: .25s;
 }
 
-.enter-btn:hover {
-    transform: translateY(-3px) scale(1.03);
+.access-box button:hover {
+    transform: translateY(-2px) scale(1.01);
 }
 
-/* =========================
+#passwordError {
+    min-height: 20px;
+    margin-top: 15px;
+    color: #ff5275;
+    font-size: 14px;
+}
+
+/* =====================================================
+   YOUTUBE INVISIBILE
+===================================================== */
+
+#musicPlayer {
+    position: fixed;
+
+    width: 1px;
+    height: 1px;
+
+    left: -100px;
+    top: -100px;
+
+    opacity: .01;
+    pointer-events: none;
+
+    border: 0;
+}
+
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 header {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(18px);
+    z-index: 5000;
+
     background: rgba(5,5,5,.82);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
 }
 
 .nav {
     max-width: 1150px;
     margin: auto;
+
     padding: 15px 20px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     gap: 20px;
 }
 
 .logo {
     font-weight: 900;
     letter-spacing: -1px;
-    white-space: nowrap;
 }
 
 .logo span {
@@ -151,28 +215,35 @@ header {
 }
 
 .menu-btn {
+    display: none;
+
     background: rgba(255,255,255,.08);
     color: white;
+
     border: 1px solid rgba(255,255,255,.1);
     border-radius: 12px;
+
     padding: 10px 13px;
-    display: none;
 }
 
 .nav-links {
     display: flex;
-    gap: 8px;
+    gap: 5px;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
 
 .nav-links button {
     background: transparent;
-    border: 0;
-    color: #bbb;
-    padding: 9px 11px;
+    border: none;
+
+    color: #aaa;
+
+    padding: 9px 10px;
     border-radius: 10px;
+
     font-size: 13px;
+
     transition: .2s;
 }
 
@@ -181,14 +252,15 @@ header {
     background: rgba(255,255,255,.08);
 }
 
-/* =========================
-   GENERAL
-========================= */
+/* =====================================================
+   GENERALE
+===================================================== */
 
 main {
     max-width: 1150px;
     margin: auto;
-    padding: 0 20px 70px;
+
+    padding: 0 20px 80px;
 }
 
 section {
@@ -201,65 +273,73 @@ section {
 
 .section-title .small {
     color: #ff3d68;
-    font-size: 13px;
+
+    font-size: 12px;
     font-weight: 900;
+
     letter-spacing: 2px;
     text-transform: uppercase;
+
     margin-bottom: 8px;
 }
 
 .section-title h2 {
-    font-size: clamp(32px, 6vw, 54px);
+    font-size: clamp(34px, 6vw, 55px);
     letter-spacing: -2px;
 }
 
 .section-title p {
-    color: #aaa;
-    margin-top: 10px;
+    color: #999;
     max-width: 650px;
+
+    margin-top: 10px;
+
     line-height: 1.6;
 }
 
 .card {
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.09),
-        rgba(255,255,255,.035)
-    );
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 25px;
     padding: 25px;
-    box-shadow: 0 20px 70px rgba(0,0,0,.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.25);
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 18px;
 }
 
-.grid-3 {
+.grid3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 18px;
-}
-
-.big-number {
-    font-size: 42px;
-    font-weight: 900;
-}
-
-.muted {
-    color: #999;
 }
 
 .action {
     border: none;
     border-radius: 14px;
+
     padding: 14px 20px;
-    background: linear-gradient(135deg, #ff1744, #ff6d00);
+
     color: white;
     font-weight: 900;
+
+    background:
+        linear-gradient(135deg,#ff1744,#ff6d00);
+
     transition: .2s;
 }
 
@@ -272,65 +352,87 @@ section {
     border: 1px solid rgba(255,255,255,.1);
 }
 
-/* =========================
+.muted {
+    color: #999;
+}
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero {
     min-height: 78vh;
+
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 .hero-content {
-    max-width: 850px;
+    max-width: 900px;
 }
 
 .badge {
     display: inline-block;
+
     padding: 9px 14px;
+
     border-radius: 999px;
-    background: rgba(255,255,255,.08);
+
+    background: rgba(255,255,255,.07);
     border: 1px solid rgba(255,255,255,.1);
-    color: #ddd;
+
+    color: #ccc;
+
     font-size: 12px;
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
 }
 
 .hero h1 {
-    font-size: clamp(55px, 12vw, 125px);
+    font-size: clamp(58px, 12vw, 125px);
+
     line-height: .82;
+
     letter-spacing: -7px;
 }
 
 .hero h1 span {
-    background: linear-gradient(135deg, #ff1744, #ff9800);
+    background:
+        linear-gradient(135deg,#ff1744,#ff9800);
+
     -webkit-background-clip: text;
     color: transparent;
 }
 
 .hero-sub {
     margin-top: 30px;
+
+    color: #aaa;
+
     font-size: 20px;
-    color: #bbb;
+    line-height: 1.5;
 }
 
 .hero-date {
+    display: inline-block;
+
     margin-top: 25px;
-    display: inline-flex;
+
     padding: 14px 20px;
-    background: rgba(255,255,255,.07);
+
     border-radius: 15px;
+
+    background: rgba(255,255,255,.07);
 }
 
-/* =========================
-   FOOD
-========================= */
+/* =====================================================
+   GRIGLIATA
+===================================================== */
 
 .food-card {
     display: flex;
     align-items: center;
+
     gap: 18px;
 }
 
@@ -347,9 +449,9 @@ section {
     font-size: 14px;
 }
 
-/* =========================
-   SURVEY
-========================= */
+/* =====================================================
+   SONDAGGIO
+===================================================== */
 
 form {
     display: grid;
@@ -358,25 +460,32 @@ form {
 
 .form-group label {
     display: block;
+
     font-weight: 800;
+
     margin-bottom: 10px;
 }
 
 input[type="text"],
-input[type="email"],
 input[type="number"],
-select {
+input[type="password"] {
     width: 100%;
+
     padding: 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,.12);
+
     background: #111;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
     color: white;
+
+    border-radius: 12px;
+
     outline: none;
 }
 
-input:focus,
-select:focus {
+input:focus {
     border-color: #ff3d68;
 }
 
@@ -397,54 +506,70 @@ select:focus {
 
 .choice span {
     display: block;
+
     padding: 12px 17px;
+
     background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
     border-radius: 12px;
+
     cursor: pointer;
+
     transition: .2s;
 }
 
 .choice input:checked + span {
-    background: linear-gradient(135deg, #ff1744, #ff6d00);
+    background:
+        linear-gradient(135deg,#ff1744,#ff6d00);
+
     border-color: transparent;
 }
 
 .quantity-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns: repeat(2,1fr);
+
     gap: 12px;
 }
 
 .quantity-item {
-    background: rgba(255,255,255,.045);
     padding: 15px;
+
+    background: rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
     border-radius: 15px;
-    border: 1px solid rgba(255,255,255,.08);
 }
 
 .quantity-item label {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     gap: 10px;
 }
 
 .quantity-item input {
-    width: 85px;
+    width: 80px;
 }
 
-/* =========================
-   GAMES
-========================= */
+/* =====================================================
+   GIOCHI
+===================================================== */
 
 .game-card {
-    position: relative;
     overflow: hidden;
 }
 
-.game-card .game-icon {
-    font-size: 45px;
+.game-icon {
+    font-size: 48px;
     margin-bottom: 15px;
 }
 
@@ -454,69 +579,89 @@ select:focus {
 
 .game-card p {
     color: #999;
+
     line-height: 1.5;
+
     margin-bottom: 18px;
 }
 
-.quiz-question {
-    margin-bottom: 20px;
-}
-
 .quiz-question h4 {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    line-height: 1.4;
 }
 
 .quiz-option {
     width: 100%;
+
+    display: block;
+
     margin-bottom: 8px;
+
+    padding: 13px;
+
     text-align: left;
-    border: 1px solid rgba(255,255,255,.1);
+
     color: white;
+
     background: rgba(255,255,255,.05);
-    padding: 12px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
     border-radius: 12px;
 }
 
 .quiz-option:hover {
-    background: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.12);
 }
 
 .result {
     margin-top: 15px;
+
     padding: 15px;
+
     background: rgba(255,255,255,.06);
+
     border-radius: 15px;
+
+    line-height: 1.5;
 }
 
-/* =========================
-   PHOTO
-========================= */
+/* =====================================================
+   FOTO
+===================================================== */
 
 .photo-box {
-    border: 2px dashed rgba(255,255,255,.15);
     min-height: 220px;
-    border-radius: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
     padding: 20px;
+
+    border:
+        2px dashed rgba(255,255,255,.15);
+
+    border-radius: 20px;
+
+    margin-top: 18px;
 }
 
 .photo-preview {
     max-width: 100%;
     max-height: 400px;
+
     border-radius: 18px;
+
     display: none;
 }
 
-/* =========================
-   ADMIN
-========================= */
-
-.admin-lock {
-    max-width: 500px;
-}
+/* =====================================================
+   AREA MATTEO
+===================================================== */
 
 .password-box {
     display: flex;
@@ -533,62 +678,67 @@ select:focus {
 
 .admin-warning {
     padding: 15px;
+
     border-radius: 15px;
+
     background: rgba(255,193,7,.08);
-    border: 1px solid rgba(255,193,7,.2);
+
+    border:
+        1px solid rgba(255,193,7,.2);
+
     color: #ffd76a;
+
     line-height: 1.5;
 }
 
-.admin-secret {
-    color: #666;
-    font-size: 11px;
+.big-number {
+    font-size: 42px;
+    margin-bottom: 8px;
 }
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer {
     text-align: center;
-    color: #666;
+
     padding: 50px 20px;
-    border-top: 1px solid rgba(255,255,255,.07);
+
+    color: #666;
+
+    border-top:
+        1px solid rgba(255,255,255,.07);
 }
 
-/* =========================
-   MUSIC
-========================= */
-
-#youtube-player {
-    position: fixed;
-    width: 1px;
-    height: 1px;
-    left: -10px;
-    bottom: -10px;
-    opacity: .01;
-    pointer-events: none;
-}
-
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
-@media(max-width: 800px) {
+@media(max-width:800px) {
+
     .menu-btn {
         display: block;
     }
 
     .nav-links {
         display: none;
+
         position: absolute;
+
         top: 65px;
         left: 12px;
         right: 12px;
+
         padding: 10px;
+
         background: rgba(10,10,10,.97);
-        border: 1px solid rgba(255,255,255,.1);
+
+        border:
+            1px solid rgba(255,255,255,.1);
+
         border-radius: 18px;
+
         flex-direction: column;
     }
 
@@ -599,11 +749,12 @@ footer {
     .nav-links button {
         width: 100%;
         text-align: left;
+
         padding: 13px;
     }
 
     .grid,
-    .grid-3,
+    .grid3,
     .quantity-grid {
         grid-template-columns: 1fr;
     }
@@ -615,60 +766,135 @@ footer {
     .hero {
         min-height: 70vh;
     }
+
+    .password-box {
+        flex-direction: column;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-    <div class="intro-content">
-        <div class="intro-emoji">🎂</div>
-        <h1>MATTEO'S<br><span>BIRTHDAY</span></h1>
+<!-- =====================================================
+     ACCESSO
+===================================================== -->
+
+<div id="accessScreen">
+
+    <div class="access-box">
+
+        <div class="access-icon">
+            🎂
+        </div>
+
+        <h1>
+            Matteo's Birthday
+        </h1>
+
         <p>
-            Una serata di grigliata, drink, musica e risate.
+            Inserisci la password per entrare nella festa
         </p>
-        <button class="enter-btn" onclick="enterParty()">
-            ENTRA NELLA FESTA 🚀
+
+        <input
+            type="password"
+            id="partyPassword"
+            placeholder="Password"
+            autocomplete="off">
+
+        <button onclick="enterParty()">
+            ENTRA NELLA FESTA 🎉
         </button>
+
+        <div id="passwordError"></div>
+
     </div>
+
 </div>
 
-<!-- YouTube invisibile -->
+<!-- =====================================================
+     PLAYER MUSICA
+===================================================== -->
+
 <iframe
-    id="youtube-player"
-    src=""
+    id="musicPlayer"
     allow="autoplay">
 </iframe>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
+
     <div class="nav">
+
         <div class="logo">
             MATTEO<span>21</span> 🎂
         </div>
 
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()">
+            ☰
+        </button>
 
-        <nav class="nav-links" id="navLinks">
-            <button onclick="go('home')">Home</button>
-            <button onclick="go('grigliata')">🍖 Grigliata</button>
-            <button onclick="go('drink')">🍹 Drink</button>
-            <button onclick="go('sondaggio')">📝 Sondaggio</button>
-            <button onclick="go('giochi')">🎮 Giochi</button>
-            <button onclick="go('momenti')">📸 Momenti</button>
-            <button onclick="go('admin')">🔒 Area Matteo</button>
+        <nav
+            class="nav-links"
+            id="navLinks">
+
+            <button onclick="go('home')">
+                Home
+            </button>
+
+            <button onclick="go('grigliata')">
+                🍖 Grigliata
+            </button>
+
+            <button onclick="go('drink')">
+                🍹 Drink
+            </button>
+
+            <button onclick="go('sondaggio')">
+                📝 Sondaggio
+            </button>
+
+            <button onclick="go('giochi')">
+                🎮 Giochi
+            </button>
+
+            <button onclick="go('momenti')">
+                📸 Momenti
+            </button>
+
+            <button onclick="go('admin')">
+                🔒 Area Matteo
+            </button>
+
         </nav>
+
     </div>
+
 </header>
+
 
 <main>
 
-<!-- HERO -->
-<section class="hero" id="home">
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section
+    class="hero"
+    id="home">
+
     <div class="hero-content">
 
-        <div class="badge">MERCOLEDÌ 26 AGOSTO 2026</div>
+        <div class="badge">
+            MERCOLEDÌ 26 AGOSTO 2026
+        </div>
 
         <h1>
             MATTEO'S<br>
@@ -676,364 +902,586 @@ footer {
         </h1>
 
         <p class="hero-sub">
-            21 anni. Una grigliata. Un sacco di drink.
-            E probabilmente qualche casino. 😂
+            21 anni. Una grigliata.
+            Drink, musica e una serata da ricordare. 🎉
         </p>
 
         <div class="hero-date">
-            🎉 <strong> &nbsp;LA SERATA INIZIA</strong>
+            🎂 &nbsp; <strong>26 AGOSTO 2026</strong>
         </div>
 
     </div>
+
 </section>
 
-<!-- GRIGLIATA -->
+
+<!-- =====================================================
+     GRIGLIATA
+===================================================== -->
+
 <section id="grigliata">
 
     <div class="section-title">
-        <div class="small">IL MENU</div>
-        <h2>🍖 La Grigliata</h2>
+
+        <div class="small">
+            IL MENU
+        </div>
+
+        <h2>
+            🍖 La Grigliata
+        </h2>
+
         <p>
-            Ognuno sceglie cosa vuole mangiare direttamente dal sondaggio.
+            Nel sondaggio puoi scegliere cosa vuoi
+            mangiare e indicare la quantità.
         </p>
+
     </div>
 
     <div class="grid">
 
         <div class="card food-card">
-            <div class="food-icon">🌭</div>
-            <div>
-                <h3>Wurstel</h3>
-                <p>Per chi vuole andare sul sicuro.</p>
+
+            <div class="food-icon">
+                🌭
             </div>
+
+            <div>
+                <h3>
+                    Wurstel
+                </h3>
+
+                <p>
+                    Un grande classico.
+                </p>
+            </div>
+
         </div>
 
-        <div class="card food-card">
-            <div class="food-icon">🍢</div>
-            <div>
-                <h3>Spiedini</h3>
-                <p>Un grande classico della grigliata.</p>
-            </div>
-        </div>
 
         <div class="card food-card">
-            <div class="food-icon">🔥</div>
-            <div>
-                <h3>Arrosticini</h3>
-                <p>Piccoli, ma pericolosamente facili da finire.</p>
+
+            <div class="food-icon">
+                🍢
             </div>
+
+            <div>
+                <h3>
+                    Spiedini
+                </h3>
+
+                <p>
+                    Perfetti dalla griglia.
+                </p>
+            </div>
+
         </div>
 
+
         <div class="card food-card">
-            <div class="food-icon">🥩</div>
-            <div>
-                <h3>Costine</h3>
-                <p>La parte seria della grigliata.</p>
+
+            <div class="food-icon">
+                🔥
             </div>
+
+            <div>
+                <h3>
+                    Arrosticini
+                </h3>
+
+                <p>
+                    Uno tira l'altro.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="card food-card">
+
+            <div class="food-icon">
+                🥩
+            </div>
+
+            <div>
+                <h3>
+                    Costine
+                </h3>
+
+                <p>
+                    La parte seria della grigliata.
+                </p>
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
-<!-- DRINK -->
+
+<!-- =====================================================
+     DRINK
+===================================================== -->
+
 <section id="drink">
 
     <div class="section-title">
-        <div class="small">DRINK</div>
-        <h2>🍹 Drink & Bevande</h2>
+
+        <div class="small">
+            DRINK
+        </div>
+
+        <h2>
+            🍹 Drink & Bevande
+        </h2>
+
         <p>
-            Nel sondaggio puoi indicare cosa vuoi bere e in che quantità.
+            Scegli quello che vuoi direttamente
+            nel sondaggio.
         </p>
+
     </div>
 
-    <div class="grid-3">
+
+    <div class="grid3">
 
         <div class="card">
             <div class="food-icon">🍺</div>
             <h3>Birra</h3>
-            <p class="muted">La classica.</p>
+            <p class="muted">
+                La classica.
+            </p>
         </div>
+
 
         <div class="card">
             <div class="food-icon">🍹</div>
             <h3>Aperol</h3>
-            <p class="muted">Per iniziare bene.</p>
+            <p class="muted">
+                Per iniziare.
+            </p>
         </div>
+
 
         <div class="card">
             <div class="food-icon">🥃</div>
             <h3>Disaronno</h3>
-            <p class="muted">Per chi vuole qualcosa di diverso.</p>
+            <p class="muted">
+                Per qualcosa di diverso.
+            </p>
         </div>
+
 
         <div class="card">
             <div class="food-icon">🍸</div>
             <h3>Verdone</h3>
-            <p class="muted">Un'altra opzione per la serata.</p>
+            <p class="muted">
+                Una delle opzioni della serata.
+            </p>
         </div>
+
 
         <div class="card">
             <div class="food-icon">🥭</div>
             <h3>Passoã</h3>
-            <p class="muted">Dolce e fruttato.</p>
+            <p class="muted">
+                Dolce e fruttato.
+            </p>
         </div>
+
 
         <div class="card">
             <div class="food-icon">🥤</div>
             <h3>Analcolici</h3>
-            <p class="muted">Bibite e acqua.</p>
+            <p class="muted">
+                Bibite e acqua.
+            </p>
         </div>
 
     </div>
+
 </section>
 
-<!-- SONDAGGIO -->
+
+<!-- =====================================================
+     SONDAGGIO
+===================================================== -->
+
 <section id="sondaggio">
 
     <div class="section-title">
-        <div class="small">IMPORTANTE</div>
-        <h2>📝 Sondaggio</h2>
+
+        <div class="small">
+            IMPORTANTE
+        </div>
+
+        <h2>
+            📝 Sondaggio
+        </h2>
+
         <p>
-            Compila il sondaggio così so cosa comprare.
+            Compilalo così so cosa comprare.
         </p>
+
     </div>
+
 
     <div class="card">
 
         <form id="partyForm">
 
             <div class="form-group">
-                <label>👤 Come ti chiami?</label>
+
+                <label>
+                    👤 Come ti chiami?
+                </label>
+
                 <input
                     type="text"
                     id="nome"
                     placeholder="Nome"
                     required>
+
             </div>
 
+
             <div class="form-group">
-                <label>🎉 Ci sei?</label>
+
+                <label>
+                    🎉 Ci sei?
+                </label>
 
                 <div class="choice-row">
 
                     <label class="choice">
+
                         <input
                             type="radio"
                             name="presenza"
                             value="SI"
                             required>
-                        <span>✅ Ci sono!</span>
+
+                        <span>
+                            ✅ Ci sono!
+                        </span>
+
                     </label>
 
+
                     <label class="choice">
+
                         <input
                             type="radio"
                             name="presenza"
                             value="NO">
-                        <span>❌ Non ci sono</span>
+
+                        <span>
+                            ❌ Non ci sono
+                        </span>
+
                     </label>
 
                 </div>
+
             </div>
+
 
             <div id="foodArea">
 
                 <div class="form-group">
-                    <label>🍖 Cosa vuoi mangiare?</label>
+
+                    <label>
+                        🍖 Cosa vuoi mangiare?
+                    </label>
+
 
                     <div class="quantity-grid">
 
                         <div class="quantity-item">
+
                             <label>
                                 🌭 Wurstel
+
                                 <input
                                     type="number"
                                     id="wurstel"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🍢 Spiedini
+
                                 <input
                                     type="number"
                                     id="spiedini"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🔥 Arrosticini
+
                                 <input
                                     type="number"
                                     id="arrosticini"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🥩 Costine
+
                                 <input
                                     type="number"
                                     id="costine"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
                     </div>
+
                 </div>
 
+
                 <div class="form-group">
-                    <label>🍻 Cosa vuoi bere?</label>
+
+                    <label>
+                        🍻 Cosa vuoi bere?
+                    </label>
+
 
                     <div class="quantity-grid">
 
                         <div class="quantity-item">
+
                             <label>
                                 🍺 Birra
+
                                 <input
                                     type="number"
                                     id="birra"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🍹 Aperol
+
                                 <input
                                     type="number"
                                     id="aperol"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🥃 Disaronno
+
                                 <input
                                     type="number"
                                     id="disaronno"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🍸 Verdone
+
                                 <input
                                     type="number"
                                     id="verdone"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🥭 Passoã
+
                                 <input
                                     type="number"
                                     id="passoa"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
+
                         <div class="quantity-item">
+
                             <label>
                                 🥤 Analcolico
+
                                 <input
                                     type="number"
                                     id="analcolico"
                                     min="0"
                                     value="0">
+
                             </label>
+
                         </div>
 
                     </div>
+
                 </div>
 
             </div>
 
+
             <div class="form-group">
-                <label>💬 Note</label>
+
+                <label>
+                    💬 Note
+                </label>
+
                 <input
                     type="text"
                     id="note"
                     placeholder="Qualcosa che devo sapere?">
+
             </div>
+
 
             <button
                 type="submit"
                 class="action">
+
                 💚 INVIA SU WHATSAPP
+
             </button>
 
         </form>
 
     </div>
+
 </section>
 
-<!-- GIOCHI -->
+
+<!-- =====================================================
+     GIOCHI
+===================================================== -->
+
 <section id="giochi">
 
     <div class="section-title">
-        <div class="small">DURANTE LA SERATA</div>
-        <h2>🎮 Giochi</h2>
+
+        <div class="small">
+            DURANTE LA SERATA
+        </div>
+
+        <h2>
+            🎮 Giochi & divertimento
+        </h2>
+
         <p>
-            Alcune cose da fare durante la festa.
+            Qualche gioco semplice da fare insieme.
         </p>
+
     </div>
+
 
     <div class="grid">
 
+
         <!-- QUIZ -->
+
         <div class="card game-card">
 
-            <div class="game-icon">🧠</div>
+            <div class="game-icon">
+                🧠
+            </div>
 
-            <h3>Quanto conosci Matteo?</h3>
+            <h3>
+                Quanto conosci Matteo?
+            </h3>
 
             <p>
-                10 domande. Una sola missione:
-                dimostrare di conoscere davvero il festeggiato.
+                10 domande per scoprire chi conosce
+                davvero il festeggiato.
             </p>
 
             <button
                 class="action"
                 onclick="startQuiz()">
+
                 INIZIA IL QUIZ
+
             </button>
 
             <div
                 id="quiz"
                 class="hidden"
                 style="margin-top:25px;">
+
             </div>
 
         </div>
 
-        <!-- RITARDATARIO -->
+
+        <!-- RITARDO -->
+
         <div class="card game-card">
 
-            <div class="game-icon">😂</div>
+            <div class="game-icon">
+                😂
+            </div>
 
-            <h3>Chi arriva in ritardo?</h3>
+            <h3>
+                Chi è più probabile che arrivi in ritardo?
+            </h3>
 
             <p>
-                Scegli la persona che secondo te
-                arriverà per ultima.
+                Inserisci il nome della persona
+                che secondo te arriverà per ultima.
             </p>
 
             <input
@@ -1041,56 +1489,78 @@ footer {
                 id="lateName"
                 placeholder="Nome">
 
+
             <button
                 class="action"
                 style="margin-top:12px;"
                 onclick="lateVote()">
+
                 VOTA 😂
+
             </button>
+
 
             <div
                 id="lateResult"
                 class="result hidden">
+
             </div>
 
         </div>
 
+
         <!-- BRINDISI -->
+
         <div class="card game-card">
 
-            <div class="game-icon">🥂</div>
+            <div class="game-icon">
+                🥂
+            </div>
 
-            <h3>Scegli qualcuno per un brindisi</h3>
+            <h3>
+                Scegli qualcuno per un brindisi
+            </h3>
 
             <p>
-                Premi il pulsante e lascia decidere
-                al destino.
+                Lascia decidere al destino.
             </p>
+
 
             <button
                 class="action"
                 onclick="randomToast()">
+
                 🥂 SCEGLI
+
             </button>
+
 
             <div
                 id="toastResult"
                 class="result hidden">
+
             </div>
 
         </div>
 
+
         <!-- FOTO -->
+
         <div class="card game-card">
 
-            <div class="game-icon">📸</div>
+            <div class="game-icon">
+                📸
+            </div>
 
-            <h3>Foto più divertente</h3>
+            <h3>
+                Foto più divertente
+            </h3>
 
             <p>
-                Scegli una foto dal tuo dispositivo
+                Scegli una foto dal telefono
                 e mostrala nella pagina.
             </p>
+
 
             <input
                 type="file"
@@ -1099,15 +1569,18 @@ footer {
                 style="display:none;"
                 onchange="showPhoto(event)">
 
+
             <button
                 class="action"
                 onclick="document.getElementById('photoInput').click()">
+
                 📸 SCEGLI FOTO
+
             </button>
+
 
             <div
                 class="photo-box"
-                style="margin-top:18px;"
                 id="photoBox">
 
                 <div id="photoText">
@@ -1123,155 +1596,271 @@ footer {
         </div>
 
     </div>
+
 </section>
 
-<!-- MOMENTI -->
+
+<!-- =====================================================
+     MOMENTI
+===================================================== -->
+
 <section id="momenti">
 
     <div class="section-title">
-        <div class="small">LA SERATA</div>
-        <h2>📸 Momenti</h2>
+
+        <div class="small">
+            LA SERATA
+        </div>
+
+        <h2>
+            📸 Momenti
+        </h2>
+
         <p>
-            Uno spazio per ricordare la serata.
+            Una pagina dedicata ai ricordi della serata.
         </p>
+
     </div>
 
-    <div class="grid-3">
+
+    <div class="grid3">
 
         <div class="card">
-            <div class="big-number">🎂</div>
-            <h3>21 anni</h3>
+
+            <div class="big-number">
+                🎂
+            </div>
+
+            <h3>
+                21 anni
+            </h3>
+
             <p class="muted">
                 Una volta sola.
             </p>
+
         </div>
 
-        <div class="card">
-            <div class="big-number">🍖</div>
-            <h3>Grigliata</h3>
-            <p class="muted">
-                Il programma ufficiale.
-            </p>
-        </div>
 
         <div class="card">
-            <div class="big-number">😂</div>
-            <h3>Risate</h3>
+
+            <div class="big-number">
+                🍖
+            </div>
+
+            <h3>
+                Grigliata
+            </h3>
+
             <p class="muted">
-                Probabilmente impossibili da contare.
+                Il centro della serata.
             </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="big-number">
+                😂
+            </div>
+
+            <h3>
+                Risate
+            </h3>
+
+            <p class="muted">
+                Impossibili da contare.
+            </p>
+
         </div>
 
     </div>
+
 </section>
 
-<!-- AREA MATTEO -->
+
+<!-- =====================================================
+     AREA MATTEO
+===================================================== -->
+
 <section id="admin">
 
     <div class="section-title">
-        <div class="small">PRIVATE</div>
-        <h2>🔒 Area Matteo</h2>
+
+        <div class="small">
+            PRIVATE
+        </div>
+
+        <h2>
+            🔒 Area Matteo
+        </h2>
+
         <p>
-            Area personale per l'organizzatore.
+            La tua piccola area personale.
         </p>
+
     </div>
 
-    <div class="card admin-lock" id="adminLogin">
 
-        <h3>🔐 Accesso organizzatore</h3>
+    <div
+        class="card"
+        id="adminLogin">
+
+        <h3>
+            🔐 Accesso organizzatore
+        </h3>
 
         <p
             class="muted"
             style="margin:10px 0 20px;">
-            Inserisci la password per entrare.
+
+            Inserisci la password.
+
         </p>
+
 
         <div class="password-box">
 
             <input
                 type="password"
                 id="adminPassword"
-                placeholder="Password">
+                placeholder="Password"
+                autocomplete="off">
+
 
             <button
                 class="action"
                 onclick="adminLogin()">
+
                 ENTRA
+
             </button>
 
         </div>
 
+
         <div
             id="adminError"
-            style="color:#ff5275;margin-top:12px;">
+            style="
+                color:#ff5275;
+                margin-top:12px;
+            ">
+
         </div>
 
     </div>
 
+
     <div
         id="adminDashboard"
-        class="admin-dashboard hidden">
+        class="hidden">
 
         <div class="admin-warning">
-            ℹ️ Questa dashboard è volutamente semplice:
-            i dati del sondaggio inviati tramite WhatsApp
-            non vengono sincronizzati automaticamente qui.
-        </div>
 
-        <br>
-
-        <div class="grid-3">
-
-            <div class="card">
-                <div class="big-number">🎂</div>
-                <h3>Compleanno</h3>
-                <p class="muted">26 agosto 2026</p>
-            </div>
-
-            <div class="card">
-                <div class="big-number">🍖</div>
-                <h3>Grigliata</h3>
-                <p class="muted">Wurstel • Spiedini • Arrosticini • Costine</p>
-            </div>
-
-            <div class="card">
-                <div class="big-number">🍹</div>
-                <h3>Drink</h3>
-                <p class="muted">Tutto pronto per la serata.</p>
-            </div>
+            ℹ️ Questa è una pagina privata semplice:
+            serve a evitare che gli invitati entrino
+            per errore. Non è una protezione professionale.
 
         </div>
 
         <br>
+
+
+        <div class="grid3">
+
+            <div class="card">
+
+                <div class="big-number">
+                    🎂
+                </div>
+
+                <h3>
+                    Compleanno
+                </h3>
+
+                <p class="muted">
+                    26 agosto 2026
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="big-number">
+                    🍖
+                </div>
+
+                <h3>
+                    Grigliata
+                </h3>
+
+                <p class="muted">
+                    Wurstel • Spiedini •
+                    Arrosticini • Costine
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="big-number">
+                    🍹
+                </div>
+
+                <h3>
+                    Drink
+                </h3>
+
+                <p class="muted">
+                    Tutto pronto per la serata.
+                </p>
+
+            </div>
+
+        </div>
+
+        <br>
+
 
         <div class="card">
-            <h3>🛒 Lista della spesa</h3>
+
+            <h3>
+                🛒 Lista della spesa
+            </h3>
 
             <p
                 class="muted"
                 style="margin:12px 0 20px;">
-                Le quantità definitive vanno ricavate dalle
-                risposte WhatsApp.
+
+                Le quantità definitive le ricavi
+                dalle risposte WhatsApp.
+
             </p>
+
 
             <button
                 class="action"
                 onclick="copyShoppingList()">
+
                 📋 COPIA LISTA BASE
+
             </button>
+
         </div>
 
         <br>
 
+
         <button
             class="action secondary"
             onclick="adminLogout()">
-            🔒 ESCI DALL'AREA
-        </button>
 
-        <p class="admin-secret">
-            Area organizzatore
-        </p>
+            🔒 ESCI DALL'AREA
+
+        </button>
 
     </div>
 
@@ -1279,23 +1868,40 @@ footer {
 
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
-    <p>🎂 Matteo's Birthday Party • 2026</p>
+
+    <p>
+        🎂 Matteo's Birthday Party • 2026
+    </p>
+
     <p style="margin-top:8px;">
         Una serata da ricordare. ❤️
     </p>
+
 </footer>
 
 
 <script>
 
-/* =========================
+/* =====================================================
    CONFIGURAZIONE
-========================= */
+===================================================== */
 
-const WHATSAPP_NUMBER = "393518019649";
+const PARTY_PASSWORD = "luna";
 
 const ADMIN_PASSWORD = "2026";
+
+/*
+   Il tuo numero WhatsApp.
+   39 = Italia
+*/
+const WHATSAPP_NUMBER = "393518019649";
+
 
 const INVITATI = [
     "Matteo",
@@ -1309,371 +1915,654 @@ const INVITATI = [
     "Simone"
 ];
 
-/* =========================
-   INTRO + MUSICA
-========================= */
+
+/* =====================================================
+   ACCESSO + MUSICA
+===================================================== */
 
 function enterParty() {
 
-    const player = document.getElementById("youtube-player");
+    const password =
+        document
+        .getElementById("partyPassword")
+        .value
+        .trim();
+
+    const error =
+        document
+        .getElementById("passwordError");
+
+
+    if (password !== PARTY_PASSWORD) {
+
+        error.textContent =
+            "❌ Password non corretta.";
+
+        return;
+
+    }
+
 
     /*
-      Video YouTube:
-      https://youtu.be/JFOLJwOoorQ
+       IMPORTANTE:
 
-      Parte al click su ENTRA.
-      Il video rimane invisibile.
+       Il caricamento dell'iframe avviene
+       direttamente dopo il click dell'utente.
+
+       Video:
+       JFOLJwOoorQ
     */
 
+    const player =
+        document
+        .getElementById("musicPlayer");
+
+
     player.src =
-        "https://www.youtube.com/embed/JFOLJwOoorQ?autoplay=1&loop=1&playlist=JFOLJwOoorQ";
+        "https://www.youtube.com/embed/JFOLJwOoorQ" +
+        "?autoplay=1" +
+        "&loop=1" +
+        "&playlist=JFOLJwOoorQ" +
+        "&controls=0" +
+        "&rel=0" +
+        "&modestbranding=1";
 
-    document.getElementById("intro").classList.add("hide");
 
-    setTimeout(() => {
-        document.getElementById("intro").style.display = "none";
-    }, 900);
+    const screen =
+        document
+        .getElementById("accessScreen");
+
+
+    screen.style.opacity = "0";
+
+
+    setTimeout(function() {
+
+        screen.style.display = "none";
+
+    }, 700);
+
 }
 
-/* =========================
+
+/*
+   ENTER dalla tastiera
+*/
+
+document
+.getElementById("partyPassword")
+.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            enterParty();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
    MENU
-========================= */
+===================================================== */
 
 function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("open");
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("open");
+
 }
+
 
 function go(id) {
 
-    document.getElementById(id)
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+    const element =
+        document.getElementById(id);
+
+    if (!element) return;
+
+
+    element.scrollIntoView({
+        behavior: "smooth"
+    });
+
 
     document
-        .getElementById("navLinks")
-        .classList.remove("open");
+    .getElementById("navLinks")
+    .classList.remove("open");
+
 }
 
-/* =========================
+
+/* =====================================================
    SONDAGGIO
-========================= */
+===================================================== */
 
 document
 .getElementById("partyForm")
-.addEventListener("submit", function(e) {
+.addEventListener(
+    "submit",
+    function(event) {
 
-    e.preventDefault();
+        event.preventDefault();
 
-    const nome =
-        document.getElementById("nome").value.trim();
 
-    const presenza =
-        document.querySelector(
-            'input[name="presenza"]:checked'
-        )?.value || "";
+        const nome =
+            document
+            .getElementById("nome")
+            .value
+            .trim();
 
-    if (!nome || !presenza) {
-        alert("Compila nome e presenza.");
-        return;
+
+        const presenzaElement =
+            document.querySelector(
+                'input[name="presenza"]:checked'
+            );
+
+
+        if (!nome || !presenzaElement) {
+
+            alert(
+                "Compila nome e presenza."
+            );
+
+            return;
+
+        }
+
+
+        const presenza =
+            presenzaElement.value;
+
+
+        const wurstel =
+            Number(
+                document.getElementById("wurstel").value
+            ) || 0;
+
+
+        const spiedini =
+            Number(
+                document.getElementById("spiedini").value
+            ) || 0;
+
+
+        const arrosticini =
+            Number(
+                document.getElementById("arrosticini").value
+            ) || 0;
+
+
+        const costine =
+            Number(
+                document.getElementById("costine").value
+            ) || 0;
+
+
+        const birra =
+            Number(
+                document.getElementById("birra").value
+            ) || 0;
+
+
+        const aperol =
+            Number(
+                document.getElementById("aperol").value
+            ) || 0;
+
+
+        const disaronno =
+            Number(
+                document.getElementById("disaronno").value
+            ) || 0;
+
+
+        const verdone =
+            Number(
+                document.getElementById("verdone").value
+            ) || 0;
+
+
+        const passoa =
+            Number(
+                document.getElementById("passoa").value
+            ) || 0;
+
+
+        const analcolico =
+            Number(
+                document.getElementById("analcolico").value
+            ) || 0;
+
+
+        const note =
+            document
+            .getElementById("note")
+            .value
+            .trim();
+
+
+        let message = "";
+
+
+        message +=
+            "🎂 *MATTEO'S BIRTHDAY PARTY*%0A";
+
+        message +=
+            "━━━━━━━━━━━━━━━━━━%0A%0A";
+
+
+        message +=
+            "👤 *Nome:* " +
+            encodeURIComponent(nome) +
+            "%0A";
+
+
+        message +=
+            "🎉 *Presenza:* " +
+            encodeURIComponent(presenza) +
+            "%0A";
+
+
+        if (presenza === "SI") {
+
+            message += "%0A";
+
+            message +=
+                "🍖 *CIBO*%0A";
+
+
+            message +=
+                "🌭 Wurstel: " +
+                wurstel +
+                "%0A";
+
+
+            message +=
+                "🍢 Spiedini: " +
+                spiedini +
+                "%0A";
+
+
+            message +=
+                "🔥 Arrosticini: " +
+                arrosticini +
+                "%0A";
+
+
+            message +=
+                "🥩 Costine: " +
+                costine +
+                "%0A%0A";
+
+
+            message +=
+                "🍻 *BEVANDE*%0A";
+
+
+            message +=
+                "🍺 Birra: " +
+                birra +
+                "%0A";
+
+
+            message +=
+                "🍹 Aperol: " +
+                aperol +
+                "%0A";
+
+
+            message +=
+                "🥃 Disaronno: " +
+                disaronno +
+                "%0A";
+
+
+            message +=
+                "🍸 Verdone: " +
+                verdone +
+                "%0A";
+
+
+            message +=
+                "🥭 Passoà: " +
+                passoa +
+                "%0A";
+
+
+            message +=
+                "🥤 Analcolico: " +
+                analcolico +
+                "%0A";
+
+        }
+
+
+        if (note) {
+
+            message += "%0A";
+
+            message +=
+                "💬 *Note:* " +
+                encodeURIComponent(note) +
+                "%0A";
+
+        }
+
+
+        message +=
+            "%0A🎉 Ci vediamo alla festa!";
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            WHATSAPP_NUMBER +
+            "?text=" +
+            message;
+
+
+        window.location.href =
+            whatsappURL;
+
     }
+);
 
-    const data = {
 
-        nome,
-        presenza,
-
-        wurstel:
-            Number(document.getElementById("wurstel").value) || 0,
-
-        spiedini:
-            Number(document.getElementById("spiedini").value) || 0,
-
-        arrosticini:
-            Number(document.getElementById("arrosticini").value) || 0,
-
-        costine:
-            Number(document.getElementById("costine").value) || 0,
-
-        birra:
-            Number(document.getElementById("birra").value) || 0,
-
-        aperol:
-            Number(document.getElementById("aperol").value) || 0,
-
-        disaronno:
-            Number(document.getElementById("disaronno").value) || 0,
-
-        verdone:
-            Number(document.getElementById("verdone").value) || 0,
-
-        passoa:
-            Number(document.getElementById("passoa").value) || 0,
-
-        analcolico:
-            Number(document.getElementById("analcolico").value) || 0,
-
-        note:
-            document.getElementById("note").value.trim()
-
-    };
-
-    let message = "";
-
-    message += "🎂 *MATTEO'S BIRTHDAY PARTY*%0A";
-    message += "━━━━━━━━━━━━━━━━━━%0A%0A";
-
-    message += "👤 *Nome:* " + encodeURIComponent(data.nome) + "%0A";
-
-    message += "🎉 *Presenza:* " +
-        encodeURIComponent(data.presenza) +
-        "%0A%0A";
-
-    if (data.presenza === "SI") {
-
-        message += "🍖 *CIBO*%0A";
-
-        message += "🌭 Wurstel: " +
-            data.wurstel + "%0A";
-
-        message += "🍢 Spiedini: " +
-            data.spiedini + "%0A";
-
-        message += "🔥 Arrosticini: " +
-            data.arrosticini + "%0A";
-
-        message += "🥩 Costine: " +
-            data.costine + "%0A%0A";
-
-        message += "🍻 *BEVANDE*%0A";
-
-        message += "🍺 Birra: " +
-            data.birra + "%0A";
-
-        message += "🍹 Aperol: " +
-            data.aperol + "%0A";
-
-        message += "🥃 Disaronno: " +
-            data.disaronno + "%0A";
-
-        message += "🍸 Verdone: " +
-            data.verdone + "%0A";
-
-        message += "🥭 Passoã: " +
-            data.passoa + "%0A";
-
-        message += "🥤 Analcolico: " +
-            data.analcolico + "%0A%0A";
-
-    }
-
-    if (data.note) {
-
-        message += "💬 *Note:* " +
-            encodeURIComponent(data.note) +
-            "%0A%0A";
-
-    }
-
-    message += "🎉 Ci vediamo alla festa!";
-
-    const whatsappURL =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        message;
-
-    window.location.href = whatsappURL;
-
-});
-
-/* =========================
+/* =====================================================
    QUIZ
-========================= */
+===================================================== */
 
 const quizQuestions = [
 
     {
-        q: "Qual è il settore in cui Matteo vuole lavorare?",
+        q:
+            "Qual è il settore in cui Matteo vuole lavorare?",
+
         options: [
             "Automazione",
             "Medicina",
             "Architettura",
             "Agricoltura"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Quale tipo di programmazione interessa maggiormente a Matteo?",
+        q:
+            "Quale tipo di programmazione interessa maggiormente a Matteo?",
+
         options: [
             "PLC",
             "Videogiochi",
             "App musicali",
             "Grafica 3D"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Quale ambiente PLC conosce Matteo?",
+        q:
+            "Quale ambiente PLC conosce Matteo?",
+
         options: [
             "TIA Portal",
             "Photoshop",
             "Premiere",
             "Blender"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Cosa c'è al centro della festa?",
+        q:
+            "Cosa c'è al centro della festa?",
+
         options: [
             "Una grigliata",
             "Una gara di nuoto",
             "Una partita",
             "Un concerto"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Quale di questi fa parte del menu?",
+        q:
+            "Quale di questi fa parte del menu?",
+
         options: [
             "Arrosticini",
             "Sushi",
             "Pizza",
             "Ramen"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Quale bevanda è prevista?",
+        q:
+            "Quale bevanda è prevista?",
+
         options: [
             "Aperol",
             "Bubble tea",
             "Caffè shakerato",
             "Tè verde"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Quanti anni compie Matteo?",
+        q:
+            "Quanti anni compie Matteo?",
+
         options: [
             "21",
             "18",
             "25",
             "30"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Quale tecnologia usa Matteo per la sua casa?",
+        q:
+            "Quale tecnologia usa Matteo per la sua casa?",
+
         options: [
             "Home Assistant",
             "Nessuna",
             "Solo carta",
             "Telegrafo"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Cosa bisogna fare alla festa?",
+        q:
+            "Cosa bisogna fare alla festa?",
+
         options: [
             "Divertirsi",
             "Studiare",
             "Lavorare",
             "Fare un esame"
         ],
+
         answer: 0
     },
 
+
     {
-        q: "Qual è la risposta corretta?",
+        q:
+            "Chi è il festeggiato?",
+
         options: [
-            "MATTEO È IL FESTEGGIATO 🎂",
-            "Luca è il festeggiato",
-            "Il barbecue è il festeggiato",
+            "Matteo 🎂",
+            "Luca",
+            "Il barbecue",
             "Nessuno"
         ],
+
         answer: 0
     }
 
 ];
 
+
 let quizIndex = 0;
+
 let quizScore = 0;
+
 
 function startQuiz() {
 
     quizIndex = 0;
+
     quizScore = 0;
 
-    const quiz =
-        document.getElementById("quiz");
 
-    quiz.classList.remove("hidden");
+    document
+    .getElementById("quiz")
+    .classList.remove("hidden");
+
 
     showQuizQuestion();
 
 }
+
 
 function showQuizQuestion() {
 
     const quiz =
         document.getElementById("quiz");
 
+
     if (quizIndex >= quizQuestions.length) {
 
+        let message;
+
+
+        if (quizScore === 10) {
+
+            message =
+                "🔥 INCREDIBILE! Conosci Matteo meglio di Matteo stesso.";
+
+        } else if (quizScore >= 7) {
+
+            message =
+                "😎 Niente male! Conosci bene Matteo.";
+
+        } else if (quizScore >= 5) {
+
+            message =
+                "😂 Puoi fare di meglio!";
+
+        } else {
+
+            message =
+                "💀 Dobbiamo parlare.";
+
+        }
+
+
         quiz.innerHTML = `
+
             <div class="result">
-                <h3>🏆 Quiz completato!</h3>
+
+                <h3>
+                    🏆 Quiz completato!
+                </h3>
+
                 <p style="margin-top:10px;">
-                    Hai fatto <strong>${quizScore}/10</strong>
+                    Hai fatto
+                    <strong>${quizScore}/10</strong>
                 </p>
+
+                <p style="margin-top:10px;">
+                    ${message}
+                </p>
+
                 <button
                     class="action"
                     style="margin-top:15px;"
                     onclick="startQuiz()">
+
                     🔄 RIPROVA
+
                 </button>
+
             </div>
+
         `;
 
         return;
+
     }
+
 
     const question =
         quizQuestions[quizIndex];
 
+
     let html = `
+
         <div class="quiz-question">
+
             <h4>
                 ${quizIndex + 1}/10 —
                 ${question.q}
             </h4>
+
     `;
 
-    question.options.forEach((option, i) => {
 
-        html += `
-            <button
-                class="quiz-option"
-                onclick="answerQuiz(${i})">
-                ${option}
-            </button>
-        `;
+    question.options.forEach(
+        function(option,index) {
 
-    });
+            html += `
 
-    html += `</div>`;
+                <button
+                    class="quiz-option"
+                    onclick="answerQuiz(${index})">
+
+                    ${option}
+
+                </button>
+
+            `;
+
+        }
+    );
+
+
+    html += "</div>";
+
 
     quiz.innerHTML = html;
+
 }
+
 
 function answerQuiz(index) {
 
@@ -1681,50 +2570,84 @@ function answerQuiz(index) {
         index ===
         quizQuestions[quizIndex].answer
     ) {
+
         quizScore++;
+
     }
+
 
     quizIndex++;
 
     showQuizQuestion();
+
 }
 
-/* =========================
+
+/* =====================================================
    CHI ARRIVA IN RITARDO
-========================= */
+===================================================== */
 
 function lateVote() {
 
+    const input =
+        document
+        .getElementById("lateName");
+
+
     const name =
-        document.getElementById("lateName")
-        .value
-        .trim();
+        input.value.trim();
+
 
     if (!name) {
-        alert("Inserisci un nome.");
+
+        alert(
+            "Inserisci un nome."
+        );
+
         return;
+
     }
 
+
     const result =
-        document.getElementById("lateResult");
+        document
+        .getElementById("lateResult");
+
 
     result.classList.remove("hidden");
 
+
     result.innerHTML = `
-        😂 <strong>${escapeHTML(name)}</strong>
-        è ufficialmente il candidato
-        al premio "Ritardatario dell'anno".
+
+        😂 <strong>
+        ${escapeHTML(name)}
+        </strong>
+
+        è ufficialmente candidato
+        al premio
+
+        <br><br>
+
+        🏆
+        <strong>
+        "Ritardatario dell'anno"
+        </strong>
+
     `;
+
 }
 
-/* =========================
-   BRINDISI CASUALE
-========================= */
+
+/* =====================================================
+   BRINDISI
+===================================================== */
 
 function randomToast() {
 
     const result =
-        document.getElementById("toastResult");
+        document
+        .getElementById("toastResult");
+
 
     const name =
         INVITATI[
@@ -1734,64 +2657,95 @@ function randomToast() {
             )
         ];
 
+
     result.classList.remove("hidden");
 
+
     result.innerHTML = `
-        🥂 <strong>${escapeHTML(name)}</strong>!
+
+        🥂
+
+        <strong>
+            ${escapeHTML(name)}
+        </strong>
+
         <br><br>
+
         Fate un brindisi insieme! 🎉
+
     `;
+
 }
 
-/* =========================
+
+/* =====================================================
    FOTO
-========================= */
+===================================================== */
 
 function showPhoto(event) {
 
     const file =
         event.target.files[0];
 
+
     if (!file) return;
 
+
     const preview =
-        document.getElementById("photoPreview");
+        document
+        .getElementById("photoPreview");
+
 
     const text =
-        document.getElementById("photoText");
+        document
+        .getElementById("photoText");
+
 
     preview.src =
         URL.createObjectURL(file);
 
-    preview.style.display = "block";
 
-    text.style.display = "none";
+    preview.style.display =
+        "block";
+
+
+    text.style.display =
+        "none";
+
 }
 
-/* =========================
+
+/* =====================================================
    AREA MATTEO
-========================= */
+===================================================== */
 
 function adminLogin() {
 
     const password =
-        document.getElementById("adminPassword")
-        .value;
+        document
+        .getElementById("adminPassword")
+        .value
+        .trim();
+
 
     const error =
-        document.getElementById("adminError");
+        document
+        .getElementById("adminError");
+
 
     if (password === ADMIN_PASSWORD) {
 
         error.textContent = "";
 
-        document
-            .getElementById("adminLogin")
-            .classList.add("hidden");
 
         document
-            .getElementById("adminDashboard")
-            .classList.remove("hidden");
+        .getElementById("adminLogin")
+        .classList.add("hidden");
+
+
+        document
+        .getElementById("adminDashboard")
+        .classList.remove("hidden");
 
     } else {
 
@@ -1799,74 +2753,117 @@ function adminLogin() {
             "❌ Password non corretta.";
 
     }
+
 }
+
+
+document
+.getElementById("adminPassword")
+.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            adminLogin();
+
+        }
+
+    }
+);
+
 
 function adminLogout() {
 
     document
-        .getElementById("adminDashboard")
-        .classList.add("hidden");
+    .getElementById("adminDashboard")
+    .classList.add("hidden");
+
 
     document
-        .getElementById("adminLogin")
-        .classList.remove("hidden");
+    .getElementById("adminLogin")
+    .classList.remove("hidden");
+
 
     document
-        .getElementById("adminPassword")
-        .value = "";
+    .getElementById("adminPassword")
+    .value = "";
 
 }
 
-/* =========================
-   LISTA SPESA
-========================= */
+
+/* =====================================================
+   LISTA DELLA SPESA
+===================================================== */
 
 function copyShoppingList() {
 
-    const list = `
-🛒 LISTA DELLA SPESA
+    const list =
+
+`🛒 LISTA DELLA SPESA
 ━━━━━━━━━━━━━━━━
 
 🔥 CARNE
+
 • Wurstel
 • Spiedini
 • Arrosticini
 • Costine
 
 🍻 BEVANDE
+
 • Birra
 • Aperol
 • Disaronno
 • Verdone
-• Passoã
+• Passoà
 • Analcolici
 
 🎂 COMPLEANNO MATTEO
-26 AGOSTO 2026
-`;
 
-    navigator.clipboard
+26 AGOSTO 2026`;
+
+
+    if (
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ) {
+
+        navigator.clipboard
         .writeText(list)
-        .then(() => {
-            alert("📋 Lista copiata!");
-        })
-        .catch(() => {
-            alert(list);
-        });
+        .then(
+            function() {
+                alert("📋 Lista copiata!");
+            }
+        )
+        .catch(
+            function() {
+                alert(list);
+            }
+        );
+
+    } else {
+
+        alert(list);
+
+    }
+
 }
 
-/* =========================
-   SICUREZZA TESTO
-========================= */
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
 
 function escapeHTML(text) {
 
-    return text
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+    return String(text)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
 }
 
 </script>
