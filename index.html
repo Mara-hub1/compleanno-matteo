@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
 
 <meta charset="UTF-8">
@@ -20,11 +19,10 @@
 
 <title>Matteo's Birthday 🎂</title>
 
-
 <style>
 
 /* =========================================================
-   BASE
+   RESET
 ========================================================= */
 
 *{
@@ -40,51 +38,76 @@ html{
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#050505;
-    color:white;
+    color:#fff;
+    min-height:100vh;
     overflow-x:hidden;
 }
 
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:-30%;
-    z-index:-5;
+
+    z-index:-10;
 
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(255,60,0,.22),
+            rgba(255,60,0,.20),
             transparent 28%
         ),
-
         radial-gradient(
             circle at 85% 20%,
-            rgba(255,180,0,.18),
+            rgba(255,180,0,.16),
             transparent 30%
         ),
-
         radial-gradient(
             circle at 50% 90%,
-            rgba(255,0,100,.16),
+            rgba(255,0,100,.13),
             transparent 35%
         );
 
-    animation:bgMove 15s ease-in-out infinite alternate;
+    animation:
+        backgroundMove
+        15s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 body::after{
+
     content:"";
+
     position:fixed;
+
     inset:0;
-    z-index:-4;
+
+    z-index:-9;
+
     pointer-events:none;
+
+    opacity:.45;
 
     background-image:
         linear-gradient(
             rgba(255,255,255,.018) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
             rgba(255,255,255,.018) 1px,
@@ -94,7 +117,7 @@ body::after{
     background-size:40px 40px;
 }
 
-@keyframes bgMove{
+@keyframes backgroundMove{
 
     from{
         transform:scale(1);
@@ -114,14 +137,18 @@ body::after{
 #passwordScreen{
 
     position:fixed;
+
     inset:0;
+
     z-index:99999;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:25px;
+    padding:20px;
 
     background:
         radial-gradient(
@@ -130,12 +157,25 @@ body::after{
             transparent 55%
         ),
         #050505;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
 }
 
+#passwordScreen.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+}
 
 .passwordBox{
 
     width:100%;
+
     max-width:430px;
 
     padding:45px 25px;
@@ -149,58 +189,61 @@ body::after{
             rgba(255,255,255,.025)
         );
 
-    border:1px solid rgba(255,255,255,.13);
+    border:1px solid
+        rgba(255,255,255,.13);
 
     border-radius:32px;
 
     backdrop-filter:blur(20px);
 
     box-shadow:
-        0 40px 100px rgba(0,0,0,.65);
+        0 40px 100px
+        rgba(0,0,0,.65);
 
+    animation:
+        passwordAppear
+        1s
+        ease both;
 }
-
 
 .passwordIcon{
 
     font-size:65px;
-    margin-bottom:20px;
 
-    animation:pulse 2s infinite;
+    margin-bottom:18px;
+
+    animation:
+        lockPulse
+        2s
+        infinite;
 }
-
 
 .passwordSmall{
 
     color:#ffb300;
 
-    font-size:11px;
+    font-size:10px;
 
     letter-spacing:5px;
 
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
-
 
 .passwordBox h1{
 
-    font-size:32px;
+    font-size:31px;
 
     margin-bottom:12px;
-
 }
-
 
 .passwordBox p{
 
-    color:#999;
+    color:#888;
 
     line-height:1.6;
 
     margin-bottom:25px;
-
 }
-
 
 .passwordBox input{
 
@@ -210,9 +253,11 @@ body::after{
 
     border-radius:16px;
 
-    border:1px solid rgba(255,255,255,.13);
+    border:1px solid
+        rgba(255,255,255,.13);
 
-    background:rgba(0,0,0,.45);
+    background:
+        rgba(0,0,0,.45);
 
     color:white;
 
@@ -221,9 +266,7 @@ body::after{
     text-align:center;
 
     font-size:17px;
-
 }
-
 
 .passwordBox button{
 
@@ -248,12 +291,20 @@ body::after{
 
     font-weight:900;
 
-    font-size:15px;
-
     cursor:pointer;
 
+    box-shadow:
+        0 12px 35px
+        rgba(255,90,0,.18);
+
+    transition:.25s;
 }
 
+.passwordBox button:hover{
+
+    transform:translateY(-2px);
+
+}
 
 #passwordError{
 
@@ -263,24 +314,36 @@ body::after{
 
     margin-top:15px;
 
+    font-size:14px;
 }
 
+@keyframes passwordAppear{
 
-@keyframes pulse{
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes lockPulse{
 
     0%,100%{
         transform:scale(1);
     }
 
     50%{
-        transform:scale(1.1);
+        transform:scale(1.08);
     }
-
 }
 
 
 /* =========================================================
-   YOUTUBE PLAYER INVISIBILE
+   YOUTUBE INVISIBILE
 ========================================================= */
 
 #youtubePlayer{
@@ -296,68 +359,215 @@ body::after{
     opacity:0;
 
     pointer-events:none;
-
 }
 
 
 /* =========================================================
-   HERO
+   APP
 ========================================================= */
 
-.hero{
+#app{
 
-    min-height:100vh;
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity .8s ease;
+}
+
+#app.visible{
+
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.topBar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    z-index:500;
+
+    height:72px;
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
+    justify-content:space-between;
 
-    text-align:center;
+    padding:0 22px;
 
-    padding:30px 20px;
+    background:
+        rgba(5,5,5,.72);
 
-    position:relative;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+    backdrop-filter:blur(20px);
 }
 
-
-.heroContent{
-
-    animation:heroAppear 1.4s ease both;
-
-}
-
-
-.heroTop{
-
-    color:#ffb300;
-
-    letter-spacing:6px;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    margin-bottom:25px;
-
-}
-
-
-.hero h1{
-
-    font-size:
-        clamp(
-            58px,
-            16vw,
-            145px
-        );
-
-    line-height:.78;
+.logo{
 
     font-weight:1000;
 
-    letter-spacing:-5px;
+    font-size:14px;
+
+    letter-spacing:1px;
+}
+
+.logo span{
+
+    color:#ffb300;
+}
+
+.musicStatus{
+
+    font-size:12px;
+
+    color:#888;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+.musicDot{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#555;
+}
+
+.musicDot.active{
+
+    background:#25d366;
+
+    box-shadow:
+        0 0 12px
+        #25d366;
+
+    animation:
+        musicPulse
+        1.5s
+        infinite;
+}
+
+@keyframes musicPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.35);
+    }
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.screen{
+
+    min-height:100vh;
+
+    padding:
+        110px
+        20px
+        80px;
+
+    display:none;
+
+    animation:
+        screenIn
+        .5s
+        ease both;
+}
+
+.screen.active{
+
+    display:block;
+}
+
+@keyframes screenIn{
+
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.home{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    text-align:center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    min-height:
+        calc(100vh - 150px);
+}
+
+.eyebrow{
+
+    color:#ffb300;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    font-weight:bold;
+
+    margin-bottom:18px;
+}
+
+.homeTitle{
+
+    font-size:
+        clamp(
+            52px,
+            13vw,
+            130px
+        );
+
+    line-height:.82;
+
+    font-weight:1000;
+
+    letter-spacing:-6px;
 
     background:
         linear-gradient(
@@ -381,48 +591,44 @@ body::after{
         5s
         linear
         infinite;
-
 }
 
+.homeSubtitle{
 
-.hero h2{
-
-    margin-top:30px;
+    margin-top:28px;
 
     font-size:
         clamp(
-            22px,
+            20px,
             5vw,
-            48px
+            40px
         );
 
-    letter-spacing:2px;
-
-}
-
-
-.heroDate{
-
-    margin-top:20px;
-
-    color:#aaa;
-
-    font-size:16px;
+    font-weight:900;
 
     letter-spacing:2px;
-
 }
 
+.homeDate{
 
-.heroLine{
+    margin-top:15px;
+
+    color:#888;
+
+    letter-spacing:3px;
+
+    font-size:13px;
+}
+
+.homeLine{
 
     width:80px;
 
     height:3px;
 
-    margin:30px auto;
+    border-radius:10px;
 
-    border-radius:20px;
+    margin:28px auto;
 
     background:
         linear-gradient(
@@ -430,66 +636,20 @@ body::after{
             #ff3b30,
             #ffb300
         );
-
 }
 
+.homeDescription{
 
-.heroDescription{
-
-    color:#888;
-
-    font-size:15px;
-
-    max-width:500px;
+    max-width:520px;
 
     margin:auto;
 
+    color:#777;
+
     line-height:1.7;
 
+    font-size:15px;
 }
-
-
-.scrollDown{
-
-    position:absolute;
-
-    bottom:30px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    color:#666;
-
-    font-size:10px;
-
-    letter-spacing:4px;
-
-    animation:bounce 2s infinite;
-
-}
-
-
-@keyframes heroAppear{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(50px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
 
 @keyframes gradientMove{
 
@@ -500,158 +660,200 @@ body::after{
     to{
         background-position:300%;
     }
-
-}
-
-
-@keyframes bounce{
-
-    0%,100%{
-        transform:translate(-50%,0);
-    }
-
-    50%{
-        transform:translate(-50%,-10px);
-    }
-
 }
 
 
 /* =========================================================
-   SECTIONS
+   MENU
 ========================================================= */
 
-section{
+.menuGrid{
 
-    max-width:1050px;
+    max-width:850px;
 
-    margin:auto;
+    margin:45px auto 0;
 
-    padding:100px 20px;
+    display:grid;
 
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
 }
 
+.menuCard{
 
-.sectionHeader{
+    position:relative;
 
-    text-align:center;
+    overflow:hidden;
 
-    margin-bottom:50px;
+    padding:30px 22px;
 
-}
+    min-height:150px;
 
+    display:flex;
 
-.sectionEyebrow{
+    flex-direction:column;
 
-    color:#ffb300;
+    align-items:flex-start;
 
-    font-size:11px;
+    justify-content:flex-end;
 
-    letter-spacing:5px;
+    text-align:left;
 
-    font-weight:bold;
+    border-radius:28px;
 
-    margin-bottom:12px;
+    border:1px solid
+        rgba(255,255,255,.09);
 
-}
-
-
-.sectionTitle{
-
-    font-size:
-        clamp(
-            34px,
-            7vw,
-            58px
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
         );
 
-    line-height:1;
+    cursor:pointer;
+
+    transition:
+        transform .3s,
+        border .3s;
+}
+
+.menuCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:140px;
+
+    height:140px;
+
+    right:-40px;
+
+    top:-40px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,179,0,.10);
+
+    filter:blur(10px);
+}
+
+.menuCard:hover{
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(255,179,0,.45);
+}
+
+.menuIcon{
+
+    font-size:43px;
+
+    margin-bottom:auto;
+}
+
+.menuCard h3{
+
+    font-size:22px;
 
     font-weight:1000;
 
 }
 
+.menuCard p{
 
-.sectionTitle span{
+    margin-top:7px;
 
-    color:#ffb300;
+    color:#777;
 
+    font-size:12px;
 }
 
 
 /* =========================================================
-   DATA
+   SECTION HEADER
 ========================================================= */
 
-.dateGrid{
+.sectionHeader{
 
-    display:grid;
+    max-width:850px;
 
-    grid-template-columns:
-        repeat(
-            2,
-            1fr
+    margin:0 auto 40px;
+
+    text-align:center;
+}
+
+.sectionHeader h2{
+
+    font-size:
+        clamp(
+            38px,
+            8vw,
+            70px
         );
 
-    gap:18px;
+    line-height:.95;
 
+    font-weight:1000;
+}
+
+.sectionHeader h2 span{
+
+    color:#ffb300;
+}
+
+.sectionHeader p{
+
+    color:#777;
+
+    margin-top:15px;
+
+    line-height:1.6;
 }
 
 
-.dateCard{
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
-    padding:40px 25px;
+.backButton{
 
-    text-align:center;
+    display:inline-flex;
 
-    border-radius:30px;
+    align-items:center;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.09),
-            rgba(255,255,255,.025)
-        );
+    gap:8px;
+
+    padding:11px 16px;
+
+    border-radius:14px;
 
     border:1px solid
         rgba(255,255,255,.1);
 
-    transition:.4s;
+    background:
+        rgba(255,255,255,.045);
 
+    color:#aaa;
+
+    cursor:pointer;
+
+    margin-bottom:30px;
+
+    transition:.25s;
 }
 
+.backButton:hover{
 
-.dateCard:hover{
-
-    transform:translateY(-8px);
+    color:white;
 
     border-color:#ffb300;
-
-}
-
-
-.dateIcon{
-
-    font-size:50px;
-
-    margin-bottom:20px;
-
-}
-
-
-.dateCard h3{
-
-    font-size:27px;
-
-}
-
-
-.dateCard p{
-
-    color:#888;
-
-    margin-top:10px;
-
 }
 
 
@@ -661,22 +863,17 @@ section{
 
 .countdown{
 
+    max-width:800px;
+
+    margin:45px auto;
+
     display:grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            1fr
-        );
+        repeat(4,1fr);
 
     gap:12px;
-
-    max-width:800px;
-
-    margin:35px auto 0;
-
 }
-
 
 .countBox{
 
@@ -691,11 +888,11 @@ section{
 
     border:1px solid
         rgba(255,255,255,.08);
-
 }
 
-
 .countNumber{
+
+    color:#ffb300;
 
     font-size:
         clamp(
@@ -705,132 +902,116 @@ section{
         );
 
     font-weight:1000;
-
-    color:#ffb300;
-
 }
-
 
 .countLabel{
 
-    color:#666;
+    color:#555;
 
     font-size:9px;
 
     letter-spacing:2px;
 
     margin-top:5px;
-
 }
 
 
 /* =========================================================
-   GRIGLIATA
+   DATE CARDS
 ========================================================= */
 
-.grillBox{
+.infoGrid{
 
-    padding:50px 20px;
+    max-width:850px;
 
-    border-radius:35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,70,0,.13),
-            rgba(255,170,0,.035)
-        );
-
-    border:1px solid
-        rgba(255,90,0,.18);
-
-}
-
-
-.fireEmoji{
-
-    text-align:center;
-
-    font-size:75px;
-
-    animation:
-        fireDance
-        1s
-        infinite
-        alternate;
-
-}
-
-
-@keyframes fireDance{
-
-    from{
-
-        transform:
-            scale(1)
-            rotate(-3deg);
-
-    }
-
-    to{
-
-        transform:
-            scale(1.12)
-            rotate(3deg);
-
-    }
-
-}
-
-
-.grillTitle{
-
-    text-align:center;
-
-    font-size:28px;
-
-    font-weight:900;
-
-    margin-top:15px;
-
-}
-
-
-.grillSub{
-
-    text-align:center;
-
-    color:#888;
-
-    margin-top:10px;
-
-}
-
-
-.foodShowcase{
+    margin:auto;
 
     display:grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            1fr
-        );
+        repeat(2,1fr);
 
-    gap:14px;
+    gap:16px;
+}
 
-    margin-top:40px;
+.infoCard{
 
+    padding:35px 20px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:1px solid
+        rgba(255,255,255,.08);
+}
+
+.infoIcon{
+
+    font-size:45px;
+
+    margin-bottom:16px;
+}
+
+.infoCard h3{
+
+    font-size:25px;
+}
+
+.infoCard p{
+
+    color:#777;
+
+    margin-top:8px;
 }
 
 
-.foodShow{
+/* =========================================================
+   FOOD / DRINK
+========================================================= */
+
+.categoryTitle{
+
+    max-width:850px;
+
+    margin:
+        45px
+        auto
+        18px;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    color:#ffb300;
+
+    font-weight:bold;
+}
+
+.itemGrid{
+
+    max-width:850px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:13px;
+}
+
+.itemCard{
 
     padding:28px 10px;
 
     text-align:center;
 
-    border-radius:22px;
+    border-radius:23px;
 
     background:
         rgba(255,255,255,.045);
@@ -838,91 +1019,131 @@ section{
     border:1px solid
         rgba(255,255,255,.08);
 
-    transition:.35s;
-
+    transition:.3s;
 }
 
+.itemCard:hover{
 
-.foodShow:hover{
+    transform:translateY(-6px);
 
-    transform:
-        translateY(-8px)
-        rotate(-2deg);
-
-    border-color:#ff7a30;
-
+    border-color:#ffb300;
 }
 
-
-.foodShowIcon{
+.itemEmoji{
 
     font-size:42px;
 
     margin-bottom:13px;
-
 }
 
-
-.foodShowName{
+.itemName{
 
     font-weight:bold;
 
+    font-size:14px;
 }
 
 
 /* =========================================================
-   DRINK
+   TIMELINE
 ========================================================= */
 
-.drinkGrid{
+.timeline{
 
-    display:grid;
+    max-width:700px;
 
-    grid-template-columns:
-        repeat(
-            4,
-            1fr
-        );
+    margin:50px auto;
 
-    gap:14px;
-
+    position:relative;
 }
 
+.timeline::before{
 
-.drinkCard{
+    content:"";
 
-    padding:30px 10px;
+    position:absolute;
 
-    text-align:center;
+    left:25px;
 
-    border-radius:25px;
+    top:0;
+
+    bottom:0;
+
+    width:2px;
 
     background:
-        rgba(255,255,255,.045);
+        linear-gradient(
+            #ffb300,
+            rgba(255,179,0,.05)
+        );
+}
 
-    border:1px solid
-        rgba(255,255,255,.08);
+.timelineItem{
 
-    transition:.35s;
+    position:relative;
+
+    display:flex;
+
+    gap:22px;
+
+    padding-bottom:35px;
+}
+
+.timelineDot{
+
+    flex:0 0 52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#111;
+
+    border:2px solid
+        rgba(255,179,0,.7);
+
+    z-index:2;
+
+    font-size:22px;
+}
+
+.timelineContent{
+
+    padding:3px 0;
 
 }
 
+.timelineTime{
 
-.drinkCard:hover{
+    color:#ffb300;
 
-    transform:translateY(-8px);
+    font-weight:1000;
 
-    border-color:#ffb300;
+    font-size:13px;
 
+    letter-spacing:2px;
 }
 
+.timelineContent h3{
 
-.drinkIcon{
+    margin-top:5px;
 
-    font-size:43px;
+    font-size:21px;
+}
 
-    margin-bottom:12px;
+.timelineContent p{
 
+    margin-top:6px;
+
+    color:#666;
+
+    font-size:13px;
 }
 
 
@@ -932,66 +1153,51 @@ section{
 
 .rsvpBox{
 
-    padding:40px 25px;
+    max-width:850px;
 
-    border-radius:35px;
+    margin:auto;
+
+    padding:35px 25px;
+
+    border-radius:32px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.085),
+            rgba(255,255,255,.08),
             rgba(255,255,255,.025)
         );
 
     border:1px solid
-        rgba(255,255,255,.12);
-
+        rgba(255,255,255,.1);
 }
-
-
-.rsvpIntro{
-
-    text-align:center;
-
-    color:#888;
-
-    line-height:1.7;
-
-    margin-bottom:40px;
-
-}
-
 
 .formGroup{
 
-    margin-bottom:35px;
-
+    margin-bottom:30px;
 }
-
 
 .formLabel{
 
     display:block;
 
-    margin-bottom:15px;
+    margin-bottom:13px;
 
-    font-size:17px;
+    font-size:16px;
 
     font-weight:900;
-
 }
-
 
 .textInput{
 
     width:100%;
 
-    padding:17px;
+    padding:16px;
 
-    border-radius:16px;
+    border-radius:15px;
 
     border:1px solid
-        rgba(255,255,255,.12);
+        rgba(255,255,255,.1);
 
     background:
         rgba(0,0,0,.35);
@@ -999,78 +1205,62 @@ section{
     color:white;
 
     outline:none;
-
-    font-size:16px;
-
 }
-
 
 textarea.textInput{
 
     resize:vertical;
-
 }
-
 
 .presenceGrid{
 
     display:grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
+        repeat(2,1fr);
 
     gap:12px;
-
 }
-
 
 .presenceButton input{
 
     display:none;
-
 }
-
 
 .presenceButton label{
 
     display:block;
 
-    padding:20px;
+    padding:18px;
 
     text-align:center;
 
-    border-radius:18px;
+    border-radius:17px;
 
     background:
         rgba(255,255,255,.045);
 
     border:1px solid
-        rgba(255,255,255,.1);
+        rgba(255,255,255,.09);
 
     cursor:pointer;
 
-    transition:.3s;
-
+    transition:.25s;
 }
-
 
 .presenceButton
 input:checked
 + label{
 
-    border-color:#ffb300;
-
     background:
-        rgba(255,179,0,.13);
+        rgba(255,179,0,.12);
 
+    border-color:#ffb300;
 }
 
 
 /* =========================================================
-   QUANTITA'
+   QUANTITY
 ========================================================= */
 
 .quantityList{
@@ -1079,10 +1269,8 @@ input:checked
 
     flex-direction:column;
 
-    gap:12px;
-
+    gap:10px;
 }
-
 
 .quantityRow{
 
@@ -1094,9 +1282,9 @@ input:checked
 
     gap:15px;
 
-    padding:17px;
+    padding:15px;
 
-    border-radius:18px;
+    border-radius:17px;
 
     background:
         rgba(255,255,255,.04);
@@ -1105,9 +1293,7 @@ input:checked
         rgba(255,255,255,.08);
 
     transition:.25s;
-
 }
-
 
 .quantityRow.active{
 
@@ -1115,10 +1301,8 @@ input:checked
         rgba(255,179,0,.5);
 
     background:
-        rgba(255,179,0,.07);
-
+        rgba(255,179,0,.06);
 }
-
 
 .quantityInfo{
 
@@ -1127,23 +1311,17 @@ input:checked
     align-items:center;
 
     gap:12px;
-
 }
-
 
 .quantityEmoji{
 
-    font-size:30px;
-
+    font-size:29px;
 }
-
 
 .quantityName{
 
     font-weight:bold;
-
 }
-
 
 .quantityControls{
 
@@ -1151,44 +1329,38 @@ input:checked
 
     align-items:center;
 
-    gap:10px;
-
+    gap:9px;
 }
-
 
 .qtyButton{
 
-    width:40px;
+    width:39px;
 
-    height:40px;
+    height:39px;
 
     border-radius:50%;
 
     border:1px solid
-        rgba(255,255,255,.15);
+        rgba(255,255,255,.13);
 
     background:
         rgba(255,255,255,.06);
 
     color:white;
 
-    font-size:22px;
-
     cursor:pointer;
 
+    font-size:21px;
+
     transition:.2s;
-
 }
-
 
 .qtyButton:hover{
 
     background:#ff9500;
 
     border-color:#ff9500;
-
 }
-
 
 .qtyValue{
 
@@ -1197,56 +1369,43 @@ input:checked
     text-align:center;
 
     font-weight:1000;
-
-    font-size:18px;
-
 }
 
 
 /* =========================================================
-   SEND
+   SEND BUTTON
 ========================================================= */
 
 .sendButton{
 
     width:100%;
 
-    padding:21px;
+    padding:20px;
 
     border:0;
 
-    border-radius:20px;
+    border-radius:19px;
 
     background:
         linear-gradient(
             90deg,
-            #25D366,
-            #128C7E
+            #25d366,
+            #128c7e
         );
 
     color:white;
-
-    font-size:16px;
 
     font-weight:1000;
 
     cursor:pointer;
 
-    box-shadow:
-        0 15px 40px
-        rgba(37,211,102,.12);
-
     transition:.3s;
-
 }
-
 
 .sendButton:hover{
 
     transform:translateY(-3px);
-
 }
-
 
 .sendNote{
 
@@ -1256,84 +1415,94 @@ input:checked
 
     font-size:11px;
 
-    margin-top:15px;
-
+    margin-top:13px;
 }
 
 
 /* =========================================================
-   FINALE
+   MUSIC SCREEN
 ========================================================= */
 
-.final{
+.musicHero{
+
+    max-width:700px;
+
+    margin:60px auto;
 
     text-align:center;
 
-    padding:130px 20px;
+    padding:60px 25px;
 
-}
-
-
-.finalEmoji{
-
-    font-size:50px;
-
-    margin-bottom:30px;
-
-}
-
-
-.final h2{
-
-    font-size:
-        clamp(
-            42px,
-            10vw,
-            90px
-        );
-
-    line-height:.9;
+    border-radius:35px;
 
     background:
         linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300,
-            #ff3b81
+            145deg,
+            rgba(255,179,0,.09),
+            rgba(255,255,255,.025)
         );
 
-    -webkit-background-clip:text;
+    border:1px solid
+        rgba(255,255,255,.1);
+}
 
-    background-clip:text;
+.musicBig{
 
-    color:transparent;
+    font-size:80px;
 
+    animation:
+        musicFloat
+        2s
+        ease-in-out
+        infinite;
+}
+
+.musicHero h3{
+
+    margin-top:20px;
+
+    font-size:28px;
+}
+
+.musicHero p{
+
+    margin-top:12px;
+
+    color:#777;
+
+    line-height:1.7;
+}
+
+@keyframes musicFloat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
 }
 
 
-.final p{
-
-    color:#888;
-
-    margin-top:25px;
-
-    font-size:17px;
-
-    line-height:1.8;
-
-}
-
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
 
     text-align:center;
 
-    padding:30px 20px 60px;
+    padding:
+        25px
+        20px
+        60px;
 
     color:#444;
 
-    font-size:11px;
+    font-size:10px;
 
+    letter-spacing:1px;
 }
 
 
@@ -1351,7 +1520,7 @@ footer{
 
     height:14px;
 
-    z-index:9999;
+    z-index:10000;
 
     pointer-events:none;
 
@@ -1359,9 +1528,7 @@ footer{
         confettiFall
         linear
         forwards;
-
 }
-
 
 @keyframes confettiFall{
 
@@ -1372,7 +1539,6 @@ footer{
             rotate(0);
 
         opacity:1;
-
     }
 
     to{
@@ -1382,9 +1548,7 @@ footer{
             rotate(720deg);
 
         opacity:0;
-
     }
-
 }
 
 
@@ -1394,64 +1558,63 @@ footer{
 
 @media(max-width:700px){
 
-    section{
+    .topBar{
 
-        padding:75px 17px;
+        height:65px;
 
+        padding:0 16px;
     }
 
+    .musicStatus{
 
-    .dateGrid{
+        font-size:10px;
+    }
+
+    .screen{
+
+        padding:
+            95px
+            16px
+            60px;
+    }
+
+    .homeTitle{
+
+        letter-spacing:-4px;
+    }
+
+    .menuGrid{
 
         grid-template-columns:1fr;
-
     }
-
 
     .countdown{
 
         grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
-
+            repeat(2,1fr);
     }
 
+    .infoGrid{
 
-    .foodShowcase{
+        grid-template-columns:1fr;
+    }
+
+    .itemGrid{
 
         grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
-
+            repeat(2,1fr);
     }
-
-
-    .drinkGrid{
-
-        grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
-
-    }
-
 
     .presenceGrid{
 
         grid-template-columns:1fr;
-
     }
 
+    .rsvpBox{
 
-    .hero h1{
-
-        letter-spacing:-3px;
-
+        padding:
+            28px
+            17px;
     }
 
 }
@@ -1459,7 +1622,6 @@ footer{
 </style>
 
 </head>
-
 
 <body>
 
@@ -1489,22 +1651,18 @@ footer{
         </p>
 
         <input
-            type="password"
             id="passwordInput"
+            type="password"
             placeholder="Inserisci la password"
             autocomplete="off"
         >
 
         <button onclick="checkPassword()">
-
             ENTRA NELLA FESTA →
-
         </button>
 
         <div id="passwordError">
-
             ❌ Password non corretta
-
         </div>
 
     </div>
@@ -1512,348 +1670,652 @@ footer{
 </div>
 
 
-<!-- =====================================================
-     YOUTUBE INVISIBILE
-===================================================== -->
+<!-- PLAYER YOUTUBE INVISIBILE -->
 
 <div id="youtubePlayer"></div>
 
 
 <!-- =====================================================
-     HERO
+     APP
 ===================================================== -->
 
-<header class="hero">
+<div id="app">
 
-    <div class="heroContent">
 
-        <div class="heroTop">
+    <!-- TOP BAR -->
 
-            🎂 BIRTHDAY PARTY 🎂
+    <div class="topBar">
 
+        <div class="logo">
+            MATTEO<span>'S</span> BIRTHDAY
         </div>
 
+        <div class="musicStatus">
 
-        <h1>
+            <div
+                id="musicDot"
+                class="musicDot">
+            </div>
 
-            MATTEO'S
-
-        </h1>
-
-
-        <h2>
-
-            BIRTHDAY PARTY
-
-        </h2>
-
-
-        <div class="heroLine"></div>
-
-
-        <div class="heroDate">
-
-            MERCOLEDÌ · 26 AGOSTO · 19:30
+            <span id="musicText">
+                MUSICA
+            </span>
 
         </div>
-
-
-        <p class="heroDescription">
-
-            Una serata. Una griglia. Qualche drink.
-            E soprattutto tanta voglia di festeggiare. 🔥
-
-        </p>
 
     </div>
 
 
-    <div class="scrollDown">
+    <!-- =================================================
+         HOME
+    ================================================= -->
 
-        SCORRI ↓
+    <div
+        id="homeScreen"
+        class="screen active">
 
-    </div>
+        <div class="home">
 
-</header>
+            <div class="eyebrow">
+                🎂 BIRTHDAY PARTY
+            </div>
 
+            <div class="homeTitle">
+                MATTEO'S
+            </div>
 
-<!-- =====================================================
-     DATA
-===================================================== -->
+            <div class="homeSubtitle">
+                BIRTHDAY PARTY
+            </div>
 
-<section>
+            <div class="homeDate">
+                MERCOLEDÌ · 26 AGOSTO · 19:30
+            </div>
 
-    <div class="sectionHeader">
+            <div class="homeLine"></div>
 
-        <div class="sectionEyebrow">
-
-            SAVE THE DATE
-
-        </div>
-
-
-        <h2 class="sectionTitle">
-
-            Ci vediamo il <span>26.</span>
-
-        </h2>
-
-    </div>
-
-
-    <div class="dateGrid">
+            <p class="homeDescription">
+                Una serata. Una griglia.
+                Qualche drink.
+                E soprattutto tanta voglia
+                di festeggiare. 🔥
+            </p>
 
 
-        <div class="dateCard">
+            <div class="countdown">
 
-            <div class="dateIcon">
+                <div class="countBox">
 
-                📅
+                    <div
+                        id="days"
+                        class="countNumber">
+                        0
+                    </div>
+
+                    <div class="countLabel">
+                        GIORNI
+                    </div>
+
+                </div>
+
+                <div class="countBox">
+
+                    <div
+                        id="hours"
+                        class="countNumber">
+                        0
+                    </div>
+
+                    <div class="countLabel">
+                        ORE
+                    </div>
+
+                </div>
+
+                <div class="countBox">
+
+                    <div
+                        id="minutes"
+                        class="countNumber">
+                        0
+                    </div>
+
+                    <div class="countLabel">
+                        MINUTI
+                    </div>
+
+                </div>
+
+                <div class="countBox">
+
+                    <div
+                        id="seconds"
+                        class="countNumber">
+                        0
+                    </div>
+
+                    <div class="countLabel">
+                        SECONDI
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <h3>
+            <!-- MENU -->
 
-                26 AGOSTO
+            <div class="menuGrid">
 
-            </h3>
+                <div
+                    class="menuCard"
+                    onclick="showScreen('partyScreen')">
 
+                    <div class="menuIcon">
+                        🎉
+                    </div>
+
+                    <h3>
+                        La Festa
+                    </h3>
+
+                    <p>
+                        Data, countdown e dettagli
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menuCard"
+                    onclick="showScreen('menuScreen')">
+
+                    <div class="menuIcon">
+                        🍖
+                    </div>
+
+                    <h3>
+                        Il Menu
+                    </h3>
+
+                    <p>
+                        Griglia e drink
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menuCard"
+                    onclick="showScreen('rsvpScreen')">
+
+                    <div class="menuIcon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Sondaggio
+                    </h3>
+
+                    <p>
+                        Dimmi cosa vuoi
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menuCard"
+                    onclick="showScreen('programScreen')">
+
+                    <div class="menuIcon">
+                        🕐
+                    </div>
+
+                    <h3>
+                        Programma
+                    </h3>
+
+                    <p>
+                        La serata minuto per minuto
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menuCard"
+                    onclick="showScreen('musicScreen')">
+
+                    <div class="menuIcon">
+                        🎵
+                    </div>
+
+                    <h3>
+                        Musica
+                    </h3>
+
+                    <p>
+                        La colonna sonora
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         PARTY
+    ================================================= -->
+
+    <div
+        id="partyScreen"
+        class="screen">
+
+        <div class="sectionHeader">
+
+            <button
+                class="backButton"
+                onclick="showScreen('homeScreen')">
+                ← Torna al menu
+            </button>
+
+            <div class="eyebrow">
+                SAVE THE DATE
+            </div>
+
+            <h2>
+                La <span>Festa.</span>
+            </h2>
 
             <p>
-
-                Mercoledì
-
+                Tutto quello che devi sapere
+                sulla serata.
             </p>
 
         </div>
 
 
-        <div class="dateCard">
+        <div class="infoGrid">
 
-            <div class="dateIcon">
+            <div class="infoCard">
 
-                🕢
+                <div class="infoIcon">
+                    📅
+                </div>
+
+                <h3>
+                    26 AGOSTO
+                </h3>
+
+                <p>
+                    Mercoledì
+                </p>
 
             </div>
 
 
-            <h3>
+            <div class="infoCard">
 
-                19:30
+                <div class="infoIcon">
+                    🕢
+                </div>
 
-            </h3>
+                <h3>
+                    19:30
+                </h3>
 
+                <p>
+                    Si comincia!
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         MENU
+    ================================================= -->
+
+    <div
+        id="menuScreen"
+        class="screen">
+
+        <div class="sectionHeader">
+
+            <button
+                class="backButton"
+                onclick="showScreen('homeScreen')">
+                ← Torna al menu
+            </button>
+
+            <div class="eyebrow">
+                FOOD & DRINK
+            </div>
+
+            <h2>
+                Il <span>Menu.</span>
+            </h2>
 
             <p>
-
-                Si comincia!
-
+                Quello che finirà sulla griglia
+                e quello che finirà nel bicchiere.
             </p>
 
         </div>
 
 
-    </div>
-
-
-    <div class="countdown">
-
-
-        <div class="countBox">
-
-            <div
-                id="days"
-                class="countNumber">
-
-                0
-
-            </div>
-
-            <div class="countLabel">
-
-                GIORNI
-
-            </div>
-
+        <div class="categoryTitle">
+            🔥 ALLA GRIGLIA
         </div>
 
 
-        <div class="countBox">
+        <div class="itemGrid">
 
-            <div
-                id="hours"
-                class="countNumber">
+            <div class="itemCard">
 
-                0
-
-            </div>
-
-            <div class="countLabel">
-
-                ORE
-
-            </div>
-
-        </div>
-
-
-        <div class="countBox">
-
-            <div
-                id="minutes"
-                class="countNumber">
-
-                0
-
-            </div>
-
-            <div class="countLabel">
-
-                MINUTI
-
-            </div>
-
-        </div>
-
-
-        <div class="countBox">
-
-            <div
-                id="seconds"
-                class="countNumber">
-
-                0
-
-            </div>
-
-            <div class="countLabel">
-
-                SECONDI
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     GRIGLIATA
-===================================================== -->
-
-<section>
-
-    <div class="sectionHeader">
-
-        <div class="sectionEyebrow">
-
-            FOOD MENU
-
-        </div>
-
-
-        <h2 class="sectionTitle">
-
-            🔥 La <span>grigliata.</span>
-
-        </h2>
-
-    </div>
-
-
-    <div class="grillBox">
-
-
-        <div class="fireEmoji">
-
-            🔥
-
-        </div>
-
-
-        <div class="grillTitle">
-
-            STASERA SI FA SUL SERIO
-
-        </div>
-
-
-        <div class="grillSub">
-
-            Ecco cosa finirà sulla griglia.
-
-        </div>
-
-
-        <div class="foodShowcase">
-
-
-            <div class="foodShow">
-
-                <div class="foodShowIcon">
-
+                <div class="itemEmoji">
                     🌭
-
                 </div>
 
-                <div class="foodShowName">
-
+                <div class="itemName">
                     Wurstel
-
                 </div>
 
             </div>
 
 
-            <div class="foodShow">
+            <div class="itemCard">
 
-                <div class="foodShowIcon">
-
+                <div class="itemEmoji">
                     🍢
-
                 </div>
 
-                <div class="foodShowName">
-
+                <div class="itemName">
                     Spiedini
-
                 </div>
 
             </div>
 
 
-            <div class="foodShow">
+            <div class="itemCard">
 
-                <div class="foodShowIcon">
-
+                <div class="itemEmoji">
                     🔥
-
                 </div>
 
-                <div class="foodShowName">
-
+                <div class="itemName">
                     Arrosticini
-
                 </div>
 
             </div>
 
 
-            <div class="foodShow">
+            <div class="itemCard">
 
-                <div class="foodShowIcon">
-
+                <div class="itemEmoji">
                     🥩
-
                 </div>
 
-                <div class="foodShowName">
-
+                <div class="itemName">
                     Costine
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="categoryTitle">
+            🍻 DRINK
+        </div>
+
+
+        <div class="itemGrid">
+
+            <div class="itemCard">
+
+                <div class="itemEmoji">
+                    🍺
+                </div>
+
+                <div class="itemName">
+                    Birra
+                </div>
+
+            </div>
+
+
+            <div class="itemCard">
+
+                <div class="itemEmoji">
+                    🍹
+                </div>
+
+                <div class="itemName">
+                    Aperol Spritz
+                </div>
+
+            </div>
+
+
+            <div class="itemCard">
+
+                <div class="itemEmoji">
+                    🍸
+                </div>
+
+                <div class="itemName">
+                    Verdone
+                </div>
+
+            </div>
+
+
+            <div class="itemCard">
+
+                <div class="itemEmoji">
+                    🥭
+                </div>
+
+                <div class="itemName">
+                    Passoã
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         PROGRAM
+    ================================================= -->
+
+    <div
+        id="programScreen"
+        class="screen">
+
+        <div class="sectionHeader">
+
+            <button
+                class="backButton"
+                onclick="showScreen('homeScreen')">
+                ← Torna al menu
+            </button>
+
+            <div class="eyebrow">
+                THE NIGHT
+            </div>
+
+            <h2>
+                Il <span>Programma.</span>
+            </h2>
+
+            <p>
+                Una serata organizzata.
+                Più o meno. 😂
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timelineItem">
+
+                <div class="timelineDot">
+                    🎉
+                </div>
+
+                <div class="timelineContent">
+
+                    <div class="timelineTime">
+                        19:30
+                    </div>
+
+                    <h3>
+                        Arrivo
+                    </h3>
+
+                    <p>
+                        Si comincia a radunare la squadra.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timelineItem">
+
+                <div class="timelineDot">
+                    🔥
+                </div>
+
+                <div class="timelineContent">
+
+                    <div class="timelineTime">
+                        20:00
+                    </div>
+
+                    <h3>
+                        Si accende la griglia
+                    </h3>
+
+                    <p>
+                        Il momento che stavamo aspettando.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timelineItem">
+
+                <div class="timelineDot">
+                    🍖
+                </div>
+
+                <div class="timelineContent">
+
+                    <div class="timelineTime">
+                        20:30
+                    </div>
+
+                    <h3>
+                        Si mangia
+                    </h3>
+
+                    <p>
+                        Wurstel, spiedini,
+                        arrosticini e costine.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timelineItem">
+
+                <div class="timelineDot">
+                    🍹
+                </div>
+
+                <div class="timelineContent">
+
+                    <div class="timelineTime">
+                        21:30
+                    </div>
+
+                    <h3>
+                        Drink
+                    </h3>
+
+                    <p>
+                        Si passa alla fase due.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timelineItem">
+
+                <div class="timelineDot">
+                    🎂
+                </div>
+
+                <div class="timelineContent">
+
+                    <div class="timelineTime">
+                        23:30
+                    </div>
+
+                    <h3>
+                        Torta
+                    </h3>
+
+                    <p>
+                        Momento ufficiale del compleanno.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timelineItem">
+
+                <div class="timelineDot">
+                    🎉
+                </div>
+
+                <div class="timelineContent">
+
+                    <div class="timelineTime">
+                        00:00
+                    </div>
+
+                    <h3>
+                        Festa
+                    </h3>
+
+                    <p>
+                        Da qui non garantiamo più niente.
+                    </p>
 
                 </div>
 
@@ -1864,822 +2326,570 @@ footer{
 
     </div>
 
-</section>
 
+    <!-- =================================================
+         MUSIC
+    ================================================= -->
 
-<!-- =====================================================
-     DRINK
-===================================================== -->
+    <div
+        id="musicScreen"
+        class="screen">
 
-<section>
+        <div class="sectionHeader">
 
-    <div class="sectionHeader">
+            <button
+                class="backButton"
+                onclick="showScreen('homeScreen')">
+                ← Torna al menu
+            </button>
 
-        <div class="sectionEyebrow">
+            <div class="eyebrow">
+                SOUNDTRACK
+            </div>
 
-            DRINK MENU
+            <h2>
+                La <span>Musica.</span>
+            </h2>
 
         </div>
 
 
-        <h2 class="sectionTitle">
+        <div class="musicHero">
 
-            🍻 E da <span>bere?</span>
+            <div class="musicBig">
+                🎵
+            </div>
 
-        </h2>
+            <h3>
+                LA COLONNA SONORA
+            </h3>
+
+            <p>
+                La musica viene avviata
+                direttamente quando entri nella festa.
+                <br><br>
+                Il video rimane completamente nascosto.
+            </p>
+
+        </div>
 
     </div>
 
 
-    <div class="drinkGrid">
+    <!-- =================================================
+         RSVP
+    ================================================= -->
 
+    <div
+        id="rsvpScreen"
+        class="screen">
 
-        <div class="drinkCard">
+        <div class="sectionHeader">
 
-            <div class="drinkIcon">
+            <button
+                class="backButton"
+                onclick="showScreen('homeScreen')">
+                ← Torna al menu
+            </button>
 
-                🍺
-
+            <div class="eyebrow">
+                RSVP
             </div>
 
-            <div>
+            <h2>
+                Il <span>Sondaggio.</span>
+            </h2>
 
-                Birra
-
-            </div>
+            <p>
+                Dimmi cosa vuoi mangiare e bere.
+            </p>
 
         </div>
 
 
-        <div class="drinkCard">
-
-            <div class="drinkIcon">
-
-                🍹
-
-            </div>
-
-            <div>
-
-                Aperol Spritz
-
-            </div>
-
-        </div>
+        <div class="rsvpBox">
 
 
-        <div class="drinkCard">
+            <!-- NOME -->
 
-            <div class="drinkIcon">
+            <div class="formGroup">
 
-                🍸
+                <label class="formLabel">
+                    👤 Come ti chiami?
+                </label>
+
+                <input
+                    id="nome"
+                    class="textInput"
+                    type="text"
+                    placeholder="Il tuo nome"
+                >
 
             </div>
 
-            <div>
 
-                Verdone
+            <!-- PRESENZA -->
 
-            </div>
+            <div class="formGroup">
 
-        </div>
+                <label class="formLabel">
+                    🎉 Ci sei?
+                </label>
 
 
-        <div class="drinkCard">
+                <div class="presenceGrid">
 
-            <div class="drinkIcon">
+                    <div class="presenceButton">
 
-                🥭
+                        <input
+                            type="radio"
+                            name="presenza"
+                            id="si"
+                            value="SI"
+                        >
 
-            </div>
-
-            <div>
-
-                Passoã
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     RSVP
-===================================================== -->
-
-<section id="rsvp">
-
-
-    <div class="sectionHeader">
-
-        <div class="sectionEyebrow">
-
-            RSVP
-
-        </div>
-
-
-        <h2 class="sectionTitle">
-
-            📝 Dimmi <span>cosa vuoi.</span>
-
-        </h2>
-
-    </div>
-
-
-    <div class="rsvpBox">
-
-
-        <p class="rsvpIntro">
-
-            Mi serve solo sapere chi viene e quanta roba
-            devo mettere sulla griglia. 😎
-
-            <br>
-
-            La tua risposta verrà preparata automaticamente
-            su WhatsApp.
-
-        </p>
-
-
-        <!-- NOME -->
-
-        <div class="formGroup">
-
-            <label class="formLabel">
-
-                👤 Come ti chiami?
-
-            </label>
-
-
-            <input
-                id="nome"
-                class="textInput"
-                type="text"
-                placeholder="Il tuo nome"
-            >
-
-        </div>
-
-
-        <!-- PRESENZA -->
-
-        <div class="formGroup">
-
-            <label class="formLabel">
-
-                🎉 Ci sei?
-
-            </label>
-
-
-            <div class="presenceGrid">
-
-
-                <div class="presenceButton">
-
-                    <input
-                        type="radio"
-                        name="presenza"
-                        id="si"
-                        value="SI"
-                    >
-
-
-                    <label for="si">
-
-                        ✅ Sì, ci sono!
-
-                    </label>
-
-                </div>
-
-
-                <div class="presenceButton">
-
-                    <input
-                        type="radio"
-                        name="presenza"
-                        id="no"
-                        value="NO"
-                    >
-
-
-                    <label for="no">
-
-                        ❌ Non riesco
-
-                    </label>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-        <!-- CIBO -->
-
-        <div class="formGroup">
-
-
-            <label class="formLabel">
-
-                🍖 Quanto vuoi mangiare?
-
-            </label>
-
-
-            <div class="quantityList">
-
-
-                <!-- WURSTEL -->
-
-                <div
-                    class="quantityRow"
-                    id="row-wurstel">
-
-
-                    <div class="quantityInfo">
-
-                        <div class="quantityEmoji">
-
-                            🌭
-
-                        </div>
-
-                        <div class="quantityName">
-
-                            Wurstel
-
-                        </div>
+                        <label for="si">
+                            ✅ Sì, ci sono!
+                        </label>
 
                     </div>
 
 
-                    <div class="quantityControls">
+                    <div class="presenceButton">
 
+                        <input
+                            type="radio"
+                            name="presenza"
+                            id="no"
+                            value="NO"
+                        >
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('wurstel',-1)">
-
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-wurstel"
-                            class="qtyValue">
-
-                            0
-
-                        </div>
-
-
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('wurstel',1)">
-
-                            +
-
-                        </button>
-
+                        <label for="no">
+                            ❌ Non riesco
+                        </label>
 
                     </div>
 
                 </div>
 
-
-                <!-- SPIEDINI -->
-
-                <div
-                    class="quantityRow"
-                    id="row-spiedini">
+            </div>
 
 
-                    <div class="quantityInfo">
+            <!-- CIBO -->
 
-                        <div class="quantityEmoji">
+            <div class="formGroup">
 
-                            🍢
+                <label class="formLabel">
+                    🍖 Quanto vuoi mangiare?
+                </label>
+
+
+                <div class="quantityList">
+
+
+                    <div
+                        class="quantityRow"
+                        id="row-wurstel">
+
+                        <div class="quantityInfo">
+
+                            <div class="quantityEmoji">
+                                🌭
+                            </div>
+
+                            <div class="quantityName">
+                                Wurstel
+                            </div>
 
                         </div>
 
-                        <div class="quantityName">
 
-                            Spiedini
+                        <div class="quantityControls">
+
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('wurstel',-1)">
+                                −
+                            </button>
+
+                            <div
+                                id="qty-wurstel"
+                                class="qtyValue">
+                                0
+                            </div>
+
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('wurstel',1)">
+                                +
+                            </button>
 
                         </div>
 
                     </div>
 
 
-                    <div class="quantityControls">
+                    <div
+                        class="quantityRow"
+                        id="row-spiedini">
 
+                        <div class="quantityInfo">
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('spiedini',-1)">
+                            <div class="quantityEmoji">
+                                🍢
+                            </div>
 
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-spiedini"
-                            class="qtyValue">
-
-                            0
+                            <div class="quantityName">
+                                Spiedini
+                            </div>
 
                         </div>
 
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('spiedini',1)">
+                        <div class="quantityControls">
 
-                            +
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('spiedini',-1)">
+                                −
+                            </button>
 
-                        </button>
+                            <div
+                                id="qty-spiedini"
+                                class="qtyValue">
+                                0
+                            </div>
 
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('spiedini',1)">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="quantityRow"
+                        id="row-arrosticini">
+
+                        <div class="quantityInfo">
+
+                            <div class="quantityEmoji">
+                                🔥
+                            </div>
+
+                            <div class="quantityName">
+                                Arrosticini
+                            </div>
+
+                        </div>
+
+
+                        <div class="quantityControls">
+
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('arrosticini',-1)">
+                                −
+                            </button>
+
+                            <div
+                                id="qty-arrosticini"
+                                class="qtyValue">
+                                0
+                            </div>
+
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('arrosticini',1)">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="quantityRow"
+                        id="row-costine">
+
+                        <div class="quantityInfo">
+
+                            <div class="quantityEmoji">
+                                🥩
+                            </div>
+
+                            <div class="quantityName">
+                                Costine
+                            </div>
+
+                        </div>
+
+
+                        <div class="quantityControls">
+
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('costine',-1)">
+                                −
+                            </button>
+
+                            <div
+                                id="qty-costine"
+                                class="qtyValue">
+                                0
+                            </div>
+
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('costine',1)">
+                                +
+                            </button>
+
+                        </div>
 
                     </div>
 
                 </div>
-
-
-                <!-- ARROSTICINI -->
-
-                <div
-                    class="quantityRow"
-                    id="row-arrosticini">
-
-
-                    <div class="quantityInfo">
-
-                        <div class="quantityEmoji">
-
-                            🔥
-
-                        </div>
-
-                        <div class="quantityName">
-
-                            Arrosticini
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="quantityControls">
-
-
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('arrosticini',-1)">
-
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-arrosticini"
-                            class="qtyValue">
-
-                            0
-
-                        </div>
-
-
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('arrosticini',1)">
-
-                            +
-
-                        </button>
-
-
-                    </div>
-
-                </div>
-
-
-                <!-- COSTINE -->
-
-                <div
-                    class="quantityRow"
-                    id="row-costine">
-
-
-                    <div class="quantityInfo">
-
-                        <div class="quantityEmoji">
-
-                            🥩
-
-                        </div>
-
-                        <div class="quantityName">
-
-                            Costine
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="quantityControls">
-
-
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('costine',-1)">
-
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-costine"
-                            class="qtyValue">
-
-                            0
-
-                        </div>
-
-
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('costine',1)">
-
-                            +
-
-                        </button>
-
-
-                    </div>
-
-                </div>
-
 
             </div>
 
-        </div>
+
+            <!-- BEVANDE -->
+
+            <div class="formGroup">
+
+                <label class="formLabel">
+                    🍻 Quanto vuoi bere?
+                </label>
 
 
-        <!-- BEVANDE -->
-
-        <div class="formGroup">
+                <div class="quantityList">
 
 
-            <label class="formLabel">
+                    <div
+                        class="quantityRow"
+                        id="row-birra">
 
-                🍻 Quanto vuoi bere?
+                        <div class="quantityInfo">
 
-            </label>
+                            <div class="quantityEmoji">
+                                🍺
+                            </div>
 
-
-            <div class="quantityList">
-
-
-                <!-- BIRRA -->
-
-                <div
-                    class="quantityRow"
-                    id="row-birra">
-
-
-                    <div class="quantityInfo">
-
-                        <div class="quantityEmoji">
-
-                            🍺
-
-                        </div>
-
-                        <div class="quantityName">
-
-                            Birra
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="quantityControls">
-
-
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('birra',-1)">
-
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-birra"
-                            class="qtyValue">
-
-                            0
+                            <div class="quantityName">
+                                Birra
+                            </div>
 
                         </div>
 
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('birra',1)">
+                        <div class="quantityControls">
 
-                            +
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('birra',-1)">
+                                −
+                            </button>
 
-                        </button>
+                            <div
+                                id="qty-birra"
+                                class="qtyValue">
+                                0
+                            </div>
 
-
-                    </div>
-
-                </div>
-
-
-                <!-- APEROL -->
-
-                <div
-                    class="quantityRow"
-                    id="row-aperol">
-
-
-                    <div class="quantityInfo">
-
-                        <div class="quantityEmoji">
-
-                            🍹
-
-                        </div>
-
-                        <div class="quantityName">
-
-                            Aperol Spritz
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('birra',1)">
+                                +
+                            </button>
 
                         </div>
 
                     </div>
 
 
-                    <div class="quantityControls">
+                    <div
+                        class="quantityRow"
+                        id="row-aperol">
 
+                        <div class="quantityInfo">
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('aperol',-1)">
+                            <div class="quantityEmoji">
+                                🍹
+                            </div>
 
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-aperol"
-                            class="qtyValue">
-
-                            0
+                            <div class="quantityName">
+                                Aperol Spritz
+                            </div>
 
                         </div>
 
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('aperol',1)">
+                        <div class="quantityControls">
 
-                            +
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('aperol',-1)">
+                                −
+                            </button>
 
-                        </button>
+                            <div
+                                id="qty-aperol"
+                                class="qtyValue">
+                                0
+                            </div>
 
-
-                    </div>
-
-                </div>
-
-
-                <!-- VERDONE -->
-
-                <div
-                    class="quantityRow"
-                    id="row-verdone">
-
-
-                    <div class="quantityInfo">
-
-                        <div class="quantityEmoji">
-
-                            🍸
-
-                        </div>
-
-                        <div class="quantityName">
-
-                            Verdone
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('aperol',1)">
+                                +
+                            </button>
 
                         </div>
 
                     </div>
 
 
-                    <div class="quantityControls">
+                    <div
+                        class="quantityRow"
+                        id="row-verdone">
 
+                        <div class="quantityInfo">
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('verdone',-1)">
+                            <div class="quantityEmoji">
+                                🍸
+                            </div>
 
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-verdone"
-                            class="qtyValue">
-
-                            0
+                            <div class="quantityName">
+                                Verdone
+                            </div>
 
                         </div>
 
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('verdone',1)">
+                        <div class="quantityControls">
 
-                            +
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('verdone',-1)">
+                                −
+                            </button>
 
-                        </button>
+                            <div
+                                id="qty-verdone"
+                                class="qtyValue">
+                                0
+                            </div>
 
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSOA -->
-
-                <div
-                    class="quantityRow"
-                    id="row-passoa">
-
-
-                    <div class="quantityInfo">
-
-                        <div class="quantityEmoji">
-
-                            🥭
-
-                        </div>
-
-                        <div class="quantityName">
-
-                            Passoã
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('verdone',1)">
+                                +
+                            </button>
 
                         </div>
 
                     </div>
 
 
-                    <div class="quantityControls">
+                    <div
+                        class="quantityRow"
+                        id="row-passoa">
 
+                        <div class="quantityInfo">
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('passoa',-1)">
+                            <div class="quantityEmoji">
+                                🥭
+                            </div>
 
-                            −
-
-                        </button>
-
-
-                        <div
-                            id="qty-passoa"
-                            class="qtyValue">
-
-                            0
+                            <div class="quantityName">
+                                Passoã
+                            </div>
 
                         </div>
 
 
-                        <button
-                            class="qtyButton"
-                            onclick="changeQty('passoa',1)">
+                        <div class="quantityControls">
 
-                            +
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('passoa',-1)">
+                                −
+                            </button>
 
-                        </button>
+                            <div
+                                id="qty-passoa"
+                                class="qtyValue">
+                                0
+                            </div>
 
+                            <button
+                                class="qtyButton"
+                                onclick="changeQty('passoa',1)">
+                                +
+                            </button>
+
+                        </div>
 
                     </div>
 
                 </div>
-
 
             </div>
 
-        </div>
+
+            <!-- NOTE -->
+
+            <div class="formGroup">
+
+                <label class="formLabel">
+                    💬 Qualcosa da dirmi?
+                </label>
+
+                <textarea
+                    id="note"
+                    class="textInput"
+                    rows="4"
+                    placeholder="Allergie, richieste, ecc..."
+                ></textarea>
+
+            </div>
 
 
-        <!-- NOTE -->
+            <button
+                class="sendButton"
+                onclick="sendWhatsApp()">
 
-        <div class="formGroup">
+                💚 INVIA LA MIA RISPOSTA SU WHATSAPP
 
-
-            <label class="formLabel">
-
-                💬 Qualcosa da dirmi?
-
-            </label>
+            </button>
 
 
-            <textarea
-                id="note"
-                class="textInput"
-                rows="4"
-                placeholder="Allergie, richieste, ecc..."
-            ></textarea>
+            <div class="sendNote">
 
-        </div>
+                Si aprirà WhatsApp con il messaggio
+                già compilato.
 
+            </div>
 
-        <button
-            class="sendButton"
-            onclick="sendWhatsApp()">
-
-            💚 INVIA LA MIA RISPOSTA SU WHATSAPP
-
-        </button>
-
-
-        <div class="sendNote">
-
-            Si aprirà WhatsApp con il messaggio già compilato.
 
         </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FINALE
-===================================================== -->
-
-<section class="final">
-
-
-    <div class="finalEmoji">
-
-        🎉 🔥 🍖 🍻 🎂
 
     </div>
 
 
-    <h2>
+    <footer>
 
-        CI VEDIAMO<br>
-        ALLA FESTA.
+        Matteo's Birthday Party · 2026
 
-    </h2>
+    </footer>
 
-
-    <p>
-
-        Mercoledì si mangia.<br>
-        Si beve.<br>
-        E si festeggia. 🔥
-
-    </p>
-
-
-</section>
-
-
-<footer>
-
-    Matteo's Birthday Party · 2026
-
-</footer>
+</div>
 
 
 <script>
@@ -2688,25 +2898,23 @@ footer{
    CONFIGURAZIONE
 ========================================================= */
 
-const NUMERO_WHATSAPP = "393518019649";
-
 const PASSWORD = "luna";
+
+const NUMERO_WHATSAPP = "393518019649";
 
 const YOUTUBE_VIDEO_ID = "JFOLJwOoorQ";
 
 
 /* =========================================================
-   VARIABILI YOUTUBE
+   YOUTUBE
 ========================================================= */
 
 let player = null;
 
 let youtubeReady = false;
 
+let musicStarted = false;
 
-/* =========================================================
-   CARICAMENTO API YOUTUBE
-========================================================= */
 
 function loadYouTubeAPI(){
 
@@ -2723,10 +2931,6 @@ function loadYouTubeAPI(){
 loadYouTubeAPI();
 
 
-/* =========================================================
-   YOUTUBE PRONTO
-========================================================= */
-
 function onYouTubeIframeAPIReady(){
 
     player =
@@ -2735,6 +2939,7 @@ function onYouTubeIframeAPIReady(){
             {
 
                 width:"1",
+
                 height:"1",
 
                 videoId:
@@ -2761,8 +2966,34 @@ function onYouTubeIframeAPIReady(){
                         youtubeReady=true;
 
                         console.log(
-                            "🎵 YouTube pronto"
+                            "YouTube pronto"
                         );
+
+                    },
+
+                    onStateChange:function(event){
+
+                        if(
+                            event.data ===
+                            YT.PlayerState.PLAYING
+                        ){
+
+                            musicStarted=true;
+
+                            updateMusicStatus();
+
+                        }
+
+                        if(
+                            event.data ===
+                            YT.PlayerState.PAUSED
+                        ){
+
+                            musicStarted=false;
+
+                            updateMusicStatus();
+
+                        }
 
                     }
 
@@ -2775,26 +3006,68 @@ function onYouTubeIframeAPIReady(){
 
 
 /* =========================================================
-   PASSWORD + MUSICA
+   STATO MUSICA
+========================================================= */
+
+function updateMusicStatus(){
+
+    const dot =
+        document.getElementById(
+            "musicDot"
+        );
+
+    const text =
+        document.getElementById(
+            "musicText"
+        );
+
+    if(musicStarted){
+
+        dot.classList.add(
+            "active"
+        );
+
+        text.textContent =
+            "MUSICA ON";
+
+    }else{
+
+        dot.classList.remove(
+            "active"
+        );
+
+        text.textContent =
+            "MUSICA";
+
+    }
+
+}
+
+
+/* =========================================================
+   PASSWORD
 ========================================================= */
 
 function checkPassword(){
 
-    const password =
+    const input =
         document.getElementById(
             "passwordInput"
-        ).value;
+        );
 
-
-    if(password !== PASSWORD){
-
+    const error =
         document.getElementById(
             "passwordError"
-        ).style.display="block";
+        );
 
-        document.getElementById(
-            "passwordInput"
-        ).value="";
+    if(
+        input.value !== PASSWORD
+    ){
+
+        error.style.display =
+            "block";
+
+        input.value = "";
 
         return;
 
@@ -2802,16 +3075,16 @@ function checkPassword(){
 
 
     /*
-       IMPORTANTISSIMO:
-
-       Il click sul pulsante ENTRA
-       è l'interazione dell'utente.
-
-       Tentiamo quindi immediatamente
-       di far partire YouTube.
+       Il click su ENTRA è
+       l'interazione dell'utente.
+       Tentiamo di avviare YouTube
+       direttamente qui.
     */
 
-    if(player && youtubeReady){
+    if(
+        player &&
+        youtubeReady
+    ){
 
         try{
 
@@ -2821,11 +3094,11 @@ function checkPassword(){
 
             player.playVideo();
 
-        }catch(error){
+        }catch(e){
 
             console.log(
-                "Autoplay bloccato:",
-                error
+                "Riproduzione bloccata:",
+                e
             );
 
         }
@@ -2833,46 +3106,53 @@ function checkPassword(){
     }
 
 
-    /*
-       Nasconde la password
-    */
-
-    document.getElementById(
-        "passwordScreen"
-    ).style.display="none";
-
-
-    /*
-       Coriandoli
-    */
-
-    for(
-        let i=0;
-        i<80;
-        i++
-    ){
-
-        setTimeout(
-            createConfetti,
-            i*15
+    document
+        .getElementById(
+            "passwordScreen"
+        )
+        .classList.add(
+            "hide"
         );
 
-    }
+
+    document
+        .getElementById(
+            "app"
+        )
+        .classList.add(
+            "visible"
+        );
+
+
+    createConfettiBurst();
+
+
+    /*
+       Mostra il menu
+    */
+
+    showScreen(
+        "homeScreen"
+    );
 
 }
 
 
 /* =========================================================
-   INVIO CON ENTER
+   ENTER PASSWORD CON INVIO
 ========================================================= */
 
 document
-    .getElementById("passwordInput")
+    .getElementById(
+        "passwordInput"
+    )
     .addEventListener(
         "keydown",
         function(event){
 
-            if(event.key==="Enter"){
+            if(
+                event.key === "Enter"
+            ){
 
                 checkPassword();
 
@@ -2883,10 +3163,55 @@ document
 
 
 /* =========================================================
+   CAMBIO SCHERMATA
+========================================================= */
+
+function showScreen(
+    screenId
+){
+
+    document
+        .querySelectorAll(
+            ".screen"
+        )
+        .forEach(
+            function(screen){
+
+                screen.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    const target =
+        document.getElementById(
+            screenId
+        );
+
+
+    if(target){
+
+        target.classList.add(
+            "active"
+        );
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
    QUANTITA'
 ========================================================= */
 
-const quantities={
+const quantities = {
 
     wurstel:0,
 
@@ -2916,19 +3241,19 @@ function changeQty(
 
 
     if(
-        quantities[item]<0
+        quantities[item] < 0
     ){
 
-        quantities[item]=0;
+        quantities[item] = 0;
 
     }
 
 
     if(
-        quantities[item]>99
+        quantities[item] > 99
     ){
 
-        quantities[item]=99;
+        quantities[item] = 99;
 
     }
 
@@ -2948,7 +3273,7 @@ function changeQty(
 
 
     if(
-        quantities[item]>0
+        quantities[item] > 0
     ){
 
         row.classList.add(
@@ -2983,22 +3308,25 @@ function updateCountdown(){
         new Date().getTime();
 
 
-    if(distance<=0){
+    if(
+        distance <= 0
+    ){
 
-        [
-            "days",
-            "hours",
-            "minutes",
-            "seconds"
-        ].forEach(
-            function(id){
+        document
+            .getElementById("days")
+            .textContent="🎉";
 
-                document
-                    .getElementById(id)
-                    .textContent="🎉";
+        document
+            .getElementById("hours")
+            .textContent="🎉";
 
-            }
-        );
+        document
+            .getElementById("minutes")
+            .textContent="🎉";
+
+        document
+            .getElementById("seconds")
+            .textContent="🎉";
 
         return;
 
@@ -3050,7 +3378,6 @@ function updateCountdown(){
         );
 
 }
-
 
 updateCountdown();
 
@@ -3105,7 +3432,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.wurstel>0
+        quantities.wurstel > 0
     ){
 
         cibo.push(
@@ -3116,7 +3443,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.spiedini>0
+        quantities.spiedini > 0
     ){
 
         cibo.push(
@@ -3127,7 +3454,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.arrosticini>0
+        quantities.arrosticini > 0
     ){
 
         cibo.push(
@@ -3138,7 +3465,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.costine>0
+        quantities.costine > 0
     ){
 
         cibo.push(
@@ -3152,7 +3479,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.birra>0
+        quantities.birra > 0
     ){
 
         bevande.push(
@@ -3163,7 +3490,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.aperol>0
+        quantities.aperol > 0
     ){
 
         bevande.push(
@@ -3174,7 +3501,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.verdone>0
+        quantities.verdone > 0
     ){
 
         bevande.push(
@@ -3185,7 +3512,7 @@ function sendWhatsApp(){
 
 
     if(
-        quantities.passoa>0
+        quantities.passoa > 0
     ){
 
         bevande.push(
@@ -3209,7 +3536,7 @@ function sendWhatsApp(){
 👤 *Nome:* ${nome}
 
 🎉 *Presenza:* ${
-    presenza.value==="SI"
+    presenza.value === "SI"
     ? "✅ Sì, ci sono!"
     : "❌ Non riesco"
 }
@@ -3336,9 +3663,25 @@ function createConfetti(){
 
 }
 
+
+function createConfettiBurst(){
+
+    for(
+        let i=0;
+        i<90;
+        i++
+    ){
+
+        setTimeout(
+            createConfetti,
+            i*12
+        );
+
+    }
+
+}
+
 </script>
 
-
 </body>
-
 </html>
