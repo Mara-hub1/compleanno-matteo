@@ -8,14 +8,9 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="🎂 Matteo's Birthday Party">
-<meta property="og:description" content="🔥 Grigliata • 🍻 Drink • 🎉 Mercoledì 26 agosto">
+<meta property="og:description" content="🔥 Grigliata • 🍻 Drink • 26 Agosto">
 <meta property="og:url" content="https://mara-hub1.github.io/compleanno-matteo/">
 <meta property="og:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="🎂 Matteo's Birthday Party">
-<meta name="twitter:description" content="🔥 Grigliata • 🍻 Drink • 🎉 Mercoledì 26 agosto">
-<meta name="twitter:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
 
 <title>Matteo's Birthday 🎂</title>
 
@@ -41,148 +36,150 @@ body{
 body::before{
     content:"";
     position:fixed;
-    inset:0;
-    z-index:-2;
+    inset:-30%;
+    z-index:-5;
     background:
-        radial-gradient(circle at 20% 10%,rgba(255,60,0,.20),transparent 30%),
-        radial-gradient(circle at 80% 30%,rgba(255,170,0,.15),transparent 30%),
-        radial-gradient(circle at 50% 80%,rgba(255,0,90,.14),transparent 35%);
-    animation:bgmove 12s infinite alternate ease-in-out;
+        radial-gradient(circle at 15% 20%,rgba(255,60,0,.22),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(255,180,0,.18),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(255,0,100,.16),transparent 35%);
+    animation:bgMove 15s ease-in-out infinite alternate;
 }
 
-@keyframes bgmove{
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:40px 40px;
+}
+
+@keyframes bgMove{
     from{transform:scale(1)}
-    to{transform:scale(1.15)}
+    to{transform:scale(1.18) rotate(2deg)}
 }
-
 
 /* PASSWORD */
 
-#password-screen{
+#passwordScreen{
     position:fixed;
     inset:0;
-    z-index:20000;
+    z-index:99999;
     display:flex;
     align-items:center;
     justify-content:center;
     padding:25px;
     background:
-        radial-gradient(circle at center,rgba(255,120,0,.15),transparent 60%),
+        radial-gradient(circle at center,rgba(255,100,0,.18),transparent 55%),
         #050505;
 }
 
-.password-box{
+.passwordBox{
     width:100%;
     max-width:430px;
     padding:45px 25px;
     text-align:center;
-    border-radius:30px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-    box-shadow:0 30px 80px rgba(0,0,0,.6);
-    animation:appear 1s ease;
+    background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:32px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 40px 100px rgba(0,0,0,.65);
 }
 
-.lock{
-    font-size:60px;
+.passwordIcon{
+    font-size:65px;
     margin-bottom:20px;
     animation:pulse 2s infinite;
 }
 
-.password-small{
+.passwordSmall{
     color:#ffb300;
-    letter-spacing:4px;
-    font-size:12px;
+    font-size:11px;
+    letter-spacing:5px;
     margin-bottom:15px;
 }
 
-.password-box h1{
+.passwordBox h1{
     font-size:32px;
     margin-bottom:12px;
 }
 
-.password-box p{
+.passwordBox p{
     color:#999;
-    line-height:1.5;
+    line-height:1.6;
     margin-bottom:25px;
 }
 
-.password-box input{
+.passwordBox input{
     width:100%;
     padding:17px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.13);
     background:rgba(0,0,0,.45);
     color:white;
+    outline:none;
     text-align:center;
     font-size:17px;
-    outline:none;
 }
 
-.password-box button{
+.passwordBox button{
     width:100%;
     margin-top:15px;
     padding:17px;
     border:0;
-    border-radius:15px;
-    background:linear-gradient(90deg,#ff3b30,#ffb300);
+    border-radius:16px;
+    background:linear-gradient(90deg,#ff3b30,#ff9500);
     color:white;
     font-weight:900;
     font-size:15px;
     cursor:pointer;
 }
 
-#password-error{
+#passwordError{
     display:none;
     color:#ff4b4b;
     margin-top:15px;
 }
 
-@keyframes appear{
-    from{
-        opacity:0;
-        transform:scale(.8) translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
-}
-
 @keyframes pulse{
     0%,100%{transform:scale(1)}
-    50%{transform:scale(1.12)}
+    50%{transform:scale(1.1)}
 }
-
 
 /* MUSIC */
 
-#music-button{
+.musicBox{
     position:fixed;
-    top:20px;
-    right:20px;
-    z-index:1000;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(0,0,0,.55);
+    top:18px;
+    right:18px;
+    z-index:5000;
+    padding:10px;
+    border-radius:20px;
+    background:rgba(0,0,0,.65);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+}
+
+.musicBox button{
+    border:0;
+    border-radius:14px;
+    padding:11px 15px;
+    background:linear-gradient(90deg,#ff3b30,#ff9500);
     color:white;
-    backdrop-filter:blur(10px);
-    border-radius:100px;
-    padding:12px 16px;
-    font-size:14px;
+    font-weight:bold;
     cursor:pointer;
 }
 
-#music-button.playing{
-    background:linear-gradient(90deg,rgba(255,59,48,.7),rgba(255,179,0,.7));
-    animation:musicpulse 1.5s infinite;
+#youtubePlayer{
+    width:220px;
+    height:124px;
+    margin-top:8px;
+    border-radius:12px;
+    overflow:hidden;
 }
-
-@keyframes musicpulse{
-    0%,100%{box-shadow:0 0 0 rgba(255,179,0,0)}
-    50%{box-shadow:0 0 25px rgba(255,179,0,.35)}
-}
-
 
 /* HERO */
 
@@ -192,48 +189,85 @@ body::before{
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:30px;
+    padding:30px 20px;
     position:relative;
 }
 
-.hero-content{
-    animation:heroappear 1.5s ease .5s both;
+.heroContent{
+    animation:heroAppear 1.4s ease both;
 }
 
-.hero-label{
+.heroTop{
     color:#ffb300;
-    letter-spacing:5px;
-    font-size:14px;
+    letter-spacing:6px;
+    font-size:12px;
+    font-weight:bold;
     margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:clamp(55px,15vw,140px);
+    font-size:clamp(58px,16vw,145px);
+    line-height:.78;
     font-weight:1000;
-    line-height:.8;
-    background:linear-gradient(90deg,#ff3b30,#ffb300,#ff3b81,#ff3b30);
+    letter-spacing:-5px;
+    background:linear-gradient(
+        90deg,
+        #ff3b30,
+        #ffb300,
+        #ff3b81,
+        #ff3b30
+    );
     background-size:300%;
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
-    animation:gradient 5s linear infinite;
+    animation:gradientMove 5s linear infinite;
 }
 
 .hero h2{
-    margin-top:25px;
-    font-size:clamp(24px,6vw,50px);
+    margin-top:30px;
+    font-size:clamp(22px,5vw,48px);
+    letter-spacing:2px;
 }
 
-.hero p{
+.heroDate{
     margin-top:20px;
     color:#aaa;
-    font-size:17px;
+    font-size:16px;
+    letter-spacing:2px;
 }
 
-@keyframes heroappear{
+.heroLine{
+    width:80px;
+    height:3px;
+    margin:30px auto;
+    border-radius:20px;
+    background:linear-gradient(90deg,#ff3b30,#ffb300);
+}
+
+.heroDescription{
+    color:#888;
+    font-size:15px;
+    max-width:500px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.scrollDown{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#666;
+    font-size:10px;
+    letter-spacing:4px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes heroAppear{
     from{
         opacity:0;
-        transform:translateY(40px);
+        transform:translateY(50px);
     }
     to{
         opacity:1;
@@ -241,29 +275,17 @@ body::before{
     }
 }
 
-@keyframes gradient{
+@keyframes gradientMove{
     from{background-position:0}
     to{background-position:300%}
 }
 
-.scroll{
-    position:absolute;
-    bottom:30px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#888;
-    font-size:12px;
-    letter-spacing:3px;
-    animation:scrollbounce 2s infinite;
-}
-
-@keyframes scrollbounce{
+@keyframes bounce{
     0%,100%{transform:translate(-50%,0)}
     50%{transform:translate(-50%,-10px)}
 }
 
-
-/* SEZIONI */
+/* GENERALE */
 
 section{
     max-width:1050px;
@@ -271,53 +293,64 @@ section{
     padding:100px 20px;
 }
 
-.section-title{
+.sectionHeader{
     text-align:center;
-    font-size:clamp(32px,7vw,55px);
     margin-bottom:50px;
 }
 
-.section-title span{
+.sectionEyebrow{
+    color:#ffb300;
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.sectionTitle{
+    font-size:clamp(34px,7vw,58px);
+    line-height:1;
+    font-weight:1000;
+}
+
+.sectionTitle span{
     color:#ffb300;
 }
 
-
 /* DATA */
 
-.date-box{
+.dateGrid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    gap:18px;
 }
 
-.date-card{
-    padding:40px 20px;
+.dateCard{
+    padding:40px 25px;
     text-align:center;
     border-radius:30px;
-    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
-    border:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.1);
     transition:.4s;
 }
 
-.date-card:hover{
-    transform:translateY(-10px);
+.dateCard:hover{
+    transform:translateY(-8px);
     border-color:#ffb300;
 }
 
-.date-icon{
+.dateIcon{
     font-size:50px;
     margin-bottom:20px;
 }
 
-.date-card h3{
-    font-size:28px;
+.dateCard h3{
+    font-size:27px;
 }
 
-.date-card p{
-    color:#999;
+.dateCard p{
+    color:#888;
     margin-top:10px;
 }
-
 
 /* COUNTDOWN */
 
@@ -325,254 +358,308 @@ section{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
-    max-width:750px;
-    margin:50px auto 0;
+    max-width:800px;
+    margin:35px auto 0;
 }
 
-.count{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:20px;
+.countBox{
     padding:25px 10px;
     text-align:center;
+    border-radius:22px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
 }
 
-.count-number{
+.countNumber{
     font-size:clamp(30px,7vw,55px);
-    font-weight:900;
+    font-weight:1000;
     color:#ffb300;
 }
 
-.count-label{
-    color:#777;
-    font-size:11px;
-    text-transform:uppercase;
+.countLabel{
+    color:#666;
+    font-size:9px;
     letter-spacing:2px;
+    margin-top:5px;
 }
-
 
 /* GRIGLIATA */
 
-.grill{
+.grillBox{
     padding:50px 20px;
     border-radius:35px;
-    background:linear-gradient(135deg,rgba(255,80,0,.12),rgba(255,160,0,.04));
-    border:1px solid rgba(255,100,0,.2);
+    background:linear-gradient(
+        135deg,
+        rgba(255,70,0,.13),
+        rgba(255,170,0,.035)
+    );
+    border:1px solid rgba(255,90,0,.18);
 }
 
-.fire{
+.fireEmoji{
     text-align:center;
-    font-size:80px;
-    animation:fire 1s infinite alternate;
+    font-size:75px;
+    animation:fireDance 1s infinite alternate;
 }
 
-@keyframes fire{
-    from{transform:scale(1) rotate(-2deg)}
-    to{transform:scale(1.12) rotate(2deg)}
+@keyframes fireDance{
+    from{transform:scale(1) rotate(-3deg)}
+    to{transform:scale(1.12) rotate(3deg)}
 }
 
-.grill-title{
+.grillTitle{
     text-align:center;
     font-size:28px;
+    font-weight:900;
     margin-top:15px;
 }
 
-.grill-sub{
+.grillSub{
     text-align:center;
-    color:#999;
+    color:#888;
     margin-top:10px;
 }
 
-.food-grid{
-    margin-top:40px;
+.foodShowcase{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:15px;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:40px;
 }
 
-.food{
+.foodShow{
+    padding:28px 10px;
     text-align:center;
-    padding:25px 10px;
     border-radius:22px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    transition:.4s;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.35s;
 }
 
-.food:hover{
-    transform:translateY(-10px) rotate(-2deg);
-    border-color:#ff5a30;
+.foodShow:hover{
+    transform:translateY(-8px) rotate(-2deg);
+    border-color:#ff7a30;
 }
 
-.food-icon{
+.foodShowIcon{
     font-size:42px;
-    margin-bottom:15px;
+    margin-bottom:13px;
 }
 
+.foodShowName{
+    font-weight:bold;
+}
 
 /* DRINK */
 
-.drinks{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
+.drinkGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
 }
 
-.drink{
-    padding:18px 25px;
-    border-radius:100px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.1);
-    transition:.3s;
+.drinkCard{
+    padding:30px 10px;
+    text-align:center;
+    border-radius:25px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.35s;
 }
 
-.drink:hover{
-    transform:scale(1.08);
-    background:rgba(255,179,0,.12);
+.drinkCard:hover{
+    transform:translateY(-8px);
     border-color:#ffb300;
 }
 
+.drinkIcon{
+    font-size:43px;
+    margin-bottom:12px;
+}
 
-/* FORM */
+/* RSVP */
 
-.form-container{
+.rsvpBox{
     padding:40px 25px;
     border-radius:35px;
-    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.085),
+        rgba(255,255,255,.025)
+    );
     border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 25px 70px rgba(0,0,0,.3);
 }
 
-.form-intro{
+.rsvpIntro{
     text-align:center;
-    color:#999;
+    color:#888;
+    line-height:1.7;
+    margin-bottom:40px;
+}
+
+.formGroup{
     margin-bottom:35px;
-    line-height:1.6;
 }
 
-.form-group{
-    margin-bottom:30px;
-}
-
-.form-label{
+.formLabel{
     display:block;
-    font-size:18px;
-    font-weight:bold;
     margin-bottom:15px;
+    font-size:17px;
+    font-weight:900;
 }
 
-.required{
-    color:#ffb300;
-}
-
-.text-input{
+.textInput{
     width:100%;
     padding:17px;
-    border-radius:15px;
+    border-radius:16px;
     border:1px solid rgba(255,255,255,.12);
     background:rgba(0,0,0,.35);
     color:white;
-    font-size:16px;
     outline:none;
-    font-family:inherit;
+    font-size:16px;
 }
 
-textarea{
+textarea.textInput{
     resize:vertical;
 }
 
-.text-input:focus{
-    border-color:#ffb300;
-}
-
-.options{
+.presenceGrid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:12px;
 }
 
-.option input{
-    position:absolute;
-    opacity:0;
+.presenceButton input{
+    display:none;
 }
 
-.option label{
+.presenceButton label{
     display:block;
-    padding:18px 15px;
-    border-radius:16px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.1);
-    cursor:pointer;
-    transition:.25s;
-    text-align:center;
-}
-
-.option input:checked + label{
-    background:rgba(255,179,0,.15);
-    border-color:#ffb300;
-    box-shadow:0 0 20px rgba(255,179,0,.12);
-    transform:scale(1.02);
-}
-
-.form-submit{
-    width:100%;
     padding:20px;
-    border:0;
+    text-align:center;
     border-radius:18px;
-    background:linear-gradient(90deg,#25D366,#128C7E);
-    color:white;
-    font-size:17px;
-    font-weight:900;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
     cursor:pointer;
     transition:.3s;
 }
 
-.form-submit:hover{
-    transform:scale(1.02);
+.presenceButton input:checked + label{
+    border-color:#ffb300;
+    background:rgba(255,179,0,.13);
 }
 
-.form-note{
+/* QUANTITA */
+
+.quantityList{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.quantityRow{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:17px;
+    border-radius:18px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.25s;
+}
+
+.quantityRow.active{
+    border-color:rgba(255,179,0,.5);
+    background:rgba(255,179,0,.07);
+}
+
+.quantityInfo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.quantityEmoji{
+    font-size:30px;
+}
+
+.quantityName{
+    font-weight:bold;
+}
+
+.quantityControls{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.qtyButton{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.06);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.qtyButton:hover{
+    background:#ff9500;
+    border-color:#ff9500;
+}
+
+.qtyValue{
+    min-width:25px;
     text-align:center;
-    color:#666;
-    font-size:12px;
+    font-weight:1000;
+    font-size:18px;
+}
+
+/* SEND */
+
+.sendButton{
+    width:100%;
+    padding:21px;
+    border:0;
+    border-radius:20px;
+    background:linear-gradient(90deg,#25D366,#128C7E);
+    color:white;
+    font-size:16px;
+    font-weight:1000;
+    cursor:pointer;
+    box-shadow:0 15px 40px rgba(37,211,102,.12);
+    transition:.3s;
+}
+
+.sendButton:hover{
+    transform:translateY(-3px);
+}
+
+.sendNote{
+    text-align:center;
+    color:#555;
+    font-size:11px;
     margin-top:15px;
 }
-
-
-/* TORTA */
-
-.cake-section{
-    text-align:center;
-}
-
-.cake{
-    display:inline-block;
-    margin-top:30px;
-    font-size:120px;
-    animation:cakefloat 3s infinite ease-in-out;
-}
-
-@keyframes cakefloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
-}
-
 
 /* FINALE */
 
 .final{
     text-align:center;
-    padding:120px 20px;
+    padding:130px 20px;
 }
 
-.final-emojis{
-    font-size:45px;
+.finalEmoji{
+    font-size:50px;
     margin-bottom:30px;
 }
 
 .final h2{
-    font-size:clamp(35px,8vw,70px);
+    font-size:clamp(42px,10vw,90px);
+    line-height:.9;
     background:linear-gradient(90deg,#ff3b30,#ffb300,#ff3b81);
     -webkit-background-clip:text;
     background-clip:text;
@@ -580,35 +667,34 @@ textarea{
 }
 
 .final p{
-    margin-top:20px;
-    color:#999;
-    font-size:18px;
+    color:#888;
+    margin-top:25px;
+    font-size:17px;
     line-height:1.8;
 }
 
 footer{
     text-align:center;
-    padding:40px 20px 70px;
-    color:#555;
-    font-size:12px;
+    padding:30px 20px 60px;
+    color:#444;
+    font-size:11px;
 }
-
 
 /* CONFETTI */
 
 .confetti{
     position:fixed;
-    top:-20px;
+    top:-30px;
     width:8px;
     height:14px;
+    z-index:9999;
     pointer-events:none;
-    z-index:15000;
-    animation:fall linear forwards;
+    animation:confettiFall linear forwards;
 }
 
-@keyframes fall{
+@keyframes confettiFall{
     from{
-        transform:translateY(-20px) rotate(0deg);
+        transform:translateY(-30px) rotate(0);
         opacity:1;
     }
     to{
@@ -617,16 +703,15 @@ footer{
     }
 }
 
-
 /* MOBILE */
 
 @media(max-width:700px){
 
     section{
-        padding:75px 18px;
+        padding:75px 17px;
     }
 
-    .date-box{
+    .dateGrid{
         grid-template-columns:1fr;
     }
 
@@ -634,26 +719,34 @@ footer{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .food-grid{
+    .foodShowcase{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .food:last-child{
-        grid-column:span 2;
+    .drinkGrid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .options{
+    .presenceGrid{
         grid-template-columns:1fr;
     }
 
-    .cake{
-        font-size:95px;
+    .hero h1{
+        letter-spacing:-3px;
     }
 
+    .musicBox{
+        right:10px;
+        top:10px;
+    }
+
+    #youtubePlayer{
+        width:180px;
+        height:101px;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
@@ -661,14 +754,14 @@ footer{
 
 <!-- PASSWORD -->
 
-<div id="password-screen">
+<div id="passwordScreen">
 
-    <div class="password-box">
+    <div class="passwordBox">
 
-        <div class="lock">🔒</div>
+        <div class="passwordIcon">🔐</div>
 
-        <div class="password-small">
-            ACCESSO PRIVATO
+        <div class="passwordSmall">
+            PRIVATE PARTY
         </div>
 
         <h1>
@@ -681,16 +774,16 @@ footer{
 
         <input
             type="password"
-            id="password-input"
+            id="passwordInput"
             placeholder="Inserisci la password"
             autocomplete="off"
         >
 
         <button onclick="checkPassword()">
-            ACCEDI →
+            ENTRA NELLA FESTA →
         </button>
 
-        <div id="password-error">
+        <div id="passwordError">
             ❌ Password non corretta
         </div>
 
@@ -701,23 +794,31 @@ footer{
 
 <!-- MUSICA -->
 
-<button
-    id="music-button"
-    style="display:none"
-    onclick="toggleMusic()">
+<div
+    class="musicBox"
+    id="musicBox"
+    style="display:none;">
 
-    🔇 Musica OFF
+    <button
+        id="musicButton"
+        onclick="toggleMusic()">
 
-</button>
+        🎵 AVVIA MUSICA
+
+    </button>
+
+    <div id="youtubePlayer"></div>
+
+</div>
 
 
 <!-- HERO -->
 
 <header class="hero">
 
-    <div class="hero-content">
+    <div class="heroContent">
 
-        <div class="hero-label">
+        <div class="heroTop">
             🎂 BIRTHDAY PARTY 🎂
         </div>
 
@@ -729,13 +830,20 @@ footer{
             BIRTHDAY PARTY
         </h2>
 
-        <p>
-            Una serata di griglia, drink e divertimento.
+        <div class="heroLine"></div>
+
+        <div class="heroDate">
+            MERCOLEDÌ · 26 AGOSTO · 19:30
+        </div>
+
+        <p class="heroDescription">
+            Una serata. Una griglia. Qualche drink.
+            E soprattutto tanta voglia di festeggiare. 🔥
         </p>
 
     </div>
 
-    <div class="scroll">
+    <div class="scrollDown">
         SCORRI ↓
     </div>
 
@@ -746,55 +854,70 @@ footer{
 
 <section>
 
-    <h2 class="section-title">
-        📅 <span>Segna la data</span>
-    </h2>
+    <div class="sectionHeader">
 
-    <div class="date-box">
+        <div class="sectionEyebrow">
+            SAVE THE DATE
+        </div>
 
-        <div class="date-card">
+        <h2 class="sectionTitle">
+            Ci vediamo il <span>26.</span>
+        </h2>
 
-            <div class="date-icon">📅</div>
+    </div>
 
-            <h3>26 AGOSTO</h3>
+    <div class="dateGrid">
 
-            <p>Mercoledì</p>
+        <div class="dateCard">
+
+            <div class="dateIcon">📅</div>
+
+            <h3>
+                26 AGOSTO
+            </h3>
+
+            <p>
+                Mercoledì
+            </p>
 
         </div>
 
-        <div class="date-card">
+        <div class="dateCard">
 
-            <div class="date-icon">🕢</div>
+            <div class="dateIcon">🕢</div>
 
-            <h3>19:30</h3>
+            <h3>
+                19:30
+            </h3>
 
-            <p>Si parte!</p>
+            <p>
+                Si comincia!
+            </p>
 
         </div>
 
     </div>
 
-
     <div class="countdown">
 
-        <div class="count">
-            <div id="days" class="count-number">0</div>
-            <div class="count-label">Giorni</div>
+        <div class="countBox">
+            <div id="days" class="countNumber">0</div>
+            <div class="countLabel">GIORNI</div>
         </div>
 
-        <div class="count">
-            <div id="hours" class="count-number">0</div>
-            <div class="count-label">Ore</div>
+        <div class="countBox">
+            <div id="hours" class="countNumber">0</div>
+            <div class="countLabel">ORE</div>
         </div>
 
-        <div class="count">
-            <div id="minutes" class="count-number">0</div>
-            <div class="count-label">Minuti</div>
+        <div class="countBox">
+            <div id="minutes" class="countNumber">0</div>
+            <div class="countLabel">MINUTI</div>
         </div>
 
-        <div class="count">
-            <div id="seconds" class="count-number">0</div>
-            <div class="count-label">Secondi</div>
+        <div class="countBox">
+            <div id="seconds" class="countNumber">0</div>
+            <div class="countLabel">SECONDI</div>
         </div>
 
     </div>
@@ -806,47 +929,52 @@ footer{
 
 <section>
 
-    <h2 class="section-title">
-        🔥 <span>Si accende la griglia</span>
-    </h2>
+    <div class="sectionHeader">
 
-    <div class="grill">
-
-        <div class="fire">🔥</div>
-
-        <div class="grill-title">
-            STASERA SI MANGIA SERIO
+        <div class="sectionEyebrow">
+            FOOD MENU
         </div>
 
-        <div class="grill-sub">
-            Preparatevi alla grigliata. 🍖
+        <h2 class="sectionTitle">
+            🔥 La <span>grigliata.</span>
+        </h2>
+
+    </div>
+
+    <div class="grillBox">
+
+        <div class="fireEmoji">
+            🔥
         </div>
 
-        <div class="food-grid">
+        <div class="grillTitle">
+            STASERA SI FA SUL SERIO
+        </div>
 
-            <div class="food">
-                <div class="food-icon">🌭</div>
-                <div>Wurstel</div>
+        <div class="grillSub">
+            Ecco cosa finirà sulla griglia.
+        </div>
+
+        <div class="foodShowcase">
+
+            <div class="foodShow">
+                <div class="foodShowIcon">🌭</div>
+                <div class="foodShowName">Wurstel</div>
             </div>
 
-            <div class="food">
-                <div class="food-icon">🥩</div>
-                <div>Costine</div>
+            <div class="foodShow">
+                <div class="foodShowIcon">🍢</div>
+                <div class="foodShowName">Spiedini</div>
             </div>
 
-            <div class="food">
-                <div class="food-icon">🍢</div>
-                <div>Arrosticini</div>
+            <div class="foodShow">
+                <div class="foodShowIcon">🔥</div>
+                <div class="foodShowName">Arrosticini</div>
             </div>
 
-            <div class="food">
-                <div class="food-icon">🌭</div>
-                <div>Luganeghe</div>
-            </div>
-
-            <div class="food">
-                <div class="food-icon">🍢</div>
-                <div>Spiedini</div>
+            <div class="foodShow">
+                <div class="foodShowIcon">🥩</div>
+                <div class="foodShowName">Costine</div>
             </div>
 
         </div>
@@ -860,50 +988,84 @@ footer{
 
 <section>
 
-    <h2 class="section-title">
-        🍻 <span>E da bere?</span>
-    </h2>
+    <div class="sectionHeader">
 
-    <div class="drinks">
+        <div class="sectionEyebrow">
+            DRINK MENU
+        </div>
 
-        <div class="drink">🍺 Birra</div>
-        <div class="drink">🍹 Aperol Spritz</div>
-        <div class="drink">🍸 Verdone</div>
-        <div class="drink">🥭 Passoã</div>
+        <h2 class="sectionTitle">
+            🍻 E da <span>bere?</span>
+        </h2>
+
+    </div>
+
+    <div class="drinkGrid">
+
+        <div class="drinkCard">
+            <div class="drinkIcon">🍺</div>
+            <div>Birra</div>
+        </div>
+
+        <div class="drinkCard">
+            <div class="drinkIcon">🍹</div>
+            <div>Aperol Spritz</div>
+        </div>
+
+        <div class="drinkCard">
+            <div class="drinkIcon">🍸</div>
+            <div>Verdone</div>
+        </div>
+
+        <div class="drinkCard">
+            <div class="drinkIcon">🥭</div>
+            <div>Passoã</div>
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- MODULO -->
+<!-- RSVP -->
 
-<section id="modulo">
+<section id="rsvp">
 
-    <h2 class="section-title">
-        📝 <span>Organizziamo la serata</span>
-    </h2>
+    <div class="sectionHeader">
 
-    <div class="form-container">
+        <div class="sectionEyebrow">
+            RSVP
+        </div>
 
-        <p class="form-intro">
-            Compila il modulo e inviami direttamente la tua risposta su WhatsApp. 🍖🍻
+        <h2 class="sectionTitle">
+            📝 Dimmi <span>cosa vuoi.</span>
+        </h2>
+
+    </div>
+
+    <div class="rsvpBox">
+
+        <p class="rsvpIntro">
+            Mi serve solo sapere chi viene e quanta roba
+            devo mettere sulla griglia. 😎
+            <br>
+            La tua risposta verrà preparata automaticamente su WhatsApp.
         </p>
 
 
         <!-- NOME -->
 
-        <div class="form-group">
+        <div class="formGroup">
 
-            <label class="form-label">
-                👤 Il tuo nome <span class="required">*</span>
+            <label class="formLabel">
+                👤 Come ti chiami?
             </label>
 
             <input
-                type="text"
                 id="nome"
-                class="text-input"
-                placeholder="Scrivi il tuo nome"
+                class="textInput"
+                type="text"
+                placeholder="Il tuo nome"
             >
 
         </div>
@@ -911,39 +1073,39 @@ footer{
 
         <!-- PRESENZA -->
 
-        <div class="form-group">
+        <div class="formGroup">
 
-            <label class="form-label">
-                🎉 Ci sarai? <span class="required">*</span>
+            <label class="formLabel">
+                🎉 Ci sei?
             </label>
 
-            <div class="options">
+            <div class="presenceGrid">
 
-                <div class="option">
+                <div class="presenceButton">
 
                     <input
                         type="radio"
                         name="presenza"
-                        id="presente"
+                        id="si"
                         value="SI"
                     >
 
-                    <label for="presente">
+                    <label for="si">
                         ✅ Sì, ci sono!
                     </label>
 
                 </div>
 
-                <div class="option">
+                <div class="presenceButton">
 
                     <input
                         type="radio"
                         name="presenza"
-                        id="assente"
+                        id="no"
                         value="NO"
                     >
 
-                    <label for="assente">
+                    <label for="no">
                         ❌ Non riesco
                     </label>
 
@@ -956,37 +1118,147 @@ footer{
 
         <!-- CIBO -->
 
-        <div class="form-group">
+        <div class="formGroup">
 
-            <label class="form-label">
-                🍖 Cosa vuoi mangiare?
+            <label class="formLabel">
+                🍖 Quanto vuoi mangiare?
             </label>
 
-            <div class="options">
+            <div class="quantityList">
 
-                <div class="option">
-                    <input type="checkbox" id="wurstel">
-                    <label for="wurstel">🌭 Wurstel</label>
+                <div
+                    class="quantityRow"
+                    id="row-wurstel">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🌭</div>
+                        <div class="quantityName">Wurstel</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('wurstel',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-wurstel"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('wurstel',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div class="option">
-                    <input type="checkbox" id="costine">
-                    <label for="costine">🥩 Costine</label>
+
+                <div
+                    class="quantityRow"
+                    id="row-spiedini">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🍢</div>
+                        <div class="quantityName">Spiedini</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('spiedini',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-spiedini"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('spiedini',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div class="option">
-                    <input type="checkbox" id="arrosticini">
-                    <label for="arrosticini">🍢 Arrosticini</label>
+
+                <div
+                    class="quantityRow"
+                    id="row-arrosticini">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🔥</div>
+                        <div class="quantityName">Arrosticini</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('arrosticini',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-arrosticini"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('arrosticini',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div class="option">
-                    <input type="checkbox" id="luganeghe">
-                    <label for="luganeghe">🌭 Luganeghe</label>
-                </div>
 
-                <div class="option">
-                    <input type="checkbox" id="spiedini">
-                    <label for="spiedini">🍢 Spiedini</label>
+                <div
+                    class="quantityRow"
+                    id="row-costine">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🥩</div>
+                        <div class="quantityName">Costine</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('costine',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-costine"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('costine',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -996,32 +1268,148 @@ footer{
 
         <!-- BEVANDE -->
 
-        <div class="form-group">
+        <div class="formGroup">
 
-            <label class="form-label">
-                🍻 Cosa bevi?
+            <label class="formLabel">
+                🍻 Quanto vuoi bere?
             </label>
 
-            <div class="options">
+            <div class="quantityList">
 
-                <div class="option">
-                    <input type="checkbox" id="birra">
-                    <label for="birra">🍺 Birra</label>
+
+                <div
+                    class="quantityRow"
+                    id="row-birra">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🍺</div>
+                        <div class="quantityName">Birra</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('birra',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-birra"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('birra',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div class="option">
-                    <input type="checkbox" id="aperol">
-                    <label for="aperol">🍹 Aperol Spritz</label>
+
+                <div
+                    class="quantityRow"
+                    id="row-aperol">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🍹</div>
+                        <div class="quantityName">Aperol Spritz</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('aperol',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-aperol"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('aperol',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div class="option">
-                    <input type="checkbox" id="verdone">
-                    <label for="verdone">🍸 Verdone</label>
+
+                <div
+                    class="quantityRow"
+                    id="row-verdone">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🍸</div>
+                        <div class="quantityName">Verdone</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('verdone',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-verdone"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('verdone',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div class="option">
-                    <input type="checkbox" id="passoa">
-                    <label for="passoa">🥭 Passoã</label>
+
+                <div
+                    class="quantityRow"
+                    id="row-passoa">
+
+                    <div class="quantityInfo">
+                        <div class="quantityEmoji">🥭</div>
+                        <div class="quantityName">Passoã</div>
+                    </div>
+
+                    <div class="quantityControls">
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('passoa',-1)">
+                            −
+                        </button>
+
+                        <div
+                            id="qty-passoa"
+                            class="qtyValue">
+                            0
+                        </div>
+
+                        <button
+                            class="qtyButton"
+                            onclick="changeQty('passoa',1)">
+                            +
+                        </button>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -1031,54 +1419,35 @@ footer{
 
         <!-- NOTE -->
 
-        <div class="form-group">
+        <div class="formGroup">
 
-            <label class="form-label">
-                💬 Note
+            <label class="formLabel">
+                💬 Qualcosa da dirmi?
             </label>
 
             <textarea
                 id="note"
-                class="text-input"
+                class="textInput"
                 rows="4"
-                placeholder="Qualcosa che devo sapere?"
+                placeholder="Allergie, richieste, ecc..."
             ></textarea>
 
         </div>
 
 
         <button
-            class="form-submit"
+            class="sendButton"
             onclick="sendWhatsApp()">
 
-            💚 INVIA RISPOSTA SU WHATSAPP
+            💚 INVIA LA MIA RISPOSTA SU WHATSAPP
 
         </button>
 
-        <div class="form-note">
-            Si aprirà WhatsApp con il messaggio già pronto.
+        <div class="sendNote">
+            Si aprirà WhatsApp con il messaggio già compilato.
         </div>
 
     </div>
-
-</section>
-
-
-<!-- TORTA -->
-
-<section class="cake-section">
-
-    <h2 class="section-title">
-        🎂 <span>Non poteva mancare...</span>
-    </h2>
-
-    <div class="cake">
-        🎂
-    </div>
-
-    <p style="color:#aaa;margin-top:25px;">
-        Una candela in più. Una festa in più. 🔥
-    </p>
 
 </section>
 
@@ -1087,18 +1456,19 @@ footer{
 
 <section class="final">
 
-    <div class="final-emojis">
+    <div class="finalEmoji">
         🎉 🔥 🍖 🍻 🎂
     </div>
 
     <h2>
-        PREPARATEVI.
+        CI VEDIAMO<br>
+        ALLA FESTA.
     </h2>
 
     <p>
         Mercoledì si mangia.<br>
         Si beve.<br>
-        E soprattutto si festeggia.
+        E si festeggia. 🔥
     </p>
 
 </section>
@@ -1111,87 +1481,70 @@ footer{
 
 <script>
 
-
-/* ==================================
-   NUMERO WHATSAPP
-================================== */
+/* =========================================================
+   CONFIGURAZIONE
+========================================================= */
 
 /*
-   METTI QUI IL TUO NUMERO.
+   METTI QUI IL TUO NUMERO WHATSAPP.
 
    Esempio:
-   Italia 340 1234567
-
-   diventa:
-
    393401234567
 
-   NON mettere:
-   +39
-   spazi
-   trattini
+   NON mettere +39, spazi o trattini.
 */
 
 const NUMERO_WHATSAPP = "393518019649";
 
 
-/* ==================================
+/* =========================================================
    PASSWORD
-================================== */
+========================================================= */
 
 function checkPassword(){
 
     const password =
-        document.getElementById(
-            "password-input"
-        ).value;
-
-    const error =
-        document.getElementById(
-            "password-error"
-        );
+        document.getElementById("passwordInput").value;
 
     if(password === "luna"){
 
-        document.getElementById(
-            "password-screen"
-        ).style.display = "none";
+        document.getElementById("passwordScreen").style.display="none";
 
-        document.body.style.overflow = "auto";
+        document.getElementById("musicBox").style.display="block";
 
-        document.getElementById(
-            "music-button"
-        ).style.display = "block";
+        for(let i=0;i<80;i++){
 
-        for(let i=0;i<100;i++){
-
-            setTimeout(
-                createConfetti,
-                i*20
-            );
+            setTimeout(createConfetti,i*15);
 
         }
 
+        /*
+           IMPORTANTE:
+           Il primo tocco/click successivo alla password
+           farà partire la musica.
+        */
+
+        document.addEventListener(
+            "pointerdown",
+            firstTouchMusic,
+            {once:true}
+        );
+
     }else{
 
-        error.style.display = "block";
+        document.getElementById("passwordError").style.display="block";
 
-        document.getElementById(
-            "password-input"
-        ).value = "";
+        document.getElementById("passwordInput").value="";
 
     }
 
 }
 
-
-document.getElementById(
-    "password-input"
-).addEventListener(
+document.getElementById("passwordInput").addEventListener(
     "keydown",
     function(e){
 
-        if(e.key === "Enter"){
+        if(e.key==="Enter"){
             checkPassword();
         }
 
@@ -1199,468 +1552,359 @@ document.getElementById(
 );
 
 
-/* ==================================
-   COUNTDOWN
-================================== */
+/* =========================================================
+   QUANTITA'
+========================================================= */
 
-const partyDate =
-    new Date(
-        "August 26, 2026 19:30:00"
-    ).getTime();
+const quantities={
+
+    wurstel:0,
+    spiedini:0,
+    arrosticini:0,
+    costine:0,
+
+    birra:0,
+    aperol:0,
+    verdone:0,
+    passoa:0
+
+};
 
 
-function updateCountdown(){
+function changeQty(item,amount){
 
-    const now =
-        new Date().getTime();
+    quantities[item]+=amount;
 
-    const distance =
-        partyDate - now;
-
-
-    if(distance <= 0){
-
-        document.getElementById(
-            "days"
-        ).textContent = "🎉";
-
-        document.getElementById(
-            "hours"
-        ).textContent = "🎉";
-
-        document.getElementById(
-            "minutes"
-        ).textContent = "🎉";
-
-        document.getElementById(
-            "seconds"
-        ).textContent = "🎉";
-
-        return;
-
+    if(quantities[item]<0){
+        quantities[item]=0;
     }
 
-
-    const days =
-        Math.floor(
-            distance /
-            (1000*60*60*24)
-        );
-
-
-    const hours =
-        Math.floor(
-            (
-                distance %
-                (1000*60*60*24)
-            ) /
-            (1000*60*60)
-        );
-
-
-    const minutes =
-        Math.floor(
-            (
-                distance %
-                (1000*60*60)
-            ) /
-            (1000*60)
-        );
-
-
-    const seconds =
-        Math.floor(
-            (
-                distance %
-                (1000*60)
-            ) /
-            1000
-        );
-
+    if(quantities[item]>99){
+        quantities[item]=99;
+    }
 
     document.getElementById(
-        "days"
-    ).textContent = days;
+        "qty-"+item
+    ).textContent=quantities[item];
 
-    document.getElementById(
-        "hours"
-    ).textContent = hours;
+    const row=document.getElementById(
+        "row-"+item
+    );
 
-    document.getElementById(
-        "minutes"
-    ).textContent = minutes;
-
-    document.getElementById(
-        "seconds"
-    ).textContent = seconds;
+    if(quantities[item]>0){
+        row.classList.add("active");
+    }else{
+        row.classList.remove("active");
+    }
 
 }
 
 
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+const partyDate =
+    new Date("August 26, 2026 19:30:00").getTime();
+
+
+function updateCountdown(){
+
+    const distance =
+        partyDate-new Date().getTime();
+
+    if(distance<=0){
+
+        ["days","hours","minutes","seconds"]
+        .forEach(id=>{
+            document.getElementById(id).textContent="🎉";
+        });
+
+        return;
+    }
+
+    document.getElementById("days").textContent=
+        Math.floor(
+            distance/(1000*60*60*24)
+        );
+
+    document.getElementById("hours").textContent=
+        Math.floor(
+            (distance%(1000*60*60*24))/
+            (1000*60*60)
+        );
+
+    document.getElementById("minutes").textContent=
+        Math.floor(
+            (distance%(1000*60*60))/
+            (1000*60)
+        );
+
+    document.getElementById("seconds").textContent=
+        Math.floor(
+            (distance%(1000*60))/1000
+        );
+
+}
+
 updateCountdown();
 
-setInterval(
-    updateCountdown,
-    1000
-);
+setInterval(updateCountdown,1000);
 
 
-/* ==================================
+/* =========================================================
    WHATSAPP
-================================== */
+========================================================= */
 
 function sendWhatsApp(){
 
-    const nome =
-        document.getElementById(
-            "nome"
-        ).value.trim();
+    const nome=
+        document.getElementById("nome").value.trim();
 
-
-    const presenza =
+    const presenza=
         document.querySelector(
             'input[name="presenza"]:checked'
         );
 
-
     if(!nome){
 
-        alert(
-            "Inserisci il tuo nome! 👤"
-        );
+        alert("Scrivi prima il tuo nome 👤");
 
         return;
-
     }
-
 
     if(!presenza){
 
-        alert(
-            "Seleziona se ci sarai! 🎉"
-        );
+        alert("Seleziona se ci sarai 🎉");
 
         return;
-
     }
 
 
-    const cibo = [];
+    const cibo=[];
 
-    if(
-        document.getElementById(
-            "wurstel"
-        ).checked
-    ){
-        cibo.push("Wurstel");
-    }
+    if(quantities.wurstel>0)
+        cibo.push(`🌭 Wurstel × ${quantities.wurstel}`);
 
-    if(
-        document.getElementById(
-            "costine"
-        ).checked
-    ){
-        cibo.push("Costine");
-    }
+    if(quantities.spiedini>0)
+        cibo.push(`🍢 Spiedini × ${quantities.spiedini}`);
 
-    if(
-        document.getElementById(
-            "arrosticini"
-        ).checked
-    ){
-        cibo.push("Arrosticini");
-    }
+    if(quantities.arrosticini>0)
+        cibo.push(`🔥 Arrosticini × ${quantities.arrosticini}`);
 
-    if(
-        document.getElementById(
-            "luganeghe"
-        ).checked
-    ){
-        cibo.push("Luganeghe");
-    }
-
-    if(
-        document.getElementById(
-            "spiedini"
-        ).checked
-    ){
-        cibo.push("Spiedini");
-    }
+    if(quantities.costine>0)
+        cibo.push(`🥩 Costine × ${quantities.costine}`);
 
 
-    const bevande = [];
+    const bevande=[];
 
-    if(
-        document.getElementById(
-            "birra"
-        ).checked
-    ){
-        bevande.push("Birra");
-    }
+    if(quantities.birra>0)
+        bevande.push(`🍺 Birra × ${quantities.birra}`);
 
-    if(
-        document.getElementById(
-            "aperol"
-        ).checked
-    ){
-        bevande.push("Aperol Spritz");
-    }
+    if(quantities.aperol>0)
+        bevande.push(`🍹 Aperol Spritz × ${quantities.aperol}`);
 
-    if(
-        document.getElementById(
-            "verdone"
-        ).checked
-    ){
-        bevande.push("Verdone");
-    }
+    if(quantities.verdone>0)
+        bevande.push(`🍸 Verdone × ${quantities.verdone}`);
 
-    if(
-        document.getElementById(
-            "passoa"
-        ).checked
-    ){
-        bevande.push("Passoã");
-    }
+    if(quantities.passoa>0)
+        bevande.push(`🥭 Passoã × ${quantities.passoa}`);
 
 
-    const note =
-        document.getElementById(
-            "note"
-        ).value.trim();
+    const note=
+        document.getElementById("note").value.trim();
 
 
-    let messaggio =
+    const messaggio=
+
 `🎂 *COMPLEANNO MATTEO* 🎂
 
 👤 *Nome:* ${nome}
 
 🎉 *Presenza:* ${
-    presenza.value === "SI"
-    ? "Sì, ci sono!"
-    : "No, non riesco"
+    presenza.value==="SI"
+    ? "✅ Sì, ci sono!"
+    : "❌ Non riesco"
 }
 
-🍖 *Cibo:*
+🍖 *CIBO*
 ${
     cibo.length
-    ? cibo.map(x => "• " + x).join("\n")
-    : "Niente selezionato"
+    ? cibo.join("\n")
+    : "Nessuna scelta"
 }
 
-🍻 *Bevande:*
+🍻 *BEVANDE*
 ${
     bevande.length
-    ? bevande.map(x => "• " + x).join("\n")
-    : "Niente selezionato"
+    ? bevande.join("\n")
+    : "Nessuna scelta"
 }
 
-💬 *Note:*
+💬 *NOTE*
 ${note || "Nessuna"}
 
 🔥 Ci vediamo alla festa!`;
 
 
-    const url =
-        "https://wa.me/" +
-        NUMERO_WHATSAPP +
-        "?text=" +
-        encodeURIComponent(
-            messaggio
-        );
+    const url=
+        "https://wa.me/"+
+        NUMERO_WHATSAPP+
+        "?text="+
+        encodeURIComponent(messaggio);
 
 
-    window.open(
-        url,
-        "_blank"
+    window.open(url,"_blank");
+
+}
+
+
+/* =========================================================
+   YOUTUBE
+========================================================= */
+
+let player=null;
+let musicStarted=false;
+
+
+/*
+   ID DEL VIDEO:
+
+   https://youtu.be/JFOLJwOoorQ
+
+   ↓
+
+   JFOLJwOoorQ
+*/
+
+
+const YOUTUBE_VIDEO_ID="JFOLJwOoorQ";
+
+
+function loadYouTubeAPI(){
+
+    const tag=document.createElement("script");
+
+    tag.src=
+        "https://www.youtube.com/iframe_api";
+
+    document.head.appendChild(tag);
+
+}
+
+
+function onYouTubeIframeAPIReady(){
+
+    player=new YT.Player(
+        "youtubePlayer",
+        {
+
+            height:"124",
+            width:"220",
+
+            videoId:YOUTUBE_VIDEO_ID,
+
+            playerVars:{
+
+                autoplay:0,
+                controls:1,
+                rel:0,
+                playsinline:1
+
+            },
+
+            events:{
+
+                onReady:function(){
+
+                    console.log(
+                        "YouTube pronto"
+                    );
+
+                }
+
+            }
+
+        }
     );
 
 }
 
 
-/* ==================================
-   MUSICA
-================================== */
+loadYouTubeAPI();
 
-let audioContext = null;
-let musicPlaying = false;
-let musicTimer = null;
+
+function firstTouchMusic(){
+
+    if(!musicStarted){
+
+        startMusic();
+
+    }
+
+}
 
 
 function startMusic(){
 
-    if(musicPlaying){
+    if(!player){
         return;
     }
 
+    player.playVideo();
 
-    audioContext =
-        new(
-            window.AudioContext ||
-            window.webkitAudioContext
-        )();
+    musicStarted=true;
 
-
-    const master =
-        audioContext.createGain();
-
-    master.gain.value = .06;
-
-    master.connect(
-        audioContext.destination
-    );
-
-
-    const notes = [
-        261.63,
-        329.63,
-        392,
-        523.25,
-        392,
-        329.63
-    ];
-
-
-    let index = 0;
-
-
-    function playNote(){
-
-        if(!musicPlaying){
-            return;
-        }
-
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-
-        oscillator.type = "sine";
-
-        oscillator.frequency.value =
-            notes[index];
-
-
-        gain.gain.setValueAtTime(
-            0,
-            audioContext.currentTime
-        );
-
-        gain.gain.linearRampToValueAtTime(
-            .7,
-            audioContext.currentTime+.03
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .001,
-            audioContext.currentTime+.45
-        );
-
-
-        oscillator.connect(gain);
-
-        gain.connect(master);
-
-        oscillator.start();
-
-        oscillator.stop(
-            audioContext.currentTime+.5
-        );
-
-
-        index =
-            (index+1)%notes.length;
-
-
-        musicTimer =
-            setTimeout(
-                playNote,
-                420
-            );
-
-    }
-
-
-    musicPlaying = true;
-
-    playNote();
-
-}
-
-
-function stopMusic(){
-
-    musicPlaying = false;
-
-    if(musicTimer){
-        clearTimeout(musicTimer);
-    }
-
-    if(audioContext){
-
-        audioContext.close();
-
-        audioContext = null;
-
-    }
+    document.getElementById(
+        "musicButton"
+    ).textContent="🔊 MUSICA ON";
 
 }
 
 
 function toggleMusic(){
 
-    const button =
+    if(!player){
+        return;
+    }
+
+    if(!musicStarted){
+
+        player.playVideo();
+
+        musicStarted=true;
+
         document.getElementById(
-            "music-button"
-        );
-
-
-    if(!musicPlaying){
-
-        startMusic();
-
-        button.textContent =
-            "🔊 Musica ON";
-
-        button.classList.add(
-            "playing"
-        );
+            "musicButton"
+        ).textContent="🔊 MUSICA ON";
 
     }else{
 
-        stopMusic();
+        player.pauseVideo();
 
-        button.textContent =
-            "🔇 Musica OFF";
+        musicStarted=false;
 
-        button.classList.remove(
-            "playing"
-        );
+        document.getElementById(
+            "musicButton"
+        ).textContent="🎵 AVVIA MUSICA";
 
     }
 
 }
 
 
-/* ==================================
+/* =========================================================
    CONFETTI
-================================== */
+========================================================= */
 
 function createConfetti(){
 
-    const piece =
-        document.createElement(
-            "div"
-        );
+    const piece=
+        document.createElement("div");
 
+    piece.className="confetti";
 
-    piece.className =
-        "confetti";
-
-
-    const colors = [
+    const colors=[
         "#ff3b30",
         "#ffb300",
         "#ff3b81",
@@ -1668,44 +1912,29 @@ function createConfetti(){
         "#ff6b35"
     ];
 
-
-    piece.style.background =
+    piece.style.background=
         colors[
             Math.floor(
                 Math.random()*colors.length
             )
         ];
 
-
-    piece.style.left =
+    piece.style.left=
         Math.random()*100+"vw";
 
+    piece.style.animationDuration=
+        (Math.random()*3+3)+"s";
 
-    piece.style.animationDuration =
-        (
-            Math.random()*3+3
-        )+"s";
+    piece.style.width=
+        (Math.random()*6+5)+"px";
 
+    piece.style.height=
+        (Math.random()*8+8)+"px";
 
-    piece.style.width =
-        (
-            Math.random()*6+5
-        )+"px";
-
-
-    piece.style.height =
-        (
-            Math.random()*8+8
-        )+"px";
-
-
-    document.body.appendChild(
-        piece
-    );
-
+    document.body.appendChild(piece);
 
     setTimeout(
-        () => piece.remove(),
+        ()=>piece.remove(),
         7000
     );
 
