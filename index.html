@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -13,17 +14,13 @@
 <meta property="og:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="🎂 Matteo's Birthday Party">
+<meta name="twitter:title" content="Matteo's Birthday Party">
 <meta name="twitter:description" content="🔥 Grigliata • 🍻 Drink • 26 Agosto">
 <meta name="twitter:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
 
 <title>Matteo's Birthday 🎂</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -49,281 +46,140 @@ textarea{
     font:inherit;
 }
 
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
+/* BACKGROUND */
 
 body::before{
-
     content:"";
-
     position:fixed;
-
     inset:-30%;
-
     z-index:-10;
-
     background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(255,60,0,.20),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(255,180,0,.16),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(255,0,100,.13),
-            transparent 35%
-        );
-
-    animation:
-        backgroundMove
-        15s
-        ease-in-out
-        infinite
-        alternate;
+        radial-gradient(circle at 15% 20%,rgba(255,60,0,.20),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(255,180,0,.16),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(255,0,100,.13),transparent 35%);
+    animation:backgroundMove 15s ease-in-out infinite alternate;
 }
 
 body::after{
-
     content:"";
-
     position:fixed;
-
     inset:0;
-
     z-index:-9;
-
     pointer-events:none;
-
     opacity:.45;
-
     background-image:
-        linear-gradient(
-            rgba(255,255,255,.018) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.018) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
     background-size:40px 40px;
 }
 
 @keyframes backgroundMove{
-
-    from{
-        transform:scale(1);
-    }
-
-    to{
-        transform:scale(1.18) rotate(2deg);
-    }
-
+    from{transform:scale(1);}
+    to{transform:scale(1.18) rotate(2deg);}
 }
 
-
-/* =========================================================
-   PASSWORD
-========================================================= */
+/* PASSWORD */
 
 #passwordScreen{
-
     position:fixed;
-
     inset:0;
-
     z-index:99999;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     padding:20px;
-
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255,100,0,.18),
-            transparent 55%
-        ),
+        radial-gradient(circle at center,rgba(255,100,0,.18),transparent 55%),
         #050505;
-
-    transition:
-        opacity .7s ease,
-        visibility .7s ease;
+    transition:opacity .7s ease,visibility .7s ease;
 }
 
 #passwordScreen.hide{
-
     opacity:0;
-
     visibility:hidden;
-
     pointer-events:none;
 }
 
 .passwordBox{
-
     width:100%;
-
     max-width:430px;
-
     padding:45px 25px;
-
     text-align:center;
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.09),
-            rgba(255,255,255,.025)
-        );
-
-    border:1px solid
-        rgba(255,255,255,.13);
-
+        linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.13);
     border-radius:32px;
-
     backdrop-filter:blur(20px);
-
-    box-shadow:
-        0 40px 100px
-        rgba(0,0,0,.65);
-
-    animation:
-        passwordAppear
-        1s
-        ease both;
+    box-shadow:0 40px 100px rgba(0,0,0,.65);
+    animation:passwordAppear 1s ease both;
 }
 
 .passwordIcon{
-
     font-size:65px;
-
     margin-bottom:18px;
-
-    animation:
-        lockPulse
-        2s
-        infinite;
+    animation:lockPulse 2s infinite;
 }
 
 .passwordSmall{
-
     color:#ffb300;
-
     font-size:10px;
-
     letter-spacing:5px;
-
     margin-bottom:14px;
 }
 
 .passwordBox h1{
-
     font-size:31px;
-
     margin-bottom:12px;
 }
 
 .passwordBox p{
-
     color:#888;
-
     line-height:1.6;
-
     margin-bottom:25px;
 }
 
 .passwordBox input{
-
     width:100%;
-
     padding:17px;
-
     border-radius:16px;
-
-    border:1px solid
-        rgba(255,255,255,.13);
-
-    background:
-        rgba(0,0,0,.45);
-
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(0,0,0,.45);
     color:white;
-
     outline:none;
-
     text-align:center;
-
     font-size:17px;
 }
 
 .passwordBox button{
-
     width:100%;
-
     margin-top:15px;
-
     padding:17px;
-
     border:0;
-
     border-radius:16px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ff9500
-        );
-
+    background:linear-gradient(90deg,#ff3b30,#ff9500);
     color:white;
-
     font-weight:900;
-
     cursor:pointer;
-
-    box-shadow:
-        0 12px 35px
-        rgba(255,90,0,.18);
-
+    box-shadow:0 12px 35px rgba(255,90,0,.18);
     transition:.25s;
 }
 
 .passwordBox button:hover{
-
     transform:translateY(-2px);
-
 }
 
 #passwordError{
-
     display:none;
-
     color:#ff4b4b;
-
     margin-top:15px;
-
     font-size:14px;
 }
 
 @keyframes passwordAppear{
-
     from{
         opacity:0;
         transform:translateY(40px) scale(.96);
     }
-
     to{
         opacity:1;
         transform:translateY(0) scale(1);
@@ -331,1290 +187,875 @@ body::after{
 }
 
 @keyframes lockPulse{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.08);
-    }
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
 }
 
-
-/* =========================================================
-   YOUTUBE INVISIBILE
-========================================================= */
+/* YOUTUBE INVISIBILE */
 
 #youtubePlayer{
-
     position:fixed;
-
     width:1px;
     height:1px;
-
     left:-9999px;
     top:-9999px;
-
     opacity:0;
-
     pointer-events:none;
 }
 
-
-/* =========================================================
-   APP
-========================================================= */
+/* APP */
 
 #app{
-
     opacity:0;
-
     pointer-events:none;
-
-    transition:
-        opacity .8s ease;
+    transition:opacity .8s ease;
 }
 
 #app.visible{
-
     opacity:1;
-
     pointer-events:auto;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .topBar{
-
     position:fixed;
-
     top:0;
-
     left:0;
-
     right:0;
-
     z-index:500;
-
     height:72px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     padding:0 22px;
-
-    background:
-        rgba(5,5,5,.72);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
-
+    background:rgba(5,5,5,.72);
+    border-bottom:1px solid rgba(255,255,255,.07);
     backdrop-filter:blur(20px);
 }
 
 .logo{
-
     font-weight:1000;
-
     font-size:14px;
-
     letter-spacing:1px;
 }
 
 .logo span{
-
     color:#ffb300;
 }
 
 .musicStatus{
-
     font-size:12px;
-
     color:#888;
-
     display:flex;
-
     align-items:center;
-
     gap:7px;
 }
 
 .musicDot{
-
     width:8px;
-
     height:8px;
-
     border-radius:50%;
-
     background:#555;
 }
 
 .musicDot.active{
-
     background:#25d366;
-
-    box-shadow:
-        0 0 12px
-        #25d366;
-
-    animation:
-        musicPulse
-        1.5s
-        infinite;
+    box-shadow:0 0 12px #25d366;
+    animation:musicPulse 1.5s infinite;
 }
 
 @keyframes musicPulse{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.35);
-    }
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.35);}
 }
 
-
-/* =========================================================
-   HOME
-========================================================= */
+/* SCREENS */
 
 .screen{
-
     min-height:100vh;
-
-    padding:
-        110px
-        20px
-        80px;
-
+    padding:110px 20px 80px;
     display:none;
-
-    animation:
-        screenIn
-        .5s
-        ease both;
+    animation:screenIn .5s ease both;
 }
 
 .screen.active{
-
     display:block;
 }
 
 @keyframes screenIn{
-
     from{
         opacity:0;
         transform:translateY(18px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
+/* HOME */
+
 .home{
-
     max-width:1100px;
-
     margin:auto;
-
     text-align:center;
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
-    min-height:
-        calc(100vh - 150px);
+    min-height:calc(100vh - 150px);
 }
 
 .eyebrow{
-
     color:#ffb300;
-
     font-size:10px;
-
     letter-spacing:5px;
-
     font-weight:bold;
-
     margin-bottom:18px;
 }
 
 .homeTitle{
-
-    font-size:
-        clamp(
-            52px,
-            13vw,
-            130px
-        );
-
+    font-size:clamp(52px,13vw,130px);
     line-height:.82;
-
     font-weight:1000;
-
     letter-spacing:-6px;
-
     background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300,
-            #ff3b81,
-            #ff3b30
-        );
-
+        linear-gradient(90deg,#ff3b30,#ffb300,#ff3b81,#ff3b30);
     background-size:300%;
-
     -webkit-background-clip:text;
-
     background-clip:text;
-
     color:transparent;
-
-    animation:
-        gradientMove
-        5s
-        linear
-        infinite;
+    animation:gradientMove 5s linear infinite;
 }
 
 .homeSubtitle{
-
     margin-top:28px;
-
-    font-size:
-        clamp(
-            20px,
-            5vw,
-            40px
-        );
-
+    font-size:clamp(20px,5vw,40px);
     font-weight:900;
-
     letter-spacing:2px;
 }
 
 .homeDate{
-
     margin-top:15px;
-
     color:#888;
-
     letter-spacing:3px;
-
     font-size:13px;
 }
 
 .homeLine{
-
     width:80px;
-
     height:3px;
-
     border-radius:10px;
-
     margin:28px auto;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300
-        );
+    background:linear-gradient(90deg,#ff3b30,#ffb300);
 }
 
 .homeDescription{
-
     max-width:520px;
-
     margin:auto;
-
     color:#777;
-
     line-height:1.7;
-
     font-size:15px;
 }
 
 @keyframes gradientMove{
-
-    from{
-        background-position:0;
-    }
-
-    to{
-        background-position:300%;
-    }
+    from{background-position:0;}
+    to{background-position:300%;}
 }
 
-
-/* =========================================================
-   MENU
-========================================================= */
+/* MENU */
 
 .menuGrid{
-
     max-width:850px;
-
     margin:45px auto 0;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:16px;
 }
 
 .menuCard{
-
     position:relative;
-
     overflow:hidden;
-
     padding:30px 22px;
-
     min-height:150px;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:flex-start;
-
     justify-content:flex-end;
-
     text-align:left;
-
     border-radius:28px;
-
-    border:1px solid
-        rgba(255,255,255,.09);
-
+    border:1px solid rgba(255,255,255,.09);
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.025)
-        );
-
+        linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
     cursor:pointer;
-
-    transition:
-        transform .3s,
-        border .3s;
+    transition:transform .3s,border .3s;
 }
 
 .menuCard::before{
-
     content:"";
-
     position:absolute;
-
     width:140px;
-
     height:140px;
-
     right:-40px;
-
     top:-40px;
-
     border-radius:50%;
-
-    background:
-        rgba(255,179,0,.10);
-
+    background:rgba(255,179,0,.10);
     filter:blur(10px);
 }
 
 .menuCard:hover{
-
-    transform:
-        translateY(-6px);
-
-    border-color:
-        rgba(255,179,0,.45);
+    transform:translateY(-6px);
+    border-color:rgba(255,179,0,.45);
 }
 
 .menuIcon{
-
     font-size:43px;
-
     margin-bottom:auto;
 }
 
 .menuCard h3{
-
     font-size:22px;
-
     font-weight:1000;
-
 }
 
 .menuCard p{
-
     margin-top:7px;
-
     color:#777;
-
     font-size:12px;
 }
 
-
-/* =========================================================
-   SECTION HEADER
-========================================================= */
+/* SECTION HEADER */
 
 .sectionHeader{
-
     max-width:850px;
-
     margin:0 auto 40px;
-
     text-align:center;
 }
 
 .sectionHeader h2{
-
-    font-size:
-        clamp(
-            38px,
-            8vw,
-            70px
-        );
-
+    font-size:clamp(38px,8vw,70px);
     line-height:.95;
-
     font-weight:1000;
 }
 
 .sectionHeader h2 span{
-
     color:#ffb300;
 }
 
 .sectionHeader p{
-
     color:#777;
-
     margin-top:15px;
-
     line-height:1.6;
 }
 
-
-/* =========================================================
-   BACK BUTTON
-========================================================= */
+/* BACK BUTTON */
 
 .backButton{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:8px;
-
     padding:11px 16px;
-
     border-radius:14px;
-
-    border:1px solid
-        rgba(255,255,255,.1);
-
-    background:
-        rgba(255,255,255,.045);
-
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.045);
     color:#aaa;
-
     cursor:pointer;
-
     margin-bottom:30px;
-
     transition:.25s;
 }
 
 .backButton:hover{
-
     color:white;
-
     border-color:#ffb300;
 }
 
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
+/* COUNTDOWN */
 
 .countdown{
-
     max-width:800px;
-
     margin:45px auto;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
 .countBox{
-
     padding:25px 10px;
-
     text-align:center;
-
     border-radius:22px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:1px solid
-        rgba(255,255,255,.08);
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .countNumber{
-
     color:#ffb300;
-
-    font-size:
-        clamp(
-            30px,
-            7vw,
-            55px
-        );
-
+    font-size:clamp(30px,7vw,55px);
     font-weight:1000;
 }
 
 .countLabel{
-
     color:#555;
-
     font-size:9px;
-
     letter-spacing:2px;
-
     margin-top:5px;
 }
 
-
-/* =========================================================
-   DATE CARDS
-========================================================= */
+/* INFO */
 
 .infoGrid{
-
     max-width:850px;
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:16px;
 }
 
 .infoCard{
-
     padding:35px 20px;
-
     text-align:center;
-
     border-radius:28px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:1px solid
-        rgba(255,255,255,.08);
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .infoIcon{
-
     font-size:45px;
-
     margin-bottom:16px;
 }
 
 .infoCard h3{
-
     font-size:25px;
 }
 
 .infoCard p{
-
     color:#777;
-
     margin-top:8px;
 }
 
-
-/* =========================================================
-   FOOD / DRINK
-========================================================= */
+/* FOOD */
 
 .categoryTitle{
-
     max-width:850px;
-
-    margin:
-        45px
-        auto
-        18px;
-
+    margin:45px auto 18px;
     font-size:13px;
-
     letter-spacing:3px;
-
     color:#ffb300;
-
     font-weight:bold;
 }
 
 .itemGrid{
-
     max-width:850px;
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:13px;
 }
 
 .itemCard{
-
     padding:28px 10px;
-
     text-align:center;
-
     border-radius:23px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:1px solid
-        rgba(255,255,255,.08);
-
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
     transition:.3s;
 }
 
 .itemCard:hover{
-
     transform:translateY(-6px);
-
     border-color:#ffb300;
 }
 
 .itemEmoji{
-
     font-size:42px;
-
     margin-bottom:13px;
 }
 
 .itemName{
-
     font-weight:bold;
-
     font-size:14px;
 }
 
-
-/* =========================================================
-   TIMELINE
-========================================================= */
+/* TIMELINE */
 
 .timeline{
-
     max-width:700px;
-
     margin:50px auto;
-
     position:relative;
 }
 
 .timeline::before{
-
     content:"";
-
     position:absolute;
-
     left:25px;
-
     top:0;
-
     bottom:0;
-
     width:2px;
-
-    background:
-        linear-gradient(
-            #ffb300,
-            rgba(255,179,0,.05)
-        );
+    background:linear-gradient(#ffb300,rgba(255,179,0,.05));
 }
 
 .timelineItem{
-
     position:relative;
-
     display:flex;
-
     gap:22px;
-
     padding-bottom:35px;
 }
 
 .timelineDot{
-
     flex:0 0 52px;
-
     height:52px;
-
     border-radius:50%;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     background:#111;
-
-    border:2px solid
-        rgba(255,179,0,.7);
-
+    border:2px solid rgba(255,179,0,.7);
     z-index:2;
-
     font-size:22px;
 }
 
 .timelineContent{
-
     padding:3px 0;
-
 }
 
 .timelineTime{
-
     color:#ffb300;
-
     font-weight:1000;
-
     font-size:13px;
-
     letter-spacing:2px;
 }
 
 .timelineContent h3{
-
     margin-top:5px;
-
     font-size:21px;
 }
 
 .timelineContent p{
-
     margin-top:6px;
-
     color:#666;
-
     font-size:13px;
 }
 
-
-/* =========================================================
-   RSVP
-========================================================= */
+/* RSVP */
 
 .rsvpBox{
-
     max-width:850px;
-
     margin:auto;
-
     padding:35px 25px;
-
     border-radius:32px;
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.025)
-        );
-
-    border:1px solid
-        rgba(255,255,255,.1);
+        linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.1);
 }
 
 .formGroup{
-
     margin-bottom:30px;
 }
 
 .formLabel{
-
     display:block;
-
     margin-bottom:13px;
-
     font-size:16px;
-
     font-weight:900;
 }
 
 .textInput{
-
     width:100%;
-
     padding:16px;
-
     border-radius:15px;
-
-    border:1px solid
-        rgba(255,255,255,.1);
-
-    background:
-        rgba(0,0,0,.35);
-
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(0,0,0,.35);
     color:white;
-
     outline:none;
 }
 
 textarea.textInput{
-
     resize:vertical;
 }
 
 .presenceGrid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:12px;
 }
 
 .presenceButton input{
-
     display:none;
 }
 
 .presenceButton label{
-
     display:block;
-
     padding:18px;
-
     text-align:center;
-
     border-radius:17px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:1px solid
-        rgba(255,255,255,.09);
-
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
     cursor:pointer;
-
     transition:.25s;
 }
 
-.presenceButton
-input:checked
-+ label{
-
-    background:
-        rgba(255,179,0,.12);
-
+.presenceButton input:checked + label{
+    background:rgba(255,179,0,.12);
     border-color:#ffb300;
 }
 
-
-/* =========================================================
-   QUANTITY
-========================================================= */
+/* QUANTITY */
 
 .quantityList{
-
     display:flex;
-
     flex-direction:column;
-
     gap:10px;
 }
 
 .quantityRow{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:15px;
-
     padding:15px;
-
     border-radius:17px;
-
-    background:
-        rgba(255,255,255,.04);
-
-    border:1px solid
-        rgba(255,255,255,.08);
-
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
     transition:.25s;
 }
 
 .quantityRow.active{
-
-    border-color:
-        rgba(255,179,0,.5);
-
-    background:
-        rgba(255,179,0,.06);
+    border-color:rgba(255,179,0,.5);
+    background:rgba(255,179,0,.06);
 }
 
 .quantityInfo{
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
 }
 
 .quantityEmoji{
-
     font-size:29px;
 }
 
 .quantityName{
-
     font-weight:bold;
 }
 
 .quantityControls{
-
     display:flex;
-
     align-items:center;
-
     gap:9px;
 }
 
 .qtyButton{
-
     width:39px;
-
     height:39px;
-
     border-radius:50%;
-
-    border:1px solid
-        rgba(255,255,255,.13);
-
-    background:
-        rgba(255,255,255,.06);
-
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.06);
     color:white;
-
     cursor:pointer;
-
     font-size:21px;
-
     transition:.2s;
 }
 
 .qtyButton:hover{
-
     background:#ff9500;
-
     border-color:#ff9500;
 }
 
 .qtyValue{
-
     min-width:25px;
-
     text-align:center;
-
     font-weight:1000;
 }
 
-
-/* =========================================================
-   SEND BUTTON
-========================================================= */
+/* SEND */
 
 .sendButton{
-
     width:100%;
-
     padding:20px;
-
     border:0;
-
     border-radius:19px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #25d366,
-            #128c7e
-        );
-
+    background:linear-gradient(90deg,#25d366,#128c7e);
     color:white;
-
     font-weight:1000;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
 .sendButton:hover{
-
     transform:translateY(-3px);
 }
 
 .sendNote{
-
     text-align:center;
-
     color:#555;
-
     font-size:11px;
-
     margin-top:13px;
 }
 
-
-/* =========================================================
-   MUSIC SCREEN
-========================================================= */
+/* MUSIC */
 
 .musicHero{
-
     max-width:700px;
-
     margin:60px auto;
-
     text-align:center;
-
     padding:60px 25px;
-
     border-radius:35px;
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,179,0,.09),
-            rgba(255,255,255,.025)
-        );
-
-    border:1px solid
-        rgba(255,255,255,.1);
+        linear-gradient(145deg,rgba(255,179,0,.09),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.1);
 }
 
 .musicBig{
-
     font-size:80px;
-
-    animation:
-        musicFloat
-        2s
-        ease-in-out
-        infinite;
+    animation:musicFloat 2s ease-in-out infinite;
 }
 
 .musicHero h3{
-
     margin-top:20px;
-
     font-size:28px;
 }
 
 .musicHero p{
-
     margin-top:12px;
-
     color:#777;
-
     line-height:1.7;
 }
 
 @keyframes musicFloat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.1);
-    }
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.1);}
 }
 
+/* ================================
+   GIOCO
+================================ */
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.gameBox{
+    max-width:850px;
+    margin:auto;
+}
+
+.gameProgress{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.progressBar{
+    width:100%;
+    height:7px;
+    background:rgba(255,255,255,.07);
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.progressFill{
+    height:100%;
+    width:10%;
+    background:linear-gradient(90deg,#ff3b30,#ffb300);
+    border-radius:20px;
+    transition:.4s;
+}
+
+.questionCard{
+    padding:35px 25px;
+    border-radius:30px;
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+
+.questionNumber{
+    color:#ffb300;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.questionText{
+    font-size:clamp(25px,5vw,38px);
+    line-height:1.15;
+    font-weight:1000;
+    margin-bottom:25px;
+}
+
+.answers{
+    display:grid;
+    gap:12px;
+}
+
+.answerButton{
+    width:100%;
+    padding:18px;
+    text-align:left;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.045);
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.answerButton:hover{
+    transform:translateX(5px);
+    border-color:#ffb300;
+    background:rgba(255,179,0,.08);
+}
+
+.answerButton.correct{
+    background:rgba(37,211,102,.16);
+    border-color:#25d366;
+}
+
+.answerButton.wrong{
+    background:rgba(255,59,48,.16);
+    border-color:#ff3b30;
+}
+
+.answerButton:disabled{
+    cursor:default;
+}
+
+.nextButton{
+    width:100%;
+    margin-top:20px;
+    padding:17px;
+    border:0;
+    border-radius:17px;
+    background:linear-gradient(90deg,#ff3b30,#ff9500);
+    color:white;
+    font-weight:1000;
+    cursor:pointer;
+    display:none;
+}
+
+.gameResult{
+    display:none;
+    text-align:center;
+    padding:45px 25px;
+    border-radius:30px;
+    background:
+        linear-gradient(145deg,rgba(255,179,0,.12),rgba(255,255,255,.025));
+    border:1px solid rgba(255,179,0,.25);
+}
+
+.resultEmoji{
+    font-size:75px;
+    margin-bottom:15px;
+}
+
+.resultTitle{
+    font-size:35px;
+    font-weight:1000;
+}
+
+.resultScore{
+    color:#ffb300;
+    font-size:60px;
+    font-weight:1000;
+    margin:15px 0;
+}
+
+.resultText{
+    color:#888;
+    line-height:1.6;
+}
+
+.restartGame{
+    margin-top:25px;
+    padding:16px 25px;
+    border:0;
+    border-radius:16px;
+    background:#ff9500;
+    color:white;
+    font-weight:1000;
+    cursor:pointer;
+}
+
+/* FOOTER */
 
 footer{
-
     text-align:center;
-
-    padding:
-        25px
-        20px
-        60px;
-
+    padding:25px 20px 60px;
     color:#444;
-
     font-size:10px;
-
     letter-spacing:1px;
 }
 
-
-/* =========================================================
-   CONFETTI
-========================================================= */
+/* CONFETTI */
 
 .confetti{
-
     position:fixed;
-
     top:-30px;
-
     width:8px;
-
     height:14px;
-
     z-index:10000;
-
     pointer-events:none;
-
-    animation:
-        confettiFall
-        linear
-        forwards;
+    animation:confettiFall linear forwards;
 }
 
 @keyframes confettiFall{
-
     from{
-
-        transform:
-            translateY(-30px)
-            rotate(0);
-
+        transform:translateY(-30px) rotate(0);
         opacity:1;
     }
-
     to{
-
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
+        transform:translateY(110vh) rotate(720deg);
         opacity:0;
     }
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media(max-width:700px){
 
     .topBar{
-
         height:65px;
-
         padding:0 16px;
     }
 
     .musicStatus{
-
         font-size:10px;
     }
 
     .screen{
-
-        padding:
-            95px
-            16px
-            60px;
+        padding:95px 16px 60px;
     }
 
     .homeTitle{
-
         letter-spacing:-4px;
     }
 
     .menuGrid{
-
         grid-template-columns:1fr;
     }
 
     .countdown{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .infoGrid{
-
         grid-template-columns:1fr;
     }
 
     .itemGrid{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .presenceGrid{
-
         grid-template-columns:1fr;
     }
 
     .rsvpBox{
+        padding:28px 17px;
+    }
 
-        padding:
-            28px
-            17px;
+    .questionCard{
+        padding:28px 18px;
     }
 
 }
@@ -1625,18 +1066,13 @@ footer{
 
 <body>
 
-
-<!-- =====================================================
-     PASSWORD
-===================================================== -->
+<!-- PASSWORD -->
 
 <div id="passwordScreen">
 
     <div class="passwordBox">
 
-        <div class="passwordIcon">
-            🔐
-        </div>
+        <div class="passwordIcon">🔐</div>
 
         <div class="passwordSmall">
             PRIVATE PARTY
@@ -1669,20 +1105,13 @@ footer{
 
 </div>
 
-
-<!-- PLAYER YOUTUBE INVISIBILE -->
+<!-- YOUTUBE -->
 
 <div id="youtubePlayer"></div>
 
-
-<!-- =====================================================
-     APP
-===================================================== -->
+<!-- APP -->
 
 <div id="app">
-
-
-    <!-- TOP BAR -->
 
     <div class="topBar">
 
@@ -1705,14 +1134,9 @@ footer{
 
     </div>
 
+    <!-- HOME -->
 
-    <!-- =================================================
-         HOME
-    ================================================= -->
-
-    <div
-        id="homeScreen"
-        class="screen active">
+    <div id="homeScreen" class="screen active">
 
         <div class="home">
 
@@ -1741,69 +1165,29 @@ footer{
                 di festeggiare. 🔥
             </p>
 
-
             <div class="countdown">
 
                 <div class="countBox">
-
-                    <div
-                        id="days"
-                        class="countNumber">
-                        0
-                    </div>
-
-                    <div class="countLabel">
-                        GIORNI
-                    </div>
-
+                    <div id="days" class="countNumber">0</div>
+                    <div class="countLabel">GIORNI</div>
                 </div>
 
                 <div class="countBox">
-
-                    <div
-                        id="hours"
-                        class="countNumber">
-                        0
-                    </div>
-
-                    <div class="countLabel">
-                        ORE
-                    </div>
-
+                    <div id="hours" class="countNumber">0</div>
+                    <div class="countLabel">ORE</div>
                 </div>
 
                 <div class="countBox">
-
-                    <div
-                        id="minutes"
-                        class="countNumber">
-                        0
-                    </div>
-
-                    <div class="countLabel">
-                        MINUTI
-                    </div>
-
+                    <div id="minutes" class="countNumber">0</div>
+                    <div class="countLabel">MINUTI</div>
                 </div>
 
                 <div class="countBox">
-
-                    <div
-                        id="seconds"
-                        class="countNumber">
-                        0
-                    </div>
-
-                    <div class="countLabel">
-                        SECONDI
-                    </div>
-
+                    <div id="seconds" class="countNumber">0</div>
+                    <div class="countLabel">SECONDI</div>
                 </div>
 
             </div>
-
-
-            <!-- MENU -->
 
             <div class="menuGrid">
 
@@ -1811,13 +1195,9 @@ footer{
                     class="menuCard"
                     onclick="showScreen('partyScreen')">
 
-                    <div class="menuIcon">
-                        🎉
-                    </div>
+                    <div class="menuIcon">🎉</div>
 
-                    <h3>
-                        La Festa
-                    </h3>
+                    <h3>La Festa</h3>
 
                     <p>
                         Data, countdown e dettagli
@@ -1825,18 +1205,13 @@ footer{
 
                 </div>
 
-
                 <div
                     class="menuCard"
                     onclick="showScreen('menuScreen')">
 
-                    <div class="menuIcon">
-                        🍖
-                    </div>
+                    <div class="menuIcon">🍖</div>
 
-                    <h3>
-                        Il Menu
-                    </h3>
+                    <h3>Il Menu</h3>
 
                     <p>
                         Griglia e drink
@@ -1844,18 +1219,13 @@ footer{
 
                 </div>
 
-
                 <div
                     class="menuCard"
                     onclick="showScreen('rsvpScreen')">
 
-                    <div class="menuIcon">
-                        📝
-                    </div>
+                    <div class="menuIcon">📝</div>
 
-                    <h3>
-                        Sondaggio
-                    </h3>
+                    <h3>Sondaggio</h3>
 
                     <p>
                         Dimmi cosa vuoi
@@ -1863,18 +1233,13 @@ footer{
 
                 </div>
 
-
                 <div
                     class="menuCard"
                     onclick="showScreen('programScreen')">
 
-                    <div class="menuIcon">
-                        🕐
-                    </div>
+                    <div class="menuIcon">🕐</div>
 
-                    <h3>
-                        Programma
-                    </h3>
+                    <h3>Programma</h3>
 
                     <p>
                         La serata minuto per minuto
@@ -1882,21 +1247,32 @@ footer{
 
                 </div>
 
-
                 <div
                     class="menuCard"
                     onclick="showScreen('musicScreen')">
 
-                    <div class="menuIcon">
-                        🎵
-                    </div>
+                    <div class="menuIcon">🎵</div>
 
-                    <h3>
-                        Musica
-                    </h3>
+                    <h3>Musica</h3>
 
                     <p>
                         La colonna sonora
+                    </p>
+
+                </div>
+
+                <!-- NUOVO GIOCO -->
+
+                <div
+                    class="menuCard"
+                    onclick="showScreen('gameScreen'); startGame();">
+
+                    <div class="menuIcon">🎮</div>
+
+                    <h3>Giochi</h3>
+
+                    <p>
+                        Quanto conosci Matteo?
                     </p>
 
                 </div>
@@ -1907,14 +1283,9 @@ footer{
 
     </div>
 
+    <!-- PARTY -->
 
-    <!-- =================================================
-         PARTY
-    ================================================= -->
-
-    <div
-        id="partyScreen"
-        class="screen">
+    <div id="partyScreen" class="screen">
 
         <div class="sectionHeader">
 
@@ -1939,39 +1310,25 @@ footer{
 
         </div>
 
-
         <div class="infoGrid">
 
             <div class="infoCard">
 
-                <div class="infoIcon">
-                    📅
-                </div>
+                <div class="infoIcon">📅</div>
 
-                <h3>
-                    26 AGOSTO
-                </h3>
+                <h3>26 AGOSTO</h3>
 
-                <p>
-                    Mercoledì
-                </p>
+                <p>Mercoledì</p>
 
             </div>
 
-
             <div class="infoCard">
 
-                <div class="infoIcon">
-                    🕢
-                </div>
+                <div class="infoIcon">🕢</div>
 
-                <h3>
-                    19:30
-                </h3>
+                <h3>19:30</h3>
 
-                <p>
-                    Si comincia!
-                </p>
+                <p>Si comincia!</p>
 
             </div>
 
@@ -1979,14 +1336,9 @@ footer{
 
     </div>
 
+    <!-- MENU -->
 
-    <!-- =================================================
-         MENU
-    ================================================= -->
-
-    <div
-        id="menuScreen"
-        class="screen">
+    <div id="menuScreen" class="screen">
 
         <div class="sectionHeader">
 
@@ -2011,138 +1363,67 @@ footer{
 
         </div>
 
-
         <div class="categoryTitle">
             🔥 ALLA GRIGLIA
         </div>
 
-
         <div class="itemGrid">
 
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🌭
-                </div>
-
-                <div class="itemName">
-                    Wurstel
-                </div>
-
+                <div class="itemEmoji">🌭</div>
+                <div class="itemName">Wurstel</div>
             </div>
 
-
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🍢
-                </div>
-
-                <div class="itemName">
-                    Spiedini
-                </div>
-
+                <div class="itemEmoji">🍢</div>
+                <div class="itemName">Spiedini</div>
             </div>
 
-
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🔥
-                </div>
-
-                <div class="itemName">
-                    Arrosticini
-                </div>
-
+                <div class="itemEmoji">🔥</div>
+                <div class="itemName">Arrosticini</div>
             </div>
 
-
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🥩
-                </div>
-
-                <div class="itemName">
-                    Costine
-                </div>
-
+                <div class="itemEmoji">🥩</div>
+                <div class="itemName">Costine</div>
             </div>
 
         </div>
-
 
         <div class="categoryTitle">
             🍻 DRINK
         </div>
 
-
         <div class="itemGrid">
 
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🍺
-                </div>
-
-                <div class="itemName">
-                    Birra
-                </div>
-
+                <div class="itemEmoji">🍺</div>
+                <div class="itemName">Birra</div>
             </div>
 
-
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🍹
-                </div>
-
-                <div class="itemName">
-                    Aperol Spritz
-                </div>
-
+                <div class="itemEmoji">🍹</div>
+                <div class="itemName">Aperol Spritz</div>
             </div>
 
-
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🍸
-                </div>
-
-                <div class="itemName">
-                    Verdone
-                </div>
-
+                <div class="itemEmoji">🍸</div>
+                <div class="itemName">Verdone</div>
             </div>
 
-
             <div class="itemCard">
-
-                <div class="itemEmoji">
-                    🥭
-                </div>
-
-                <div class="itemName">
-                    Passoã
-                </div>
-
+                <div class="itemEmoji">🥭</div>
+                <div class="itemName">Passoã</div>
             </div>
 
         </div>
 
     </div>
 
+    <!-- PROGRAM -->
 
-    <!-- =================================================
-         PROGRAM
-    ================================================= -->
-
-    <div
-        id="programScreen"
-        class="screen">
+    <div id="programScreen" class="screen">
 
         <div class="sectionHeader">
 
@@ -2167,25 +1448,17 @@ footer{
 
         </div>
 
-
         <div class="timeline">
-
 
             <div class="timelineItem">
 
-                <div class="timelineDot">
-                    🎉
-                </div>
+                <div class="timelineDot">🎉</div>
 
                 <div class="timelineContent">
 
-                    <div class="timelineTime">
-                        19:30
-                    </div>
+                    <div class="timelineTime">19:30</div>
 
-                    <h3>
-                        Arrivo
-                    </h3>
+                    <h3>Arrivo</h3>
 
                     <p>
                         Si comincia a radunare la squadra.
@@ -2195,22 +1468,15 @@ footer{
 
             </div>
 
-
             <div class="timelineItem">
 
-                <div class="timelineDot">
-                    🔥
-                </div>
+                <div class="timelineDot">🔥</div>
 
                 <div class="timelineContent">
 
-                    <div class="timelineTime">
-                        20:00
-                    </div>
+                    <div class="timelineTime">20:00</div>
 
-                    <h3>
-                        Si accende la griglia
-                    </h3>
+                    <h3>Si accende la griglia</h3>
 
                     <p>
                         Il momento che stavamo aspettando.
@@ -2220,22 +1486,15 @@ footer{
 
             </div>
 
-
             <div class="timelineItem">
 
-                <div class="timelineDot">
-                    🍖
-                </div>
+                <div class="timelineDot">🍖</div>
 
                 <div class="timelineContent">
 
-                    <div class="timelineTime">
-                        20:30
-                    </div>
+                    <div class="timelineTime">20:30</div>
 
-                    <h3>
-                        Si mangia
-                    </h3>
+                    <h3>Si mangia</h3>
 
                     <p>
                         Wurstel, spiedini,
@@ -2246,22 +1505,15 @@ footer{
 
             </div>
 
-
             <div class="timelineItem">
 
-                <div class="timelineDot">
-                    🍹
-                </div>
+                <div class="timelineDot">🍹</div>
 
                 <div class="timelineContent">
 
-                    <div class="timelineTime">
-                        21:30
-                    </div>
+                    <div class="timelineTime">21:30</div>
 
-                    <h3>
-                        Drink
-                    </h3>
+                    <h3>Drink</h3>
 
                     <p>
                         Si passa alla fase due.
@@ -2271,22 +1523,15 @@ footer{
 
             </div>
 
-
             <div class="timelineItem">
 
-                <div class="timelineDot">
-                    🎂
-                </div>
+                <div class="timelineDot">🎂</div>
 
                 <div class="timelineContent">
 
-                    <div class="timelineTime">
-                        23:30
-                    </div>
+                    <div class="timelineTime">23:30</div>
 
-                    <h3>
-                        Torta
-                    </h3>
+                    <h3>Torta</h3>
 
                     <p>
                         Momento ufficiale del compleanno.
@@ -2296,22 +1541,15 @@ footer{
 
             </div>
 
-
             <div class="timelineItem">
 
-                <div class="timelineDot">
-                    🎉
-                </div>
+                <div class="timelineDot">🎉</div>
 
                 <div class="timelineContent">
 
-                    <div class="timelineTime">
-                        00:00
-                    </div>
+                    <div class="timelineTime">00:00</div>
 
-                    <h3>
-                        Festa
-                    </h3>
+                    <h3>Festa</h3>
 
                     <p>
                         Da qui non garantiamo più niente.
@@ -2321,19 +1559,13 @@ footer{
 
             </div>
 
-
         </div>
 
     </div>
 
+    <!-- MUSIC -->
 
-    <!-- =================================================
-         MUSIC
-    ================================================= -->
-
-    <div
-        id="musicScreen"
-        class="screen">
+    <div id="musicScreen" class="screen">
 
         <div class="sectionHeader">
 
@@ -2352,7 +1584,6 @@ footer{
             </h2>
 
         </div>
-
 
         <div class="musicHero">
 
@@ -2375,14 +1606,123 @@ footer{
 
     </div>
 
+    <!-- GIOCO -->
 
-    <!-- =================================================
-         RSVP
-    ================================================= -->
+    <div id="gameScreen" class="screen">
 
-    <div
-        id="rsvpScreen"
-        class="screen">
+        <div class="sectionHeader">
+
+            <button
+                class="backButton"
+                onclick="showScreen('homeScreen')">
+                ← Torna al menu
+            </button>
+
+            <div class="eyebrow">
+                🎮 PARTY GAME
+            </div>
+
+            <h2>
+                Quanto conosci <span>Matteo?</span>
+            </h2>
+
+            <p>
+                10 domande. Un solo obiettivo:
+                dimostrare quanto conosci il festeggiato. 😂
+            </p>
+
+        </div>
+
+        <div class="gameBox">
+
+            <div id="gameArea">
+
+                <div
+                    id="gameProgressText"
+                    class="gameProgress">
+                    DOMANDA 1 DI 10
+                </div>
+
+                <div class="progressBar">
+
+                    <div
+                        id="progressFill"
+                        class="progressFill">
+                    </div>
+
+                </div>
+
+                <div class="questionCard">
+
+                    <div
+                        id="questionNumber"
+                        class="questionNumber">
+                        DOMANDA 1
+                    </div>
+
+                    <div
+                        id="questionText"
+                        class="questionText">
+                    </div>
+
+                    <div
+                        id="answers"
+                        class="answers">
+                    </div>
+
+                    <button
+                        id="nextButton"
+                        class="nextButton"
+                        onclick="nextQuestion()">
+                        PROSSIMA DOMANDA →
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                id="gameResult"
+                class="gameResult">
+
+                <div
+                    id="resultEmoji"
+                    class="resultEmoji">
+                    🏆
+                </div>
+
+                <div
+                    id="resultTitle"
+                    class="resultTitle">
+                    Risultato!
+                </div>
+
+                <div
+                    id="resultScore"
+                    class="resultScore">
+                    0/10
+                </div>
+
+                <div
+                    id="resultText"
+                    class="resultText">
+                </div>
+
+                <button
+                    class="restartGame"
+                    onclick="startGame()">
+                    🔄 RIGIOCA
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RSVP -->
+
+    <div id="rsvpScreen" class="screen">
 
         <div class="sectionHeader">
 
@@ -2406,11 +1746,7 @@ footer{
 
         </div>
 
-
         <div class="rsvpBox">
-
-
-            <!-- NOME -->
 
             <div class="formGroup">
 
@@ -2427,15 +1763,11 @@ footer{
 
             </div>
 
-
-            <!-- PRESENZA -->
-
             <div class="formGroup">
 
                 <label class="formLabel">
                     🎉 Ci sei?
                 </label>
-
 
                 <div class="presenceGrid">
 
@@ -2453,7 +1785,6 @@ footer{
                         </label>
 
                     </div>
-
 
                     <div class="presenceButton">
 
@@ -2474,35 +1805,20 @@ footer{
 
             </div>
 
-
-            <!-- CIBO -->
-
             <div class="formGroup">
 
                 <label class="formLabel">
                     🍖 Quanto vuoi mangiare?
                 </label>
 
-
                 <div class="quantityList">
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-wurstel">
+                    <div class="quantityRow" id="row-wurstel">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🌭
-                            </div>
-
-                            <div class="quantityName">
-                                Wurstel
-                            </div>
-
+                            <div class="quantityEmoji">🌭</div>
+                            <div class="quantityName">Wurstel</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2512,11 +1828,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-wurstel"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-wurstel" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2528,23 +1840,12 @@ footer{
 
                     </div>
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-spiedini">
+                    <div class="quantityRow" id="row-spiedini">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🍢
-                            </div>
-
-                            <div class="quantityName">
-                                Spiedini
-                            </div>
-
+                            <div class="quantityEmoji">🍢</div>
+                            <div class="quantityName">Spiedini</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2554,11 +1855,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-spiedini"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-spiedini" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2570,23 +1867,12 @@ footer{
 
                     </div>
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-arrosticini">
+                    <div class="quantityRow" id="row-arrosticini">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🔥
-                            </div>
-
-                            <div class="quantityName">
-                                Arrosticini
-                            </div>
-
+                            <div class="quantityEmoji">🔥</div>
+                            <div class="quantityName">Arrosticini</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2596,11 +1882,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-arrosticini"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-arrosticini" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2612,23 +1894,12 @@ footer{
 
                     </div>
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-costine">
+                    <div class="quantityRow" id="row-costine">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🥩
-                            </div>
-
-                            <div class="quantityName">
-                                Costine
-                            </div>
-
+                            <div class="quantityEmoji">🥩</div>
+                            <div class="quantityName">Costine</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2638,11 +1909,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-costine"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-costine" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2658,35 +1925,20 @@ footer{
 
             </div>
 
-
-            <!-- BEVANDE -->
-
             <div class="formGroup">
 
                 <label class="formLabel">
                     🍻 Quanto vuoi bere?
                 </label>
 
-
                 <div class="quantityList">
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-birra">
+                    <div class="quantityRow" id="row-birra">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🍺
-                            </div>
-
-                            <div class="quantityName">
-                                Birra
-                            </div>
-
+                            <div class="quantityEmoji">🍺</div>
+                            <div class="quantityName">Birra</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2696,11 +1948,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-birra"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-birra" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2712,23 +1960,12 @@ footer{
 
                     </div>
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-aperol">
+                    <div class="quantityRow" id="row-aperol">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🍹
-                            </div>
-
-                            <div class="quantityName">
-                                Aperol Spritz
-                            </div>
-
+                            <div class="quantityEmoji">🍹</div>
+                            <div class="quantityName">Aperol Spritz</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2738,11 +1975,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-aperol"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-aperol" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2754,23 +1987,12 @@ footer{
 
                     </div>
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-verdone">
+                    <div class="quantityRow" id="row-verdone">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🍸
-                            </div>
-
-                            <div class="quantityName">
-                                Verdone
-                            </div>
-
+                            <div class="quantityEmoji">🍸</div>
+                            <div class="quantityName">Verdone</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2780,11 +2002,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-verdone"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-verdone" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2796,23 +2014,12 @@ footer{
 
                     </div>
 
-
-                    <div
-                        class="quantityRow"
-                        id="row-passoa">
+                    <div class="quantityRow" id="row-passoa">
 
                         <div class="quantityInfo">
-
-                            <div class="quantityEmoji">
-                                🥭
-                            </div>
-
-                            <div class="quantityName">
-                                Passoã
-                            </div>
-
+                            <div class="quantityEmoji">🥭</div>
+                            <div class="quantityName">Passoã</div>
                         </div>
-
 
                         <div class="quantityControls">
 
@@ -2822,11 +2029,7 @@ footer{
                                 −
                             </button>
 
-                            <div
-                                id="qty-passoa"
-                                class="qtyValue">
-                                0
-                            </div>
+                            <div id="qty-passoa" class="qtyValue">0</div>
 
                             <button
                                 class="qtyButton"
@@ -2841,9 +2044,6 @@ footer{
                 </div>
 
             </div>
-
-
-            <!-- NOTE -->
 
             <div class="formGroup">
 
@@ -2860,7 +2060,6 @@ footer{
 
             </div>
 
-
             <button
                 class="sendButton"
                 onclick="sendWhatsApp()">
@@ -2869,34 +2068,24 @@ footer{
 
             </button>
 
-
             <div class="sendNote">
-
                 Si aprirà WhatsApp con il messaggio
                 già compilato.
-
             </div>
-
 
         </div>
 
     </div>
 
-
     <footer>
-
         Matteo's Birthday Party · 2026
-
     </footer>
 
 </div>
 
-
 <script>
 
-/* =========================================================
-   CONFIGURAZIONE
-========================================================= */
+/* CONFIGURAZIONE */
 
 const PASSWORD = "luna";
 
@@ -2904,25 +2093,17 @@ const NUMERO_WHATSAPP = "393518019649";
 
 const YOUTUBE_VIDEO_ID = "JFOLJwOoorQ";
 
-
-/* =========================================================
-   YOUTUBE
-========================================================= */
+/* YOUTUBE */
 
 let player = null;
-
 let youtubeReady = false;
-
 let musicStarted = false;
-
 
 function loadYouTubeAPI(){
 
-    const tag =
-        document.createElement("script");
+    const tag = document.createElement("script");
 
-    tag.src =
-        "https://www.youtube.com/iframe_api";
+    tag.src = "https://www.youtube.com/iframe_api";
 
     document.head.appendChild(tag);
 
@@ -2930,161 +2111,112 @@ function loadYouTubeAPI(){
 
 loadYouTubeAPI();
 
-
 function onYouTubeIframeAPIReady(){
 
-    player =
-        new YT.Player(
-            "youtubePlayer",
-            {
+    player = new YT.Player(
+        "youtubePlayer",
+        {
 
-                width:"1",
+            width:"1",
+            height:"1",
+            videoId:YOUTUBE_VIDEO_ID,
 
-                height:"1",
+            playerVars:{
+                autoplay:0,
+                controls:0,
+                rel:0,
+                playsinline:1,
+                modestbranding:1
+            },
 
-                videoId:
-                    YOUTUBE_VIDEO_ID,
+            events:{
 
-                playerVars:{
+                onReady:function(){
 
-                    autoplay:0,
+                    youtubeReady=true;
 
-                    controls:0,
-
-                    rel:0,
-
-                    playsinline:1,
-
-                    modestbranding:1
+                    console.log("YouTube pronto");
 
                 },
 
-                events:{
+                onStateChange:function(event){
 
-                    onReady:function(){
+                    if(
+                        event.data ===
+                        YT.PlayerState.PLAYING
+                    ){
 
-                        youtubeReady=true;
+                        musicStarted=true;
 
-                        console.log(
-                            "YouTube pronto"
-                        );
+                        updateMusicStatus();
 
-                    },
+                    }
 
-                    onStateChange:function(event){
+                    if(
+                        event.data ===
+                        YT.PlayerState.PAUSED
+                    ){
 
-                        if(
-                            event.data ===
-                            YT.PlayerState.PLAYING
-                        ){
+                        musicStarted=false;
 
-                            musicStarted=true;
-
-                            updateMusicStatus();
-
-                        }
-
-                        if(
-                            event.data ===
-                            YT.PlayerState.PAUSED
-                        ){
-
-                            musicStarted=false;
-
-                            updateMusicStatus();
-
-                        }
+                        updateMusicStatus();
 
                     }
 
                 }
 
             }
-        );
+
+        }
+    );
 
 }
-
-
-/* =========================================================
-   STATO MUSICA
-========================================================= */
 
 function updateMusicStatus(){
 
     const dot =
-        document.getElementById(
-            "musicDot"
-        );
+        document.getElementById("musicDot");
 
     const text =
-        document.getElementById(
-            "musicText"
-        );
+        document.getElementById("musicText");
 
     if(musicStarted){
 
-        dot.classList.add(
-            "active"
-        );
+        dot.classList.add("active");
 
-        text.textContent =
-            "MUSICA ON";
+        text.textContent="MUSICA ON";
 
     }else{
 
-        dot.classList.remove(
-            "active"
-        );
+        dot.classList.remove("active");
 
-        text.textContent =
-            "MUSICA";
+        text.textContent="MUSICA";
 
     }
 
 }
 
-
-/* =========================================================
-   PASSWORD
-========================================================= */
+/* PASSWORD */
 
 function checkPassword(){
 
     const input =
-        document.getElementById(
-            "passwordInput"
-        );
+        document.getElementById("passwordInput");
 
     const error =
-        document.getElementById(
-            "passwordError"
-        );
+        document.getElementById("passwordError");
 
-    if(
-        input.value !== PASSWORD
-    ){
+    if(input.value !== PASSWORD){
 
-        error.style.display =
-            "block";
+        error.style.display="block";
 
-        input.value = "";
+        input.value="";
 
         return;
 
     }
 
-
-    /*
-       Il click su ENTRA è
-       l'interazione dell'utente.
-       Tentiamo di avviare YouTube
-       direttamente qui.
-    */
-
-    if(
-        player &&
-        youtubeReady
-    ){
+    if(player && youtubeReady){
 
         try{
 
@@ -3105,97 +2237,51 @@ function checkPassword(){
 
     }
 
+    document
+        .getElementById("passwordScreen")
+        .classList.add("hide");
 
     document
-        .getElementById(
-            "passwordScreen"
-        )
-        .classList.add(
-            "hide"
-        );
-
-
-    document
-        .getElementById(
-            "app"
-        )
-        .classList.add(
-            "visible"
-        );
-
+        .getElementById("app")
+        .classList.add("visible");
 
     createConfettiBurst();
 
-
-    /*
-       Mostra il menu
-    */
-
-    showScreen(
-        "homeScreen"
-    );
+    showScreen("homeScreen");
 
 }
 
-
-/* =========================================================
-   ENTER PASSWORD CON INVIO
-========================================================= */
-
 document
-    .getElementById(
-        "passwordInput"
-    )
+    .getElementById("passwordInput")
     .addEventListener(
         "keydown",
         function(event){
 
-            if(
-                event.key === "Enter"
-            ){
-
+            if(event.key === "Enter"){
                 checkPassword();
-
             }
 
         }
     );
 
+/* CAMBIO SCHERMATA */
 
-/* =========================================================
-   CAMBIO SCHERMATA
-========================================================= */
-
-function showScreen(
-    screenId
-){
+function showScreen(screenId){
 
     document
-        .querySelectorAll(
-            ".screen"
-        )
-        .forEach(
-            function(screen){
+        .querySelectorAll(".screen")
+        .forEach(function(screen){
 
-                screen.classList.remove(
-                    "active"
-                );
+            screen.classList.remove("active");
 
-            }
-        );
-
+        });
 
     const target =
-        document.getElementById(
-            screenId
-        );
-
+        document.getElementById(screenId);
 
     if(target){
 
-        target.classList.add(
-            "active"
-        );
+        target.classList.add("active");
 
         window.scrollTo({
             top:0,
@@ -3206,100 +2292,58 @@ function showScreen(
 
 }
 
-
-/* =========================================================
-   QUANTITA'
-========================================================= */
+/* QUANTITA */
 
 const quantities = {
 
     wurstel:0,
-
     spiedini:0,
-
     arrosticini:0,
-
     costine:0,
-
     birra:0,
-
     aperol:0,
-
     verdone:0,
-
     passoa:0
 
 };
 
-
-function changeQty(
-    item,
-    amount
-){
+function changeQty(item,amount){
 
     quantities[item] += amount;
 
-
-    if(
-        quantities[item] < 0
-    ){
-
-        quantities[item] = 0;
-
+    if(quantities[item] < 0){
+        quantities[item]=0;
     }
 
-
-    if(
-        quantities[item] > 99
-    ){
-
-        quantities[item] = 99;
-
+    if(quantities[item] > 99){
+        quantities[item]=99;
     }
-
 
     document
-        .getElementById(
-            "qty-"+item
-        )
-        .textContent =
-        quantities[item];
-
+        .getElementById("qty-"+item)
+        .textContent=quantities[item];
 
     const row =
-        document.getElementById(
-            "row-"+item
-        );
+        document.getElementById("row-"+item);
 
+    if(quantities[item] > 0){
 
-    if(
-        quantities[item] > 0
-    ){
-
-        row.classList.add(
-            "active"
-        );
+        row.classList.add("active");
 
     }else{
 
-        row.classList.remove(
-            "active"
-        );
+        row.classList.remove("active");
 
     }
 
 }
 
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
+/* COUNTDOWN */
 
 const partyDate =
     new Date(
         "August 26, 2026 19:30:00"
     ).getTime();
-
 
 function updateCountdown(){
 
@@ -3307,44 +2351,24 @@ function updateCountdown(){
         partyDate -
         new Date().getTime();
 
+    if(distance <= 0){
 
-    if(
-        distance <= 0
-    ){
-
-        document
-            .getElementById("days")
-            .textContent="🎉";
-
-        document
-            .getElementById("hours")
-            .textContent="🎉";
-
-        document
-            .getElementById("minutes")
-            .textContent="🎉";
-
-        document
-            .getElementById("seconds")
-            .textContent="🎉";
+        document.getElementById("days").textContent="🎉";
+        document.getElementById("hours").textContent="🎉";
+        document.getElementById("minutes").textContent="🎉";
+        document.getElementById("seconds").textContent="🎉";
 
         return;
 
     }
 
-
-    document
-        .getElementById("days")
-        .textContent =
+    document.getElementById("days").textContent =
         Math.floor(
             distance /
             (1000*60*60*24)
         );
 
-
-    document
-        .getElementById("hours")
-        .textContent =
+    document.getElementById("hours").textContent =
         Math.floor(
             (
                 distance %
@@ -3353,10 +2377,7 @@ function updateCountdown(){
             (1000*60*60)
         );
 
-
-    document
-        .getElementById("minutes")
-        .textContent =
+    document.getElementById("minutes").textContent =
         Math.floor(
             (
                 distance %
@@ -3365,10 +2386,7 @@ function updateCountdown(){
             (1000*60)
         );
 
-
-    document
-        .getElementById("seconds")
-        .textContent =
+    document.getElementById("seconds").textContent =
         Math.floor(
             (
                 distance %
@@ -3381,15 +2399,9 @@ function updateCountdown(){
 
 updateCountdown();
 
-setInterval(
-    updateCountdown,
-    1000
-);
+setInterval(updateCountdown,1000);
 
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
+/* WHATSAPP */
 
 function sendWhatsApp(){
 
@@ -3399,135 +2411,84 @@ function sendWhatsApp(){
             .value
             .trim();
 
-
     const presenza =
         document.querySelector(
             'input[name="presenza"]:checked'
         );
 
-
     if(!nome){
 
-        alert(
-            "Scrivi prima il tuo nome 👤"
-        );
+        alert("Scrivi prima il tuo nome 👤");
 
         return;
 
     }
-
 
     if(!presenza){
 
-        alert(
-            "Seleziona se ci sarai 🎉"
-        );
+        alert("Seleziona se ci sarai 🎉");
 
         return;
 
     }
 
-
     const cibo=[];
 
-
-    if(
-        quantities.wurstel > 0
-    ){
-
+    if(quantities.wurstel > 0){
         cibo.push(
             `🌭 Wurstel × ${quantities.wurstel}`
         );
-
     }
 
-
-    if(
-        quantities.spiedini > 0
-    ){
-
+    if(quantities.spiedini > 0){
         cibo.push(
             `🍢 Spiedini × ${quantities.spiedini}`
         );
-
     }
 
-
-    if(
-        quantities.arrosticini > 0
-    ){
-
+    if(quantities.arrosticini > 0){
         cibo.push(
             `🔥 Arrosticini × ${quantities.arrosticini}`
         );
-
     }
 
-
-    if(
-        quantities.costine > 0
-    ){
-
+    if(quantities.costine > 0){
         cibo.push(
             `🥩 Costine × ${quantities.costine}`
         );
-
     }
-
 
     const bevande=[];
 
-
-    if(
-        quantities.birra > 0
-    ){
-
+    if(quantities.birra > 0){
         bevande.push(
             `🍺 Birra × ${quantities.birra}`
         );
-
     }
 
-
-    if(
-        quantities.aperol > 0
-    ){
-
+    if(quantities.aperol > 0){
         bevande.push(
             `🍹 Aperol Spritz × ${quantities.aperol}`
         );
-
     }
 
-
-    if(
-        quantities.verdone > 0
-    ){
-
+    if(quantities.verdone > 0){
         bevande.push(
             `🍸 Verdone × ${quantities.verdone}`
         );
-
     }
 
-
-    if(
-        quantities.passoa > 0
-    ){
-
+    if(quantities.passoa > 0){
         bevande.push(
             `🥭 Passoã × ${quantities.passoa}`
         );
-
     }
-
 
     const note =
         document
             .getElementById("note")
             .value
             .trim();
-
 
     const messaggio =
 
@@ -3563,15 +2524,11 @@ ${note || "Nessuna"}
 
 🔥 Ci vediamo alla festa!`;
 
-
     const url =
         "https://wa.me/" +
         NUMERO_WHATSAPP +
         "?text=" +
-        encodeURIComponent(
-            messaggio
-        );
-
+        encodeURIComponent(messaggio);
 
     window.open(
         url,
@@ -3580,37 +2537,389 @@ ${note || "Nessuna"}
 
 }
 
-
 /* =========================================================
-   CONFETTI
+   GIOCO — QUANTO CONOSCI MATTEO?
 ========================================================= */
+
+const gameQuestions = [
+
+    {
+        question:"Quale percorso di studi ha fatto Matteo?",
+        answers:[
+            "Automazione degli impianti",
+            "Liceo scientifico",
+            "Meccanica",
+            "Informatica pura"
+        ],
+        correct:0
+    },
+
+    {
+        question:"Quale PLC usa principalmente Matteo?",
+        answers:[
+            "Allen-Bradley",
+            "Siemens",
+            "Mitsubishi",
+            "Omron"
+        ],
+        correct:1
+    },
+
+    {
+        question:"Quale software Siemens usa Matteo?",
+        answers:[
+            "Photoshop",
+            "AutoCAD",
+            "TIA Portal",
+            "Premiere Pro"
+        ],
+        correct:2
+    },
+
+    {
+        question:"Quale progetto tecnologico ha costruito Matteo?",
+        answers:[
+            "Una stazione meteorologica",
+            "Un drone militare",
+            "Una console",
+            "Un robot aspirapolvere"
+        ],
+        correct:0
+    },
+
+    {
+        question:"Quale sistema usa Matteo per la domotica di casa?",
+        answers:[
+            "Home Assistant",
+            "Windows Home",
+            "Alexa soltanto",
+            "SmartThings soltanto"
+        ],
+        correct:0
+    },
+
+    {
+        question:"Quale dispositivo usa Matteo per controllare alcune tapparelle?",
+        answers:[
+            "Shelly",
+            "Arduino Uno soltanto",
+            "PlayStation",
+            "Raspberry Pi Pico soltanto"
+        ],
+        correct:0
+    },
+
+    {
+        question:"Quale mezzo vorrebbe fare in futuro nel mondo dell'automazione?",
+        answers:[
+            "Programmatore PLC / automazione",
+            "Pilota di aerei",
+            "Chef",
+            "Fotografo professionista"
+        ],
+        correct:0
+    },
+
+    {
+        question:"Quale tipo di serata stiamo organizzando?",
+        answers:[
+            "Una cena elegante",
+            "Una grigliata di compleanno",
+            "Una festa in discoteca",
+            "Una gara di cucina"
+        ],
+        correct:1
+    },
+
+    {
+        question:"In quale giorno è la festa?",
+        answers:[
+            "20 agosto",
+            "24 agosto",
+            "26 agosto",
+            "31 agosto"
+        ],
+        correct:2
+    },
+
+    {
+        question:"A che ora inizia la festa?",
+        answers:[
+            "17:00",
+            "18:00",
+            "19:30",
+            "21:00"
+        ],
+        correct:2
+    }
+
+];
+
+let currentQuestion=0;
+let gameScore=0;
+let gameAnswered=false;
+
+function startGame(){
+
+    currentQuestion=0;
+    gameScore=0;
+    gameAnswered=false;
+
+    document
+        .getElementById("gameArea")
+        .style.display="block";
+
+    document
+        .getElementById("gameResult")
+        .style.display="none";
+
+    loadQuestion();
+
+}
+
+function loadQuestion(){
+
+    const q =
+        gameQuestions[currentQuestion];
+
+    gameAnswered=false;
+
+    document
+        .getElementById("gameProgressText")
+        .textContent =
+        `DOMANDA ${currentQuestion+1} DI ${gameQuestions.length}`;
+
+    document
+        .getElementById("questionNumber")
+        .textContent =
+        `DOMANDA ${currentQuestion+1}`;
+
+    document
+        .getElementById("questionText")
+        .textContent =
+        q.question;
+
+    document
+        .getElementById("progressFill")
+        .style.width =
+        (
+            ((currentQuestion+1) /
+            gameQuestions.length) * 100
+        ) + "%";
+
+    const answers =
+        document.getElementById("answers");
+
+    answers.innerHTML="";
+
+    q.answers.forEach(
+        function(answer,index){
+
+            const button =
+                document.createElement("button");
+
+            button.className="answerButton";
+
+            button.textContent =
+                `${String.fromCharCode(65+index)}. ${answer}`;
+
+            button.onclick =
+                function(){
+                    selectAnswer(index,button);
+                };
+
+            answers.appendChild(button);
+
+        }
+    );
+
+    document
+        .getElementById("nextButton")
+        .style.display="none";
+
+}
+
+function selectAnswer(index,clickedButton){
+
+    if(gameAnswered){
+        return;
+    }
+
+    gameAnswered=true;
+
+    const q =
+        gameQuestions[currentQuestion];
+
+    const buttons =
+        document.querySelectorAll(
+            "#answers .answerButton"
+        );
+
+    buttons.forEach(
+        function(button,i){
+
+            button.disabled=true;
+
+            if(i === q.correct){
+                button.classList.add("correct");
+            }
+
+        }
+    );
+
+    if(index === q.correct){
+
+        gameScore++;
+
+        clickedButton.classList.add("correct");
+
+    }else{
+
+        clickedButton.classList.add("wrong");
+
+    }
+
+    const nextButton =
+        document.getElementById("nextButton");
+
+    nextButton.style.display="block";
+
+    if(
+        currentQuestion ===
+        gameQuestions.length-1
+    ){
+
+        nextButton.textContent =
+            "🏆 VEDI IL RISULTATO";
+
+    }else{
+
+        nextButton.textContent =
+            "PROSSIMA DOMANDA →";
+
+    }
+
+}
+
+function nextQuestion(){
+
+    if(!gameAnswered){
+        return;
+    }
+
+    currentQuestion++;
+
+    if(
+        currentQuestion >=
+        gameQuestions.length
+    ){
+
+        showGameResult();
+
+        return;
+
+    }
+
+    loadQuestion();
+
+    document
+        .getElementById("gameScreen")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+}
+
+function showGameResult(){
+
+    document
+        .getElementById("gameArea")
+        .style.display="none";
+
+    const result =
+        document.getElementById("gameResult");
+
+    result.style.display="block";
+
+    let emoji="";
+    let title="";
+    let text="";
+
+    if(gameScore === 10){
+
+        emoji="👑";
+        title="SEI MATTO?!";
+        text=
+            "10 su 10! Conosci Matteo praticamente meglio di lui stesso. 😂";
+
+    }else if(gameScore >= 8){
+
+        emoji="🏆";
+        title="CONOSCITORE UFFICIALE";
+        text=
+            "Complimenti! Matteo non ha praticamente più segreti per te.";
+
+    }else if(gameScore >= 6){
+
+        emoji="🔥";
+        title="LO CONOSCI BENE";
+        text=
+            "Niente male! Direi che puoi tranquillamente partecipare alla festa.";
+
+    }else if(gameScore >= 4){
+
+        emoji="😂";
+        title="COSÌ COSÌ...";
+        text=
+            "Qualche lacuna c'è. Forse devi passare più tempo con Matteo.";
+
+    }else{
+
+        emoji="💀";
+        title="MA CI CONOSCIAMO?!";
+        text=
+            "Devi assolutamente recuperare prima della festa. 😂";
+
+    }
+
+    document
+        .getElementById("resultEmoji")
+        .textContent=emoji;
+
+    document
+        .getElementById("resultTitle")
+        .textContent=title;
+
+    document
+        .getElementById("resultScore")
+        .textContent=
+        `${gameScore}/10`;
+
+    document
+        .getElementById("resultText")
+        .textContent=text;
+
+    createConfettiBurst();
+
+}
+
+/* CONFETTI */
 
 function createConfetti(){
 
     const piece =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
-
-    piece.className =
-        "confetti";
-
+    piece.className="confetti";
 
     const colors=[
-
         "#ff3b30",
-
         "#ffb300",
-
         "#ff3b81",
-
         "#ffffff",
-
         "#ff6b35"
-
     ];
-
 
     piece.style.background =
         colors[
@@ -3620,49 +2929,35 @@ function createConfetti(){
             )
         ];
 
-
     piece.style.left =
         Math.random()*100 +
         "vw";
 
-
     piece.style.animationDuration =
         (
             Math.random()*3+3
-        ) +
-        "s";
-
+        ) + "s";
 
     piece.style.width =
         (
             Math.random()*6+5
-        ) +
-        "px";
-
+        ) + "px";
 
     piece.style.height =
         (
             Math.random()*8+8
-        ) +
-        "px";
+        ) + "px";
 
-
-    document.body.appendChild(
-        piece
-    );
-
+    document.body.appendChild(piece);
 
     setTimeout(
         function(){
-
             piece.remove();
-
         },
         7000
     );
 
 }
-
 
 function createConfettiBurst(){
 
@@ -3685,3 +2980,4 @@ function createConfettiBurst(){
 
 </body>
 </html>
+```
