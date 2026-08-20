@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="it">
 
 <head>
@@ -10,30 +9,28 @@
 
 <meta name="theme-color" content="#050505">
 
-<!-- ANTEPRIMA WHATSAPP / SOCIAL -->
+<!-- ANTEPRIMA WHATSAPP -->
 
 <meta property="og:type" content="website">
-
-<meta property="og:title" content="🎂 Matteo Birthday Party">
-
-<meta property="og:description" content="🔥 Grigliata • 🍻 Drink • 🎉 Mercoledì 26 agosto • Porco 🐖">
-
+<meta property="og:title" content="🎂 Matteo's Birthday Party">
+<meta property="og:description" content="🔥 Grigliata • 🍻 Drink • 🎉 Mercoledì 26 agosto">
 <meta property="og:url" content="https://mara-hub1.github.io/compleanno-matteo/">
-
 <meta property="og:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
 
 <meta name="twitter:card" content="summary_large_image">
-
-<meta name="twitter:title" content="🎂 Matteo Birthday Party">
-
+<meta name="twitter:title" content="🎂 Matteo's Birthday Party">
 <meta name="twitter:description" content="🔥 Grigliata • 🍻 Drink • 🎉 Mercoledì 26 agosto">
-
 <meta name="twitter:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
 
 <title>Matteo's Birthday 🎂</title>
 
+
 <style>
 
+/* =========================
+   BASE
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -48,28 +45,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #050505;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #050505;
-    color: white;
-    overflow: hidden;
-}
-
-/* ================================
-   SFONDO
-================================ */
 
 body::before {
     content: "";
@@ -86,24 +63,18 @@ body::before {
 }
 
 @keyframes backgroundMove {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.15);
-    }
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
 }
 
 
-/* ================================
+/* =========================
    PASSWORD
-================================ */
+========================= */
 
 #password-screen {
     position: fixed;
     inset: 0;
-
     z-index: 20000;
 
     display: flex;
@@ -113,11 +84,7 @@ body::before {
     padding: 25px;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255,120,0,.15),
-            transparent 60%
-        ),
+        radial-gradient(circle at center, rgba(255,120,0,.15), transparent 60%),
         #050505;
 }
 
@@ -132,21 +99,17 @@ body::before {
     border-radius: 30px;
 
     background: rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.12);
 
     backdrop-filter: blur(15px);
 
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.6);
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
 
     animation: passwordAppear 1s ease;
 }
 
 .lock {
     font-size: 60px;
-
     margin-bottom: 20px;
 
     animation: lockPulse 2s infinite;
@@ -154,25 +117,19 @@ body::before {
 
 .password-small {
     color: #ffb300;
-
     letter-spacing: 4px;
-
     font-size: 12px;
-
     margin-bottom: 15px;
 }
 
 .password-box h1 {
     font-size: 32px;
-
     margin-bottom: 12px;
 }
 
 .password-box p {
     color: #999;
-
     line-height: 1.5;
-
     margin-bottom: 25px;
 }
 
@@ -183,8 +140,7 @@ body::before {
 
     border-radius: 15px;
 
-    border:
-        1px solid rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.15);
 
     background: rgba(0,0,0,.45);
 
@@ -199,9 +155,6 @@ body::before {
 
 .password-box input:focus {
     border-color: #ffb300;
-
-    box-shadow:
-        0 0 25px rgba(255,179,0,.15);
 }
 
 .password-box button {
@@ -215,12 +168,7 @@ body::before {
 
     border-radius: 15px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300
-        );
+    background: linear-gradient(90deg,#ff3b30,#ffb300);
 
     color: white;
 
@@ -229,12 +177,6 @@ body::before {
     font-size: 15px;
 
     cursor: pointer;
-
-    transition: .3s;
-}
-
-.password-box button:hover {
-    transform: scale(1.03);
 }
 
 #password-error {
@@ -248,7 +190,6 @@ body::before {
 }
 
 @keyframes passwordAppear {
-
     from {
         opacity: 0;
         transform: scale(.8) translateY(30px);
@@ -261,20 +202,14 @@ body::before {
 }
 
 @keyframes lockPulse {
-
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.12);
-    }
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
 }
 
 
-/* ================================
-   MUSIC BUTTON
-================================ */
+/* =========================
+   MUSIC
+========================= */
 
 #music-button {
     position: fixed;
@@ -299,158 +234,38 @@ body::before {
     font-size: 14px;
 
     cursor: pointer;
-
-    transition: .3s;
-}
-
-#music-button:hover {
-    transform: scale(1.08);
-
-    border-color: #ffb300;
 }
 
 #music-button.playing {
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,59,48,.7),
-            rgba(255,179,0,.7)
-        );
+    background: linear-gradient(
+        90deg,
+        rgba(255,59,48,.7),
+        rgba(255,179,0,.7)
+    );
 
     animation: musicPulse 1.5s infinite;
 }
 
 @keyframes musicPulse {
-
     0%,100% {
-        box-shadow:
-            0 0 0 rgba(255,179,0,0);
+        box-shadow: 0 0 0 rgba(255,179,0,0);
     }
 
     50% {
-        box-shadow:
-            0 0 25px rgba(255,179,0,.35);
+        box-shadow: 0 0 25px rgba(255,179,0,.35);
     }
 }
 
 
-/* ================================
-   INTRO
-================================ */
-
-.intro {
-    position: fixed;
-
-    inset: 0;
-
-    background: #050505;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    z-index: 9999;
-
-    opacity: 0;
-
-    visibility: hidden;
-}
-
-.intro.active {
-    opacity: 1;
-
-    visibility: visible;
-
-    animation:
-        introOut 1s ease 2.7s forwards;
-}
-
-.intro-content {
-    text-align: center;
-
-    animation:
-        introIn 1.2s ease;
-}
-
-.intro-small {
-    color: #ffb300;
-
-    letter-spacing: 6px;
-
-    font-size: 13px;
-
-    margin-bottom: 20px;
-}
-
-.intro-title {
-    font-size:
-        clamp(55px,16vw,130px);
-
-    font-weight: 1000;
-
-    line-height: .85;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300,
-            #ff3b81,
-            #ff3b30
-        );
-
-    background-size: 300%;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    animation:
-        gradientMove 4s linear infinite;
-}
-
-.intro-sub {
-    margin-top: 25px;
-
-    color: #aaa;
-}
-
-@keyframes introIn {
-
-    from {
-        opacity: 0;
-        transform: scale(.7);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes introOut {
-
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-
-/* ================================
+/* =========================
    HERO
-================================ */
+========================= */
 
 .hero {
     min-height: 100vh;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -461,8 +276,7 @@ body::before {
 }
 
 .hero-content {
-    animation:
-        heroAppear 1.5s ease 3s both;
+    animation: heroAppear 1.5s ease .5s both;
 }
 
 .hero-label {
@@ -476,8 +290,7 @@ body::before {
 }
 
 .hero h1 {
-    font-size:
-        clamp(55px,15vw,140px);
+    font-size: clamp(55px,15vw,140px);
 
     font-weight: 1000;
 
@@ -499,15 +312,13 @@ body::before {
 
     color: transparent;
 
-    animation:
-        gradientMove 5s linear infinite;
+    animation: gradientMove 5s linear infinite;
 }
 
 .hero h2 {
     margin-top: 25px;
 
-    font-size:
-        clamp(24px,6vw,50px);
+    font-size: clamp(24px,6vw,50px);
 }
 
 .hero p {
@@ -519,7 +330,6 @@ body::before {
 }
 
 @keyframes heroAppear {
-
     from {
         opacity: 0;
         transform: translateY(40px);
@@ -532,30 +342,17 @@ body::before {
 }
 
 @keyframes gradientMove {
-
-    from {
-        background-position: 0%;
-    }
-
-    to {
-        background-position: 300%;
-    }
+    from { background-position: 0%; }
+    to { background-position: 300%; }
 }
-
-
-/* ================================
-   SCROLL
-================================ */
 
 .scroll {
     position: absolute;
 
     bottom: 30px;
-
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     color: #888;
 
@@ -563,27 +360,23 @@ body::before {
 
     letter-spacing: 3px;
 
-    animation:
-        scrollBounce 2s infinite;
+    animation: scrollBounce 2s infinite;
 }
 
 @keyframes scrollBounce {
-
     0%,100% {
-        transform:
-            translate(-50%,0);
+        transform: translate(-50%,0);
     }
 
     50% {
-        transform:
-            translate(-50%,-10px);
+        transform: translate(-50%,-10px);
     }
 }
 
 
-/* ================================
+/* =========================
    SEZIONI
-================================ */
+========================= */
 
 section {
     max-width: 1050px;
@@ -596,8 +389,7 @@ section {
 .section-title {
     text-align: center;
 
-    font-size:
-        clamp(32px,7vw,55px);
+    font-size: clamp(32px,7vw,55px);
 
     margin-bottom: 50px;
 }
@@ -607,15 +399,14 @@ section {
 }
 
 
-/* ================================
+/* =========================
    DATA
-================================ */
+========================= */
 
 .date-box {
     display: grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns: repeat(2,1fr);
 
     gap: 20px;
 }
@@ -634,22 +425,18 @@ section {
             rgba(255,255,255,.02)
         );
 
-    border:
-        1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.12);
 
     transition: .4s;
 }
 
 .date-card:hover {
-    transform:
-        translateY(-10px);
+    transform: translateY(-10px);
 
-    border-color:
-        #ffb300;
+    border-color: #ffb300;
 
     box-shadow:
-        0 20px 50px
-        rgba(255,150,0,.12);
+        0 20px 50px rgba(255,150,0,.12);
 }
 
 .date-icon {
@@ -669,74 +456,40 @@ section {
 }
 
 
-/* ================================
+/* =========================
    COUNTDOWN
-================================ */
+========================= */
 
 .countdown {
     display: grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns: repeat(4,1fr);
 
     gap: 12px;
 
     max-width: 750px;
 
-    margin:
-        50px auto 0;
+    margin: 50px auto 0;
 }
 
 .count {
-    background:
-        rgba(255,255,255,.05);
+    background: rgba(255,255,255,.05);
 
-    border:
-        1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.1);
 
     border-radius: 20px;
 
     padding: 25px 10px;
 
     text-align: center;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.count::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    top: 0;
-
-    height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ffb300,
-            transparent
-        );
 }
 
 .count-number {
-    font-size:
-        clamp(30px,7vw,55px);
+    font-size: clamp(30px,7vw,55px);
 
     font-weight: 900;
 
     color: #ffb300;
-
-    text-shadow:
-        0 0 20px
-        rgba(255,179,0,.25);
 }
 
 .count-label {
@@ -750,9 +503,9 @@ section {
 }
 
 
-/* ================================
+/* =========================
    GRIGLIATA
-================================ */
+========================= */
 
 .grill {
     position: relative;
@@ -768,50 +521,7 @@ section {
             rgba(255,160,0,.04)
         );
 
-    border:
-        1px solid rgba(255,100,0,.2);
-
-    overflow: hidden;
-}
-
-.grill::before {
-    content: "";
-
-    position: absolute;
-
-    width: 250px;
-    height: 250px;
-
-    left: 50%;
-    bottom: -180px;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,70,0,.35),
-            transparent 70%
-        );
-
-    animation:
-        fireGlow 1.5s infinite alternate;
-}
-
-@keyframes fireGlow {
-
-    from {
-        transform:
-            translateX(-50%)
-            scale(.9);
-    }
-
-    to {
-        transform:
-            translateX(-50%)
-            scale(1.2);
-    }
+    border: 1px solid rgba(255,100,0,.2);
 }
 
 .fire {
@@ -819,24 +529,16 @@ section {
 
     font-size: 80px;
 
-    position: relative;
-
-    z-index: 1;
-
-    animation:
-        fireMove 1s infinite alternate;
+    animation: fireMove 1s infinite alternate;
 }
 
 @keyframes fireMove {
-
     from {
-        transform: scale(1)
-        rotate(-2deg);
+        transform: scale(1) rotate(-2deg);
     }
 
     to {
-        transform: scale(1.12)
-        rotate(2deg);
+        transform: scale(1.12) rotate(2deg);
     }
 }
 
@@ -846,10 +548,6 @@ section {
     font-size: 28px;
 
     margin-top: 15px;
-
-    position: relative;
-
-    z-index: 1;
 }
 
 .grill-sub {
@@ -858,30 +556,16 @@ section {
     color: #999;
 
     margin-top: 10px;
-
-    position: relative;
-
-    z-index: 1;
 }
-
-
-/* ================================
-   CIBO
-================================ */
 
 .food-grid {
     margin-top: 40px;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(5,1fr);
+    grid-template-columns: repeat(5,1fr);
 
     gap: 15px;
-
-    position: relative;
-
-    z-index: 2;
 }
 
 .food {
@@ -891,22 +575,17 @@ section {
 
     border-radius: 22px;
 
-    background:
-        rgba(255,255,255,.05);
+    background: rgba(255,255,255,.05);
 
-    border:
-        1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.1);
 
     transition: .4s;
 }
 
 .food:hover {
-    transform:
-        translateY(-10px)
-        rotate(-2deg);
+    transform: translateY(-10px) rotate(-2deg);
 
-    border-color:
-        #ff5a30;
+    border-color: #ff5a30;
 }
 
 .food-icon {
@@ -920,9 +599,9 @@ section {
 }
 
 
-/* ================================
+/* =========================
    DRINK
-================================ */
+========================= */
 
 .drinks {
     display: flex;
@@ -939,11 +618,9 @@ section {
 
     border-radius: 100px;
 
-    background:
-        rgba(255,255,255,.06);
+    background: rgba(255,255,255,.06);
 
-    border:
-        1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.1);
 
     transition: .3s;
 }
@@ -951,51 +628,243 @@ section {
 .drink:hover {
     transform: scale(1.08);
 
-    background:
-        rgba(255,179,0,.12);
+    background: rgba(255,179,0,.12);
 
-    border-color:
-        #ffb300;
+    border-color: #ffb300;
 }
 
 
-/* ================================
+/* =========================
+   FORM
+========================= */
+
+.form-container {
+    padding: 40px 25px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+}
+
+.form-intro {
+    text-align: center;
+
+    color: #999;
+
+    margin-top: -25px;
+
+    margin-bottom: 35px;
+
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    display: block;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.required {
+    color: #ffb300;
+}
+
+.text-input {
+    width: 100%;
+
+    padding: 17px;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: rgba(0,0,0,.35);
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.text-input:focus {
+    border-color: #ffb300;
+}
+
+.options {
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 12px;
+}
+
+.option {
+    position: relative;
+}
+
+.option input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+.option label {
+    display: block;
+
+    padding: 18px 15px;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    text-align: center;
+}
+
+.option input:checked + label {
+    background: rgba(255,179,0,.15);
+
+    border-color: #ffb300;
+
+    box-shadow:
+        0 0 20px rgba(255,179,0,.12);
+
+    transform: scale(1.02);
+}
+
+.quantity {
+    margin-top: 12px;
+
+    display: none;
+}
+
+.quantity.show {
+    display: block;
+}
+
+.quantity input {
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background: rgba(0,0,0,.35);
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 16px;
+}
+
+.form-submit {
+    width: 100%;
+
+    padding: 20px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3b30,
+            #ffb300
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.form-submit:hover {
+    transform: scale(1.02);
+}
+
+.form-submit:disabled {
+    opacity: .6;
+
+    cursor: wait;
+}
+
+.form-message {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    background: rgba(0,255,120,.08);
+
+    border: 1px solid rgba(0,255,120,.25);
+
+    color: #8dffb2;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
    TORTA
-================================ */
+========================= */
 
 .cake-section {
     text-align: center;
 }
 
 .cake {
-    position: relative;
-
     display: inline-block;
 
     margin-top: 30px;
 
     font-size: 120px;
 
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(255,100,0,.25)
-        );
-
-    animation:
-        cakeFloat 3s infinite ease-in-out;
+    animation: cakeFloat 3s infinite ease-in-out;
 }
 
 @keyframes cakeFloat {
-
     0%,100% {
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform:
-            translateY(-12px);
+        transform: translateY(-12px);
     }
 }
 
@@ -1003,61 +872,17 @@ section {
     margin-top: 25px;
 
     color: #aaa;
-
-    font-size: 16px;
 }
 
 
-/* ================================
-   SONDAGGIO
-================================ */
-
-.poll {
-    text-align: center;
-
-    padding: 55px 25px;
-
-    border-radius: 35px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,179,0,.12),
-            transparent 65%
-        );
-
-    border:
-        1px solid rgba(255,179,0,.2);
-}
-
-.poll-icon {
-    font-size: 65px;
-
-    margin-bottom: 20px;
-}
-
-.poll h2 {
-    font-size: 32px;
-}
-
-.poll p {
-    color: #999;
-
-    margin-top: 15px;
-
-    line-height: 1.6;
-}
-
-
-/* ================================
+/* =========================
    FINALE
-================================ */
+========================= */
 
 .final {
     text-align: center;
 
-    padding:
-        120px 20px;
+    padding: 120px 20px;
 }
 
 .final-emojis {
@@ -1067,10 +892,7 @@ section {
 }
 
 .final h2 {
-    font-size:
-        clamp(35px,8vw,70px);
-
-    font-weight: 900;
+    font-size: clamp(35px,8vw,70px);
 
     background:
         linear-gradient(
@@ -1081,7 +903,6 @@ section {
         );
 
     -webkit-background-clip: text;
-
     background-clip: text;
 
     color: transparent;
@@ -1097,16 +918,10 @@ section {
     line-height: 1.8;
 }
 
-
-/* ================================
-   FOOTER
-================================ */
-
 footer {
     text-align: center;
 
-    padding:
-        40px 20px 70px;
+    padding: 40px 20px 70px;
 
     color: #555;
 
@@ -1114,9 +929,9 @@ footer {
 }
 
 
-/* ================================
+/* =========================
    CORIANDOLI
-================================ */
+========================= */
 
 .confetti {
     position: fixed;
@@ -1124,70 +939,56 @@ footer {
     top: -20px;
 
     width: 8px;
-
     height: 14px;
 
     pointer-events: none;
 
     z-index: 15000;
 
-    animation:
-        confettiFall linear forwards;
+    animation: confettiFall linear forwards;
 }
 
 @keyframes confettiFall {
-
     from {
-        transform:
-            translateY(-20px)
-            rotate(0deg);
-
+        transform: translateY(-20px) rotate(0deg);
         opacity: 1;
     }
 
     to {
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
+        transform: translateY(110vh) rotate(720deg);
         opacity: 0;
     }
 }
 
 
-/* ================================
+/* =========================
    MOBILE
-================================ */
+========================= */
 
 @media(max-width:700px) {
 
     section {
-        padding:
-            75px 18px;
+        padding: 75px 18px;
     }
 
     .date-box {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
     .countdown {
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .food-grid {
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .food:last-child {
-        grid-column:
-            span 2;
+        grid-column: span 2;
     }
 
-    .hero p {
-        font-size: 15px;
+    .options {
+        grid-template-columns: 1fr;
     }
 
     .cake {
@@ -1197,15 +998,16 @@ footer {
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      PASSWORD
-===================================================== -->
+========================= -->
 
 <div id="password-screen">
 
@@ -1247,9 +1049,9 @@ footer {
 </div>
 
 
-<!-- =====================================================
-     MUSIC BUTTON
-===================================================== -->
+<!-- =========================
+     MUSIC
+========================= -->
 
 <button
     id="music-button"
@@ -1261,36 +1063,9 @@ footer {
 </button>
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
-
-<div
-    class="intro"
-    id="intro">
-
-    <div class="intro-content">
-
-        <div class="intro-small">
-            🎉 SEI DENTRO 🎉
-        </div>
-
-        <div class="intro-title">
-            MATTEO
-        </div>
-
-        <div class="intro-sub">
-            preparati...
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <header class="hero">
 
@@ -1321,9 +1096,9 @@ footer {
 </header>
 
 
-<!-- =====================================================
+<!-- =========================
      DATA
-===================================================== -->
+========================= -->
 
 <section>
 
@@ -1349,7 +1124,6 @@ footer {
 
         </div>
 
-
         <div class="date-card">
 
             <div class="date-icon">
@@ -1369,67 +1143,26 @@ footer {
     </div>
 
 
-    <!-- COUNTDOWN -->
-
     <div class="countdown">
 
         <div class="count">
-
-            <div
-                id="days"
-                class="count-number">
-                0
-            </div>
-
-            <div class="count-label">
-                Giorni
-            </div>
-
+            <div id="days" class="count-number">0</div>
+            <div class="count-label">Giorni</div>
         </div>
 
-
         <div class="count">
-
-            <div
-                id="hours"
-                class="count-number">
-                0
-            </div>
-
-            <div class="count-label">
-                Ore
-            </div>
-
+            <div id="hours" class="count-number">0</div>
+            <div class="count-label">Ore</div>
         </div>
 
-
         <div class="count">
-
-            <div
-                id="minutes"
-                class="count-number">
-                0
-            </div>
-
-            <div class="count-label">
-                Minuti
-            </div>
-
+            <div id="minutes" class="count-number">0</div>
+            <div class="count-label">Minuti</div>
         </div>
 
-
         <div class="count">
-
-            <div
-                id="seconds"
-                class="count-number">
-                0
-            </div>
-
-            <div class="count-label">
-                Secondi
-            </div>
-
+            <div id="seconds" class="count-number">0</div>
+            <div class="count-label">Secondi</div>
         </div>
 
     </div>
@@ -1437,16 +1170,15 @@ footer {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      GRIGLIATA
-===================================================== -->
+========================= -->
 
 <section>
 
     <h2 class="section-title">
         🔥 <span>Si accende la griglia</span>
     </h2>
-
 
     <div class="grill">
 
@@ -1462,74 +1194,32 @@ footer {
             Preparatevi alla grigliata. 🍖
         </div>
 
-
         <div class="food-grid">
 
-
             <div class="food">
-
-                <div class="food-icon">
-                    🌭
-                </div>
-
-                <div class="food-name">
-                    Wurstel
-                </div>
-
+                <div class="food-icon">🌭</div>
+                <div class="food-name">Wurstel</div>
             </div>
 
-
             <div class="food">
-
-                <div class="food-icon">
-                    🥩
-                </div>
-
-                <div class="food-name">
-                    Costine
-                </div>
-
+                <div class="food-icon">🥩</div>
+                <div class="food-name">Costine</div>
             </div>
 
-
             <div class="food">
-
-                <div class="food-icon">
-                    🍢
-                </div>
-
-                <div class="food-name">
-                    Arrosticini
-                </div>
-
+                <div class="food-icon">🍢</div>
+                <div class="food-name">Arrosticini</div>
             </div>
 
-
             <div class="food">
-
-                <div class="food-icon">
-                    🌭
-                </div>
-
-                <div class="food-name">
-                    Luganeghe
-                </div>
-
+                <div class="food-icon">🌭</div>
+                <div class="food-name">Luganeghe</div>
             </div>
 
-
             <div class="food">
-
-                <div class="food-icon">
-                    🍢
-                </div>
-
-                <div class="food-name">
-                    Spiedini
-                </div>
-
+                <div class="food-icon">🍢</div>
+                <div class="food-name">Spiedini</div>
             </div>
-
 
         </div>
 
@@ -1538,9 +1228,9 @@ footer {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      DRINK
-===================================================== -->
+========================= -->
 
 <section>
 
@@ -1548,33 +1238,337 @@ footer {
         🍻 <span>E da bere?</span>
     </h2>
 
-
     <div class="drinks">
 
-        <div class="drink">
-            🍺 Birra
-        </div>
-
-        <div class="drink">
-            🍹 Aperol Spritz
-        </div>
-
-        <div class="drink">
-            🍸 Verdone
-        </div>
-
-        <div class="drink">
-            🥭 Passoã
-        </div>
+        <div class="drink">🍺 Birra</div>
+        <div class="drink">🍹 Aperol Spritz</div>
+        <div class="drink">🍸 Verdone</div>
+        <div class="drink">🥭 Passoã</div>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
+     MODULO
+========================= -->
+
+<section id="modulo">
+
+    <h2 class="section-title">
+        📝 <span>Organizziamo la serata</span>
+    </h2>
+
+    <div class="form-container">
+
+        <p class="form-intro">
+            Compila il modulo così riesco a capire
+            quante persone saremo e quanta roba prendere. 🍖🍻
+        </p>
+
+
+        <form id="birthday-form">
+
+
+            <!-- NOME -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    👤 Il tuo nome <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    class="text-input"
+                    placeholder="Scrivi il tuo nome"
+                    required
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    📧 Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    class="text-input"
+                    placeholder="La tua email"
+                >
+
+            </div>
+
+
+            <!-- PRESENZA -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    🎉 Ci sarai? <span class="required">*</span>
+                </label>
+
+                <div class="options">
+
+                    <div class="option">
+
+                        <input
+                            type="radio"
+                            name="presenza"
+                            id="presente"
+                            value="SI"
+                            required
+                        >
+
+                        <label for="presente">
+                            ✅ Sì, ci sono!
+                        </label>
+
+                    </div>
+
+                    <div class="option">
+
+                        <input
+                            type="radio"
+                            name="presenza"
+                            id="assente"
+                            value="NO"
+                        >
+
+                        <label for="assente">
+                            ❌ Non riesco
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CIBO -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    🍖 Cosa vuoi mangiare?
+                </label>
+
+                <div class="options">
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="wurstel"
+                        >
+
+                        <label for="wurstel">
+                            🌭 Wurstel
+                        </label>
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="costine"
+                        >
+
+                        <label for="costine">
+                            🥩 Costine
+                        </label>
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="arrosticini"
+                        >
+
+                        <label for="arrosticini">
+                            🍢 Arrosticini
+                        </label>
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="luganeghe"
+                        >
+
+                        <label for="luganeghe">
+                            🌭 Luganeghe
+                        </label>
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="spiedini"
+                        >
+
+                        <label for="spiedini">
+                            🍢 Spiedini
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BEVANDE -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    🍻 Cosa bevi?
+                </label>
+
+                <div class="options">
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="birra"
+                        >
+
+                        <label for="birra">
+                            🍺 Birra
+                        </label>
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="aperol"
+                        >
+
+                        <label for="aperol">
+                            🍹 Aperol Spritz
+                        </label>
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="verdone"
+                        >
+
+                        <label for="verdone">
+                            🍸 Verdone
+                        </label>
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <input
+                            type="checkbox"
+                            id="passoa"
+                        >
+
+                        <label for="passoa">
+                            🥭 Passoã
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NOTE -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    💬 Note
+                </label>
+
+                <textarea
+                    id="note"
+                    class="text-input"
+                    rows="4"
+                    placeholder="Qualcosa che devo sapere?"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="form-submit"
+                id="submit-button">
+
+                🔥 CONFERMA PARTECIPAZIONE 🔥
+
+            </button>
+
+
+            <div
+                class="form-message"
+                id="form-message">
+
+                <div style="font-size:45px;">
+                    🎉
+                </div>
+
+                <strong>
+                    RISPOSTA REGISTRATA!
+                </strong>
+
+                <br><br>
+
+                Grazie!
+                <br>
+                Ci vediamo alla festa 🍻🔥
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
      TORTA
-===================================================== -->
+========================= -->
 
 <section class="cake-section">
 
@@ -1593,36 +1587,9 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     SONDAGGIO
-===================================================== -->
-
-<section>
-
-    <div class="poll">
-
-        <div class="poll-icon">
-            🗳️
-        </div>
-
-        <h2>
-            Sondaggio in arrivo
-        </h2>
-
-        <p>
-            A breve arriverà nel gruppo il sondaggio
-            per capire quanti saremo e organizzare
-            al meglio la serata. 🍖🍻
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
+<!-- =========================
      FINALE
-===================================================== -->
+========================= -->
 
 <section class="final">
 
@@ -1650,9 +1617,10 @@ footer {
 
 <script>
 
-/* =====================================================
+
+/* =========================
    PASSWORD
-===================================================== */
+========================= */
 
 function checkPassword() {
 
@@ -1673,25 +1641,11 @@ function checkPassword() {
             "password-screen"
         ).style.display = "none";
 
-
-        document.body.style.overflow =
-            "auto";
-
+        document.body.style.overflow = "auto";
 
         document.getElementById(
             "music-button"
         ).style.display = "block";
-
-
-        const intro =
-            document.getElementById(
-                "intro"
-            );
-
-
-        intro.classList.add(
-            "active"
-        );
 
 
         for (
@@ -1709,8 +1663,7 @@ function checkPassword() {
 
     } else {
 
-        error.style.display =
-            "block";
+        error.style.display = "block";
 
         document.getElementById(
             "password-input"
@@ -1721,29 +1674,23 @@ function checkPassword() {
 }
 
 
-/* ENTER */
-
 document.getElementById(
     "password-input"
 ).addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key === "Enter"
-        ) {
-
+        if (event.key === "Enter") {
             checkPassword();
-
         }
 
     }
 );
 
 
-/* =====================================================
+/* =========================
    COUNTDOWN
-===================================================== */
+========================= */
 
 const partyDate =
     new Date(
@@ -1756,31 +1703,18 @@ function updateCountdown() {
     const now =
         new Date().getTime();
 
-
     const distance =
         partyDate - now;
 
 
     if (distance <= 0) {
 
-        document.getElementById(
-            "days"
-        ).textContent = "🎉";
-
-        document.getElementById(
-            "hours"
-        ).textContent = "🎉";
-
-        document.getElementById(
-            "minutes"
-        ).textContent = "🎉";
-
-        document.getElementById(
-            "seconds"
-        ).textContent = "🎉";
+        document.getElementById("days").textContent = "🎉";
+        document.getElementById("hours").textContent = "🎉";
+        document.getElementById("minutes").textContent = "🎉";
+        document.getElementById("seconds").textContent = "🎉";
 
         return;
-
     }
 
 
@@ -1825,16 +1759,13 @@ function updateCountdown() {
         "days"
     ).textContent = days;
 
-
     document.getElementById(
         "hours"
     ).textContent = hours;
 
-
     document.getElementById(
         "minutes"
     ).textContent = minutes;
-
 
     document.getElementById(
         "seconds"
@@ -1851,18 +1782,207 @@ setInterval(
 );
 
 
-/* =====================================================
+/* =========================
+   GOOGLE SHEETS
+========================= */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzcHImH5bAfwiYBl08KRdjOoiN65fL5oGOuVLBIOeQMzQ6wE4LEgeSKMHh-tCu_eJL2zA/exec";
+
+
+document.getElementById(
+    "birthday-form"
+).addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const button =
+            document.getElementById(
+                "submit-button"
+            );
+
+        const message =
+            document.getElementById(
+                "form-message"
+            );
+
+
+        button.disabled = true;
+
+        button.textContent =
+            "⏳ INVIO IN CORSO...";
+
+
+        const presenza =
+            document.querySelector(
+                'input[name="presenza"]:checked'
+            );
+
+
+        const data = {
+
+            nome:
+                document.getElementById(
+                    "nome"
+                ).value,
+
+            email:
+                document.getElementById(
+                    "email"
+                ).value,
+
+            presenza:
+                presenza
+                ? presenza.value
+                : "",
+
+            wurstel:
+                document.getElementById(
+                    "wurstel"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            costine:
+                document.getElementById(
+                    "costine"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            arrosticini:
+                document.getElementById(
+                    "arrosticini"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            luganeghe:
+                document.getElementById(
+                    "luganeghe"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            spiedini:
+                document.getElementById(
+                    "spiedini"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            birra:
+                document.getElementById(
+                    "birra"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            aperol:
+                document.getElementById(
+                    "aperol"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            verdone:
+                document.getElementById(
+                    "verdone"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            passoa:
+                document.getElementById(
+                    "passoa"
+                ).checked
+                ? "SI"
+                : "NO",
+
+            note:
+                document.getElementById(
+                    "note"
+                ).value
+
+        };
+
+
+        try {
+
+            await fetch(
+                SCRIPT_URL,
+                {
+                    method: "POST",
+
+                    mode: "no-cors",
+
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+                }
+            );
+
+
+            message.style.display =
+                "block";
+
+
+            button.style.display =
+                "none";
+
+
+            message.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+
+            for (
+                let i = 0;
+                i < 60;
+                i++
+            ) {
+
+                setTimeout(
+                    createConfetti,
+                    i * 30
+                );
+
+            }
+
+
+        } catch (error) {
+
+            button.disabled = false;
+
+            button.textContent =
+                "🔥 RIPROVA L'INVIO 🔥";
+
+
+            alert(
+                "Si è verificato un errore. Riprova."
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
    MUSICA
-   Web Audio API
-===================================================== */
+========================= */
 
 let audioContext = null;
-
 let musicPlaying = false;
-
 let musicTimer = null;
-
-let musicNodes = [];
 
 
 function startMusic() {
@@ -1883,8 +2003,7 @@ function startMusic() {
         audioContext.createGain();
 
 
-    master.gain.value =
-        0.06;
+    master.gain.value = 0.06;
 
 
     master.connect(
@@ -1920,9 +2039,7 @@ function startMusic() {
             audioContext.createGain();
 
 
-        oscillator.type =
-            "sine";
-
+        oscillator.type = "sine";
 
         oscillator.frequency.value =
             notes[index];
@@ -1985,11 +2102,7 @@ function stopMusic() {
 
 
     if (musicTimer) {
-
-        clearTimeout(
-            musicTimer
-        );
-
+        clearTimeout(musicTimer);
     }
 
 
@@ -2039,9 +2152,9 @@ function toggleMusic() {
 }
 
 
-/* =====================================================
+/* =========================
    CORIANDOLI
-===================================================== */
+========================= */
 
 function createConfetti() {
 
@@ -2056,13 +2169,11 @@ function createConfetti() {
 
 
     const colors = [
-
         "#ff3b30",
         "#ffb300",
         "#ff3b81",
         "#ffffff",
         "#ff6b35"
-
     ];
 
 
@@ -2076,33 +2187,25 @@ function createConfetti() {
 
 
     piece.style.left =
-        Math.random() *
-        100 +
-        "vw";
+        Math.random() * 100 + "vw";
 
 
     piece.style.animationDuration =
         (
-            Math.random() * 3 +
-            3
-        ) +
-        "s";
+            Math.random() * 3 + 3
+        ) + "s";
 
 
     piece.style.width =
         (
-            Math.random() * 6 +
-            5
-        ) +
-        "px";
+            Math.random() * 6 + 5
+        ) + "px";
 
 
     piece.style.height =
         (
-            Math.random() * 8 +
-            8
-        ) +
-        "px";
+            Math.random() * 8 + 8
+        ) + "px";
 
 
     document.body.appendChild(
@@ -2111,11 +2214,7 @@ function createConfetti() {
 
 
     setTimeout(
-        () => {
-
-            piece.remove();
-
-        },
+        () => piece.remove(),
         7000
     );
 
@@ -2124,4 +2223,5 @@ function createConfetti() {
 </script>
 
 </body>
+
 </html>
