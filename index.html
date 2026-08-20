@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 
 <meta charset="UTF-8">
@@ -12,9 +13,19 @@
 <meta property="og:url" content="https://mara-hub1.github.io/compleanno-matteo/">
 <meta property="og:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
 
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🎂 Matteo's Birthday Party">
+<meta name="twitter:description" content="🔥 Grigliata • 🍻 Drink • 26 Agosto">
+<meta name="twitter:image" content="https://mara-hub1.github.io/compleanno-matteo/preview.jpg">
+
 <title>Matteo's Birthday 🎂</title>
 
+
 <style>
+
+/* =========================================================
+   BASE
+========================================================= */
 
 *{
     margin:0;
@@ -38,10 +49,26 @@ body::before{
     position:fixed;
     inset:-30%;
     z-index:-5;
+
     background:
-        radial-gradient(circle at 15% 20%,rgba(255,60,0,.22),transparent 28%),
-        radial-gradient(circle at 85% 20%,rgba(255,180,0,.18),transparent 30%),
-        radial-gradient(circle at 50% 90%,rgba(255,0,100,.16),transparent 35%);
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,60,0,.22),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,180,0,.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(255,0,100,.16),
+            transparent 35%
+        );
+
     animation:bgMove 15s ease-in-out infinite alternate;
 }
 
@@ -51,714 +78,1403 @@ body::after{
     inset:0;
     z-index:-4;
     pointer-events:none;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
     background-size:40px 40px;
 }
 
 @keyframes bgMove{
-    from{transform:scale(1)}
-    to{transform:scale(1.18) rotate(2deg)}
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.18) rotate(2deg);
+    }
+
 }
 
-/* PASSWORD */
+
+/* =========================================================
+   PASSWORD
+========================================================= */
 
 #passwordScreen{
+
     position:fixed;
     inset:0;
     z-index:99999;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     padding:25px;
+
     background:
-        radial-gradient(circle at center,rgba(255,100,0,.18),transparent 55%),
+        radial-gradient(
+            circle at center,
+            rgba(255,100,0,.18),
+            transparent 55%
+        ),
         #050505;
 }
 
+
 .passwordBox{
+
     width:100%;
     max-width:430px;
+
     padding:45px 25px;
+
     text-align:center;
-    background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
     border:1px solid rgba(255,255,255,.13);
+
     border-radius:32px;
+
     backdrop-filter:blur(20px);
-    box-shadow:0 40px 100px rgba(0,0,0,.65);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.65);
+
 }
 
+
 .passwordIcon{
+
     font-size:65px;
     margin-bottom:20px;
+
     animation:pulse 2s infinite;
 }
 
+
 .passwordSmall{
+
     color:#ffb300;
+
     font-size:11px;
+
     letter-spacing:5px;
+
     margin-bottom:15px;
 }
 
+
 .passwordBox h1{
+
     font-size:32px;
+
     margin-bottom:12px;
+
 }
+
 
 .passwordBox p{
+
     color:#999;
+
     line-height:1.6;
+
     margin-bottom:25px;
+
 }
+
 
 .passwordBox input{
+
     width:100%;
+
     padding:17px;
+
     border-radius:16px;
+
     border:1px solid rgba(255,255,255,.13);
+
     background:rgba(0,0,0,.45);
+
     color:white;
+
     outline:none;
+
     text-align:center;
+
     font-size:17px;
+
 }
+
 
 .passwordBox button{
+
     width:100%;
+
     margin-top:15px;
+
     padding:17px;
+
     border:0;
+
     border-radius:16px;
-    background:linear-gradient(90deg,#ff3b30,#ff9500);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3b30,
+            #ff9500
+        );
+
     color:white;
+
     font-weight:900;
+
     font-size:15px;
+
     cursor:pointer;
+
 }
+
 
 #passwordError{
+
     display:none;
+
     color:#ff4b4b;
+
     margin-top:15px;
+
 }
+
 
 @keyframes pulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.1)}
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
+
 }
 
-/* MUSIC */
 
-.musicBox{
-    position:fixed;
-    top:18px;
-    right:18px;
-    z-index:5000;
-    padding:10px;
-    border-radius:20px;
-    background:rgba(0,0,0,.65);
-    border:1px solid rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-}
-
-.musicBox button{
-    border:0;
-    border-radius:14px;
-    padding:11px 15px;
-    background:linear-gradient(90deg,#ff3b30,#ff9500);
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
+/* =========================================================
+   YOUTUBE PLAYER INVISIBILE
+========================================================= */
 
 #youtubePlayer{
-    width:220px;
-    height:124px;
-    margin-top:8px;
-    border-radius:12px;
-    overflow:hidden;
+
+    position:fixed;
+
+    width:1px;
+    height:1px;
+
+    left:-9999px;
+    top:-9999px;
+
+    opacity:0;
+
+    pointer-events:none;
+
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
+
     min-height:100vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     padding:30px 20px;
+
     position:relative;
 }
 
+
 .heroContent{
+
     animation:heroAppear 1.4s ease both;
+
 }
+
 
 .heroTop{
+
     color:#ffb300;
+
     letter-spacing:6px;
+
     font-size:12px;
+
     font-weight:bold;
+
     margin-bottom:25px;
+
 }
+
 
 .hero h1{
-    font-size:clamp(58px,16vw,145px);
+
+    font-size:
+        clamp(
+            58px,
+            16vw,
+            145px
+        );
+
     line-height:.78;
+
     font-weight:1000;
+
     letter-spacing:-5px;
-    background:linear-gradient(
-        90deg,
-        #ff3b30,
-        #ffb300,
-        #ff3b81,
-        #ff3b30
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3b30,
+            #ffb300,
+            #ff3b81,
+            #ff3b30
+        );
+
     background-size:300%;
+
     -webkit-background-clip:text;
+
     background-clip:text;
+
     color:transparent;
-    animation:gradientMove 5s linear infinite;
+
+    animation:
+        gradientMove
+        5s
+        linear
+        infinite;
+
 }
+
 
 .hero h2{
+
     margin-top:30px;
-    font-size:clamp(22px,5vw,48px);
+
+    font-size:
+        clamp(
+            22px,
+            5vw,
+            48px
+        );
+
     letter-spacing:2px;
+
 }
+
 
 .heroDate{
+
     margin-top:20px;
+
     color:#aaa;
+
     font-size:16px;
+
     letter-spacing:2px;
+
 }
+
 
 .heroLine{
+
     width:80px;
+
     height:3px;
+
     margin:30px auto;
+
     border-radius:20px;
-    background:linear-gradient(90deg,#ff3b30,#ffb300);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3b30,
+            #ffb300
+        );
+
 }
+
 
 .heroDescription{
+
     color:#888;
+
     font-size:15px;
+
     max-width:500px;
+
     margin:auto;
+
     line-height:1.7;
+
 }
+
 
 .scrollDown{
+
     position:absolute;
+
     bottom:30px;
+
     left:50%;
+
     transform:translateX(-50%);
+
     color:#666;
+
     font-size:10px;
+
     letter-spacing:4px;
+
     animation:bounce 2s infinite;
+
 }
+
 
 @keyframes heroAppear{
+
     from{
+
         opacity:0;
+
         transform:translateY(50px);
+
     }
+
     to{
+
         opacity:1;
+
         transform:translateY(0);
+
     }
+
 }
+
 
 @keyframes gradientMove{
-    from{background-position:0}
-    to{background-position:300%}
+
+    from{
+        background-position:0;
+    }
+
+    to{
+        background-position:300%;
+    }
+
 }
+
 
 @keyframes bounce{
-    0%,100%{transform:translate(-50%,0)}
-    50%{transform:translate(-50%,-10px)}
+
+    0%,100%{
+        transform:translate(-50%,0);
+    }
+
+    50%{
+        transform:translate(-50%,-10px);
+    }
+
 }
 
-/* GENERALE */
+
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 section{
+
     max-width:1050px;
+
     margin:auto;
+
     padding:100px 20px;
+
 }
+
 
 .sectionHeader{
+
     text-align:center;
+
     margin-bottom:50px;
+
 }
+
 
 .sectionEyebrow{
+
     color:#ffb300;
+
     font-size:11px;
+
     letter-spacing:5px;
+
     font-weight:bold;
+
     margin-bottom:12px;
+
 }
+
 
 .sectionTitle{
-    font-size:clamp(34px,7vw,58px);
+
+    font-size:
+        clamp(
+            34px,
+            7vw,
+            58px
+        );
+
     line-height:1;
+
     font-weight:1000;
+
 }
+
 
 .sectionTitle span{
+
     color:#ffb300;
+
 }
 
-/* DATA */
+
+/* =========================================================
+   DATA
+========================================================= */
 
 .dateGrid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
     gap:18px;
+
 }
+
 
 .dateCard{
+
     padding:40px 25px;
+
     text-align:center;
+
     border-radius:30px;
-    background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
-    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid
+        rgba(255,255,255,.1);
+
     transition:.4s;
+
 }
+
 
 .dateCard:hover{
+
     transform:translateY(-8px);
+
     border-color:#ffb300;
+
 }
+
 
 .dateIcon{
+
     font-size:50px;
+
     margin-bottom:20px;
+
 }
+
 
 .dateCard h3{
+
     font-size:27px;
+
 }
+
 
 .dateCard p{
+
     color:#888;
+
     margin-top:10px;
+
 }
 
-/* COUNTDOWN */
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
 
 .countdown{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
     gap:12px;
+
     max-width:800px;
+
     margin:35px auto 0;
+
 }
+
 
 .countBox{
+
     padding:25px 10px;
+
     text-align:center;
+
     border-radius:22px;
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:1px solid
+        rgba(255,255,255,.08);
+
 }
+
 
 .countNumber{
-    font-size:clamp(30px,7vw,55px);
+
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            55px
+        );
+
     font-weight:1000;
+
     color:#ffb300;
+
 }
+
 
 .countLabel{
+
     color:#666;
+
     font-size:9px;
+
     letter-spacing:2px;
+
     margin-top:5px;
+
 }
 
-/* GRIGLIATA */
+
+/* =========================================================
+   GRIGLIATA
+========================================================= */
 
 .grillBox{
+
     padding:50px 20px;
+
     border-radius:35px;
-    background:linear-gradient(
-        135deg,
-        rgba(255,70,0,.13),
-        rgba(255,170,0,.035)
-    );
-    border:1px solid rgba(255,90,0,.18);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,70,0,.13),
+            rgba(255,170,0,.035)
+        );
+
+    border:1px solid
+        rgba(255,90,0,.18);
+
 }
+
 
 .fireEmoji{
+
     text-align:center;
+
     font-size:75px;
-    animation:fireDance 1s infinite alternate;
+
+    animation:
+        fireDance
+        1s
+        infinite
+        alternate;
+
 }
+
 
 @keyframes fireDance{
-    from{transform:scale(1) rotate(-3deg)}
-    to{transform:scale(1.12) rotate(3deg)}
+
+    from{
+
+        transform:
+            scale(1)
+            rotate(-3deg);
+
+    }
+
+    to{
+
+        transform:
+            scale(1.12)
+            rotate(3deg);
+
+    }
+
 }
+
 
 .grillTitle{
+
     text-align:center;
+
     font-size:28px;
+
     font-weight:900;
+
     margin-top:15px;
+
 }
+
 
 .grillSub{
+
     text-align:center;
+
     color:#888;
+
     margin-top:10px;
+
 }
+
 
 .foodShowcase{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
     gap:14px;
+
     margin-top:40px;
+
 }
+
 
 .foodShow{
+
     padding:28px 10px;
+
     text-align:center;
+
     border-radius:22px;
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:1px solid
+        rgba(255,255,255,.08);
+
     transition:.35s;
+
 }
+
 
 .foodShow:hover{
-    transform:translateY(-8px) rotate(-2deg);
+
+    transform:
+        translateY(-8px)
+        rotate(-2deg);
+
     border-color:#ff7a30;
+
 }
+
 
 .foodShowIcon{
+
     font-size:42px;
+
     margin-bottom:13px;
+
 }
+
 
 .foodShowName{
+
     font-weight:bold;
+
 }
 
-/* DRINK */
+
+/* =========================================================
+   DRINK
+========================================================= */
 
 .drinkGrid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
     gap:14px;
+
 }
+
 
 .drinkCard{
+
     padding:30px 10px;
+
     text-align:center;
+
     border-radius:25px;
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:1px solid
+        rgba(255,255,255,.08);
+
     transition:.35s;
+
 }
+
 
 .drinkCard:hover{
+
     transform:translateY(-8px);
+
     border-color:#ffb300;
+
 }
+
 
 .drinkIcon{
+
     font-size:43px;
+
     margin-bottom:12px;
+
 }
 
-/* RSVP */
+
+/* =========================================================
+   RSVP
+========================================================= */
 
 .rsvpBox{
+
     padding:40px 25px;
+
     border-radius:35px;
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.085),
-        rgba(255,255,255,.025)
-    );
-    border:1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.085),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid
+        rgba(255,255,255,.12);
+
 }
+
 
 .rsvpIntro{
+
     text-align:center;
+
     color:#888;
+
     line-height:1.7;
+
     margin-bottom:40px;
+
 }
+
 
 .formGroup{
+
     margin-bottom:35px;
+
 }
+
 
 .formLabel{
+
     display:block;
+
     margin-bottom:15px;
+
     font-size:17px;
+
     font-weight:900;
+
 }
+
 
 .textInput{
+
     width:100%;
+
     padding:17px;
+
     border-radius:16px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(0,0,0,.35);
+
+    border:1px solid
+        rgba(255,255,255,.12);
+
+    background:
+        rgba(0,0,0,.35);
+
     color:white;
+
     outline:none;
+
     font-size:16px;
+
 }
+
 
 textarea.textInput{
+
     resize:vertical;
+
 }
+
 
 .presenceGrid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
     gap:12px;
+
 }
+
 
 .presenceButton input{
+
     display:none;
+
 }
+
 
 .presenceButton label{
+
     display:block;
+
     padding:20px;
+
     text-align:center;
+
     border-radius:18px;
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:1px solid
+        rgba(255,255,255,.1);
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
-.presenceButton input:checked + label{
+
+.presenceButton
+input:checked
++ label{
+
     border-color:#ffb300;
-    background:rgba(255,179,0,.13);
+
+    background:
+        rgba(255,179,0,.13);
+
 }
 
-/* QUANTITA */
+
+/* =========================================================
+   QUANTITA'
+========================================================= */
 
 .quantityList{
+
     display:flex;
+
     flex-direction:column;
+
     gap:12px;
+
 }
+
 
 .quantityRow{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:15px;
+
     padding:17px;
+
     border-radius:18px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:1px solid
+        rgba(255,255,255,.08);
+
     transition:.25s;
+
 }
+
 
 .quantityRow.active{
-    border-color:rgba(255,179,0,.5);
-    background:rgba(255,179,0,.07);
+
+    border-color:
+        rgba(255,179,0,.5);
+
+    background:
+        rgba(255,179,0,.07);
+
 }
+
 
 .quantityInfo{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
 }
+
 
 .quantityEmoji{
+
     font-size:30px;
+
 }
+
 
 .quantityName{
+
     font-weight:bold;
+
 }
+
 
 .quantityControls{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
 }
+
 
 .qtyButton{
+
     width:40px;
+
     height:40px;
+
     border-radius:50%;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.06);
+
+    border:1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.06);
+
     color:white;
+
     font-size:22px;
+
     cursor:pointer;
+
     transition:.2s;
+
 }
+
 
 .qtyButton:hover{
+
     background:#ff9500;
+
     border-color:#ff9500;
+
 }
+
 
 .qtyValue{
+
     min-width:25px;
+
     text-align:center;
+
     font-weight:1000;
+
     font-size:18px;
+
 }
 
-/* SEND */
+
+/* =========================================================
+   SEND
+========================================================= */
 
 .sendButton{
+
     width:100%;
+
     padding:21px;
+
     border:0;
+
     border-radius:20px;
-    background:linear-gradient(90deg,#25D366,#128C7E);
+
+    background:
+        linear-gradient(
+            90deg,
+            #25D366,
+            #128C7E
+        );
+
     color:white;
+
     font-size:16px;
+
     font-weight:1000;
+
     cursor:pointer;
-    box-shadow:0 15px 40px rgba(37,211,102,.12);
+
+    box-shadow:
+        0 15px 40px
+        rgba(37,211,102,.12);
+
     transition:.3s;
+
 }
+
 
 .sendButton:hover{
+
     transform:translateY(-3px);
+
 }
+
 
 .sendNote{
+
     text-align:center;
+
     color:#555;
+
     font-size:11px;
+
     margin-top:15px;
+
 }
 
-/* FINALE */
+
+/* =========================================================
+   FINALE
+========================================================= */
 
 .final{
+
     text-align:center;
+
     padding:130px 20px;
+
 }
+
 
 .finalEmoji{
+
     font-size:50px;
+
     margin-bottom:30px;
+
 }
+
 
 .final h2{
-    font-size:clamp(42px,10vw,90px);
+
+    font-size:
+        clamp(
+            42px,
+            10vw,
+            90px
+        );
+
     line-height:.9;
-    background:linear-gradient(90deg,#ff3b30,#ffb300,#ff3b81);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3b30,
+            #ffb300,
+            #ff3b81
+        );
+
     -webkit-background-clip:text;
+
     background-clip:text;
+
     color:transparent;
+
 }
+
 
 .final p{
+
     color:#888;
+
     margin-top:25px;
+
     font-size:17px;
+
     line-height:1.8;
+
 }
+
 
 footer{
+
     text-align:center;
+
     padding:30px 20px 60px;
+
     color:#444;
+
     font-size:11px;
+
 }
 
-/* CONFETTI */
+
+/* =========================================================
+   CONFETTI
+========================================================= */
 
 .confetti{
+
     position:fixed;
+
     top:-30px;
+
     width:8px;
+
     height:14px;
+
     z-index:9999;
+
     pointer-events:none;
-    animation:confettiFall linear forwards;
+
+    animation:
+        confettiFall
+        linear
+        forwards;
+
 }
+
 
 @keyframes confettiFall{
+
     from{
-        transform:translateY(-30px) rotate(0);
+
+        transform:
+            translateY(-30px)
+            rotate(0);
+
         opacity:1;
+
     }
+
     to{
-        transform:translateY(110vh) rotate(720deg);
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
         opacity:0;
+
     }
+
 }
 
-/* MOBILE */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
     section{
+
         padding:75px 17px;
+
     }
+
 
     .dateGrid{
+
         grid-template-columns:1fr;
+
     }
+
 
     .countdown{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
     }
+
 
     .foodShowcase{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
     }
+
 
     .drinkGrid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
     }
+
 
     .presenceGrid{
+
         grid-template-columns:1fr;
+
     }
+
 
     .hero h1{
+
         letter-spacing:-3px;
+
     }
 
-    .musicBox{
-        right:10px;
-        top:10px;
-    }
-
-    #youtubePlayer{
-        width:180px;
-        height:101px;
-    }
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
-<!-- PASSWORD -->
+<!-- =====================================================
+     PASSWORD
+===================================================== -->
 
 <div id="passwordScreen">
 
     <div class="passwordBox">
 
-        <div class="passwordIcon">🔐</div>
+        <div class="passwordIcon">
+            🔐
+        </div>
 
         <div class="passwordSmall">
             PRIVATE PARTY
@@ -780,11 +1496,15 @@ footer{
         >
 
         <button onclick="checkPassword()">
+
             ENTRA NELLA FESTA →
+
         </button>
 
         <div id="passwordError">
+
             ❌ Password non corretta
+
         </div>
 
     </div>
@@ -792,190 +1512,353 @@ footer{
 </div>
 
 
-<!-- MUSICA -->
+<!-- =====================================================
+     YOUTUBE INVISIBILE
+===================================================== -->
 
-<div
-    class="musicBox"
-    id="musicBox"
-    style="display:none;">
-
-    <button
-        id="musicButton"
-        onclick="toggleMusic()">
-
-        🎵 AVVIA MUSICA
-
-    </button>
-
-    <div id="youtubePlayer"></div>
-
-</div>
+<div id="youtubePlayer"></div>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <header class="hero">
 
     <div class="heroContent">
 
         <div class="heroTop">
+
             🎂 BIRTHDAY PARTY 🎂
+
         </div>
 
+
         <h1>
+
             MATTEO'S
+
         </h1>
 
+
         <h2>
+
             BIRTHDAY PARTY
+
         </h2>
+
 
         <div class="heroLine"></div>
 
+
         <div class="heroDate">
+
             MERCOLEDÌ · 26 AGOSTO · 19:30
+
         </div>
 
+
         <p class="heroDescription">
+
             Una serata. Una griglia. Qualche drink.
             E soprattutto tanta voglia di festeggiare. 🔥
+
         </p>
 
     </div>
 
+
     <div class="scrollDown">
+
         SCORRI ↓
+
     </div>
 
 </header>
 
 
-<!-- DATA -->
+<!-- =====================================================
+     DATA
+===================================================== -->
 
 <section>
 
     <div class="sectionHeader">
 
         <div class="sectionEyebrow">
+
             SAVE THE DATE
+
         </div>
 
+
         <h2 class="sectionTitle">
+
             Ci vediamo il <span>26.</span>
+
         </h2>
 
     </div>
+
 
     <div class="dateGrid">
 
+
         <div class="dateCard">
 
-            <div class="dateIcon">📅</div>
+            <div class="dateIcon">
+
+                📅
+
+            </div>
+
 
             <h3>
+
                 26 AGOSTO
+
             </h3>
 
+
             <p>
+
                 Mercoledì
+
             </p>
 
         </div>
+
 
         <div class="dateCard">
 
-            <div class="dateIcon">🕢</div>
+            <div class="dateIcon">
+
+                🕢
+
+            </div>
+
 
             <h3>
+
                 19:30
+
             </h3>
 
+
             <p>
+
                 Si comincia!
+
             </p>
 
         </div>
+
 
     </div>
+
 
     <div class="countdown">
 
-        <div class="countBox">
-            <div id="days" class="countNumber">0</div>
-            <div class="countLabel">GIORNI</div>
-        </div>
 
         <div class="countBox">
-            <div id="hours" class="countNumber">0</div>
-            <div class="countLabel">ORE</div>
+
+            <div
+                id="days"
+                class="countNumber">
+
+                0
+
+            </div>
+
+            <div class="countLabel">
+
+                GIORNI
+
+            </div>
+
         </div>
 
-        <div class="countBox">
-            <div id="minutes" class="countNumber">0</div>
-            <div class="countLabel">MINUTI</div>
-        </div>
 
         <div class="countBox">
-            <div id="seconds" class="countNumber">0</div>
-            <div class="countLabel">SECONDI</div>
+
+            <div
+                id="hours"
+                class="countNumber">
+
+                0
+
+            </div>
+
+            <div class="countLabel">
+
+                ORE
+
+            </div>
+
         </div>
+
+
+        <div class="countBox">
+
+            <div
+                id="minutes"
+                class="countNumber">
+
+                0
+
+            </div>
+
+            <div class="countLabel">
+
+                MINUTI
+
+            </div>
+
+        </div>
+
+
+        <div class="countBox">
+
+            <div
+                id="seconds"
+                class="countNumber">
+
+                0
+
+            </div>
+
+            <div class="countLabel">
+
+                SECONDI
+
+            </div>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- GRIGLIATA -->
+<!-- =====================================================
+     GRIGLIATA
+===================================================== -->
 
 <section>
 
     <div class="sectionHeader">
 
         <div class="sectionEyebrow">
+
             FOOD MENU
+
         </div>
 
+
         <h2 class="sectionTitle">
+
             🔥 La <span>grigliata.</span>
+
         </h2>
 
     </div>
+
 
     <div class="grillBox">
 
+
         <div class="fireEmoji">
+
             🔥
+
         </div>
+
 
         <div class="grillTitle">
+
             STASERA SI FA SUL SERIO
+
         </div>
 
+
         <div class="grillSub">
+
             Ecco cosa finirà sulla griglia.
+
         </div>
+
 
         <div class="foodShowcase">
 
-            <div class="foodShow">
-                <div class="foodShowIcon">🌭</div>
-                <div class="foodShowName">Wurstel</div>
-            </div>
 
             <div class="foodShow">
-                <div class="foodShowIcon">🍢</div>
-                <div class="foodShowName">Spiedini</div>
+
+                <div class="foodShowIcon">
+
+                    🌭
+
+                </div>
+
+                <div class="foodShowName">
+
+                    Wurstel
+
+                </div>
+
             </div>
 
-            <div class="foodShow">
-                <div class="foodShowIcon">🔥</div>
-                <div class="foodShowName">Arrosticini</div>
-            </div>
 
             <div class="foodShow">
-                <div class="foodShowIcon">🥩</div>
-                <div class="foodShowName">Costine</div>
+
+                <div class="foodShowIcon">
+
+                    🍢
+
+                </div>
+
+                <div class="foodShowName">
+
+                    Spiedini
+
+                </div>
+
             </div>
+
+
+            <div class="foodShow">
+
+                <div class="foodShowIcon">
+
+                    🔥
+
+                </div>
+
+                <div class="foodShowName">
+
+                    Arrosticini
+
+                </div>
+
+            </div>
+
+
+            <div class="foodShow">
+
+                <div class="foodShowIcon">
+
+                    🥩
+
+                </div>
+
+                <div class="foodShowName">
+
+                    Costine
+
+                </div>
+
+            </div>
+
 
         </div>
 
@@ -984,72 +1867,144 @@ footer{
 </section>
 
 
-<!-- DRINK -->
+<!-- =====================================================
+     DRINK
+===================================================== -->
 
 <section>
 
     <div class="sectionHeader">
 
         <div class="sectionEyebrow">
+
             DRINK MENU
+
         </div>
 
+
         <h2 class="sectionTitle">
+
             🍻 E da <span>bere?</span>
+
         </h2>
 
     </div>
 
+
     <div class="drinkGrid">
 
-        <div class="drinkCard">
-            <div class="drinkIcon">🍺</div>
-            <div>Birra</div>
-        </div>
 
         <div class="drinkCard">
-            <div class="drinkIcon">🍹</div>
-            <div>Aperol Spritz</div>
+
+            <div class="drinkIcon">
+
+                🍺
+
+            </div>
+
+            <div>
+
+                Birra
+
+            </div>
+
         </div>
 
-        <div class="drinkCard">
-            <div class="drinkIcon">🍸</div>
-            <div>Verdone</div>
-        </div>
 
         <div class="drinkCard">
-            <div class="drinkIcon">🥭</div>
-            <div>Passoã</div>
+
+            <div class="drinkIcon">
+
+                🍹
+
+            </div>
+
+            <div>
+
+                Aperol Spritz
+
+            </div>
+
         </div>
+
+
+        <div class="drinkCard">
+
+            <div class="drinkIcon">
+
+                🍸
+
+            </div>
+
+            <div>
+
+                Verdone
+
+            </div>
+
+        </div>
+
+
+        <div class="drinkCard">
+
+            <div class="drinkIcon">
+
+                🥭
+
+            </div>
+
+            <div>
+
+                Passoã
+
+            </div>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- RSVP -->
+<!-- =====================================================
+     RSVP
+===================================================== -->
 
 <section id="rsvp">
+
 
     <div class="sectionHeader">
 
         <div class="sectionEyebrow">
+
             RSVP
+
         </div>
 
+
         <h2 class="sectionTitle">
+
             📝 Dimmi <span>cosa vuoi.</span>
+
         </h2>
 
     </div>
 
+
     <div class="rsvpBox">
 
+
         <p class="rsvpIntro">
+
             Mi serve solo sapere chi viene e quanta roba
             devo mettere sulla griglia. 😎
+
             <br>
-            La tua risposta verrà preparata automaticamente su WhatsApp.
+
+            La tua risposta verrà preparata automaticamente
+            su WhatsApp.
+
         </p>
 
 
@@ -1058,8 +2013,11 @@ footer{
         <div class="formGroup">
 
             <label class="formLabel">
+
                 👤 Come ti chiami?
+
             </label>
+
 
             <input
                 id="nome"
@@ -1076,10 +2034,14 @@ footer{
         <div class="formGroup">
 
             <label class="formLabel">
+
                 🎉 Ci sei?
+
             </label>
 
+
             <div class="presenceGrid">
+
 
                 <div class="presenceButton">
 
@@ -1090,11 +2052,15 @@ footer{
                         value="SI"
                     >
 
+
                     <label for="si">
+
                         ✅ Sì, ci sono!
+
                     </label>
 
                 </div>
+
 
                 <div class="presenceButton">
 
@@ -1105,11 +2071,15 @@ footer{
                         value="NO"
                     >
 
+
                     <label for="no">
+
                         ❌ Non riesco
+
                     </label>
 
                 </div>
+
 
             </div>
 
@@ -1120,146 +2090,252 @@ footer{
 
         <div class="formGroup">
 
+
             <label class="formLabel">
+
                 🍖 Quanto vuoi mangiare?
+
             </label>
 
+
             <div class="quantityList">
+
+
+                <!-- WURSTEL -->
 
                 <div
                     class="quantityRow"
                     id="row-wurstel">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🌭</div>
-                        <div class="quantityName">Wurstel</div>
+
+                        <div class="quantityEmoji">
+
+                            🌭
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Wurstel
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('wurstel',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-wurstel"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('wurstel',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- SPIEDINI -->
 
                 <div
                     class="quantityRow"
                     id="row-spiedini">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🍢</div>
-                        <div class="quantityName">Spiedini</div>
+
+                        <div class="quantityEmoji">
+
+                            🍢
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Spiedini
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('spiedini',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-spiedini"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('spiedini',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- ARROSTICINI -->
 
                 <div
                     class="quantityRow"
                     id="row-arrosticini">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🔥</div>
-                        <div class="quantityName">Arrosticini</div>
+
+                        <div class="quantityEmoji">
+
+                            🔥
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Arrosticini
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('arrosticini',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-arrosticini"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('arrosticini',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- COSTINE -->
 
                 <div
                     class="quantityRow"
                     id="row-costine">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🥩</div>
-                        <div class="quantityName">Costine</div>
+
+                        <div class="quantityEmoji">
+
+                            🥩
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Costine
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('costine',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-costine"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('costine',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -1270,147 +2346,252 @@ footer{
 
         <div class="formGroup">
 
+
             <label class="formLabel">
+
                 🍻 Quanto vuoi bere?
+
             </label>
+
 
             <div class="quantityList">
 
+
+                <!-- BIRRA -->
 
                 <div
                     class="quantityRow"
                     id="row-birra">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🍺</div>
-                        <div class="quantityName">Birra</div>
+
+                        <div class="quantityEmoji">
+
+                            🍺
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Birra
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('birra',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-birra"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('birra',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- APEROL -->
 
                 <div
                     class="quantityRow"
                     id="row-aperol">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🍹</div>
-                        <div class="quantityName">Aperol Spritz</div>
+
+                        <div class="quantityEmoji">
+
+                            🍹
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Aperol Spritz
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('aperol',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-aperol"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('aperol',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- VERDONE -->
 
                 <div
                     class="quantityRow"
                     id="row-verdone">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🍸</div>
-                        <div class="quantityName">Verdone</div>
+
+                        <div class="quantityEmoji">
+
+                            🍸
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Verdone
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('verdone',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-verdone"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('verdone',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- PASSOA -->
 
                 <div
                     class="quantityRow"
                     id="row-passoa">
 
+
                     <div class="quantityInfo">
-                        <div class="quantityEmoji">🥭</div>
-                        <div class="quantityName">Passoã</div>
+
+                        <div class="quantityEmoji">
+
+                            🥭
+
+                        </div>
+
+                        <div class="quantityName">
+
+                            Passoã
+
+                        </div>
+
                     </div>
 
+
                     <div class="quantityControls">
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('passoa',-1)">
+
                             −
+
                         </button>
+
 
                         <div
                             id="qty-passoa"
                             class="qtyValue">
+
                             0
+
                         </div>
+
 
                         <button
                             class="qtyButton"
                             onclick="changeQty('passoa',1)">
+
                             +
+
                         </button>
+
 
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -1421,9 +2602,13 @@ footer{
 
         <div class="formGroup">
 
+
             <label class="formLabel">
+
                 💬 Qualcosa da dirmi?
+
             </label>
+
 
             <textarea
                 id="note"
@@ -1443,39 +2628,57 @@ footer{
 
         </button>
 
+
         <div class="sendNote">
+
             Si aprirà WhatsApp con il messaggio già compilato.
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- FINALE -->
+<!-- =====================================================
+     FINALE
+===================================================== -->
 
 <section class="final">
 
+
     <div class="finalEmoji">
+
         🎉 🔥 🍖 🍻 🎂
+
     </div>
 
+
     <h2>
+
         CI VEDIAMO<br>
         ALLA FESTA.
+
     </h2>
 
+
     <p>
+
         Mercoledì si mangia.<br>
         Si beve.<br>
         E si festeggia. 🔥
+
     </p>
+
 
 </section>
 
 
 <footer>
+
     Matteo's Birthday Party · 2026
+
 </footer>
 
 
@@ -1485,71 +2688,198 @@ footer{
    CONFIGURAZIONE
 ========================================================= */
 
-/*
-   METTI QUI IL TUO NUMERO WHATSAPP.
-
-   Esempio:
-   393401234567
-
-   NON mettere +39, spazi o trattini.
-*/
-
 const NUMERO_WHATSAPP = "393518019649";
+
+const PASSWORD = "luna";
+
+const YOUTUBE_VIDEO_ID = "JFOLJwOoorQ";
 
 
 /* =========================================================
-   PASSWORD
+   VARIABILI YOUTUBE
+========================================================= */
+
+let player = null;
+
+let youtubeReady = false;
+
+
+/* =========================================================
+   CARICAMENTO API YOUTUBE
+========================================================= */
+
+function loadYouTubeAPI(){
+
+    const tag =
+        document.createElement("script");
+
+    tag.src =
+        "https://www.youtube.com/iframe_api";
+
+    document.head.appendChild(tag);
+
+}
+
+loadYouTubeAPI();
+
+
+/* =========================================================
+   YOUTUBE PRONTO
+========================================================= */
+
+function onYouTubeIframeAPIReady(){
+
+    player =
+        new YT.Player(
+            "youtubePlayer",
+            {
+
+                width:"1",
+                height:"1",
+
+                videoId:
+                    YOUTUBE_VIDEO_ID,
+
+                playerVars:{
+
+                    autoplay:0,
+
+                    controls:0,
+
+                    rel:0,
+
+                    playsinline:1,
+
+                    modestbranding:1
+
+                },
+
+                events:{
+
+                    onReady:function(){
+
+                        youtubeReady=true;
+
+                        console.log(
+                            "🎵 YouTube pronto"
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   PASSWORD + MUSICA
 ========================================================= */
 
 function checkPassword(){
 
     const password =
-        document.getElementById("passwordInput").value;
+        document.getElementById(
+            "passwordInput"
+        ).value;
 
-    if(password === "luna"){
 
-        document.getElementById("passwordScreen").style.display="none";
+    if(password !== PASSWORD){
 
-        document.getElementById("musicBox").style.display="block";
+        document.getElementById(
+            "passwordError"
+        ).style.display="block";
 
-        for(let i=0;i<80;i++){
+        document.getElementById(
+            "passwordInput"
+        ).value="";
 
-            setTimeout(createConfetti,i*15);
+        return;
+
+    }
+
+
+    /*
+       IMPORTANTISSIMO:
+
+       Il click sul pulsante ENTRA
+       è l'interazione dell'utente.
+
+       Tentiamo quindi immediatamente
+       di far partire YouTube.
+    */
+
+    if(player && youtubeReady){
+
+        try{
+
+            player.unMute();
+
+            player.setVolume(100);
+
+            player.playVideo();
+
+        }catch(error){
+
+            console.log(
+                "Autoplay bloccato:",
+                error
+            );
 
         }
 
-        /*
-           IMPORTANTE:
-           Il primo tocco/click successivo alla password
-           farà partire la musica.
-        */
+    }
 
-        document.addEventListener(
-            "pointerdown",
-            firstTouchMusic,
-            {once:true}
+
+    /*
+       Nasconde la password
+    */
+
+    document.getElementById(
+        "passwordScreen"
+    ).style.display="none";
+
+
+    /*
+       Coriandoli
+    */
+
+    for(
+        let i=0;
+        i<80;
+        i++
+    ){
+
+        setTimeout(
+            createConfetti,
+            i*15
         );
-
-    }else{
-
-        document.getElementById("passwordError").style.display="block";
-
-        document.getElementById("passwordInput").value="";
 
     }
 
 }
 
-document.getElementById("passwordInput").addEventListener(
-    "keydown",
-    function(e){
 
-        if(e.key==="Enter"){
-            checkPassword();
+/* =========================================================
+   INVIO CON ENTER
+========================================================= */
+
+document
+    .getElementById("passwordInput")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key==="Enter"){
+
+                checkPassword();
+
+            }
+
         }
-
-    }
-);
+    );
 
 
 /* =========================================================
@@ -1559,42 +2889,78 @@ document.getElementById("passwordInput").addEventListener(
 const quantities={
 
     wurstel:0,
+
     spiedini:0,
+
     arrosticini:0,
+
     costine:0,
 
     birra:0,
+
     aperol:0,
+
     verdone:0,
+
     passoa:0
 
 };
 
 
-function changeQty(item,amount){
+function changeQty(
+    item,
+    amount
+){
 
-    quantities[item]+=amount;
+    quantities[item] += amount;
 
-    if(quantities[item]<0){
+
+    if(
+        quantities[item]<0
+    ){
+
         quantities[item]=0;
+
     }
 
-    if(quantities[item]>99){
+
+    if(
+        quantities[item]>99
+    ){
+
         quantities[item]=99;
+
     }
 
-    document.getElementById(
-        "qty-"+item
-    ).textContent=quantities[item];
 
-    const row=document.getElementById(
-        "row-"+item
-    );
+    document
+        .getElementById(
+            "qty-"+item
+        )
+        .textContent =
+        quantities[item];
 
-    if(quantities[item]>0){
-        row.classList.add("active");
+
+    const row =
+        document.getElementById(
+            "row-"+item
+        );
+
+
+    if(
+        quantities[item]>0
+    ){
+
+        row.classList.add(
+            "active"
+        );
+
     }else{
-        row.classList.remove("active");
+
+        row.classList.remove(
+            "active"
+        );
+
     }
 
 }
@@ -1605,51 +2971,93 @@ function changeQty(item,amount){
 ========================================================= */
 
 const partyDate =
-    new Date("August 26, 2026 19:30:00").getTime();
+    new Date(
+        "August 26, 2026 19:30:00"
+    ).getTime();
 
 
 function updateCountdown(){
 
     const distance =
-        partyDate-new Date().getTime();
+        partyDate -
+        new Date().getTime();
+
 
     if(distance<=0){
 
-        ["days","hours","minutes","seconds"]
-        .forEach(id=>{
-            document.getElementById(id).textContent="🎉";
-        });
+        [
+            "days",
+            "hours",
+            "minutes",
+            "seconds"
+        ].forEach(
+            function(id){
 
-        return;
-    }
+                document
+                    .getElementById(id)
+                    .textContent="🎉";
 
-    document.getElementById("days").textContent=
-        Math.floor(
-            distance/(1000*60*60*24)
+            }
         );
 
-    document.getElementById("hours").textContent=
+        return;
+
+    }
+
+
+    document
+        .getElementById("days")
+        .textContent =
         Math.floor(
-            (distance%(1000*60*60*24))/
+            distance /
+            (1000*60*60*24)
+        );
+
+
+    document
+        .getElementById("hours")
+        .textContent =
+        Math.floor(
+            (
+                distance %
+                (1000*60*60*24)
+            ) /
             (1000*60*60)
         );
 
-    document.getElementById("minutes").textContent=
+
+    document
+        .getElementById("minutes")
+        .textContent =
         Math.floor(
-            (distance%(1000*60*60))/
+            (
+                distance %
+                (1000*60*60)
+            ) /
             (1000*60)
         );
 
-    document.getElementById("seconds").textContent=
+
+    document
+        .getElementById("seconds")
+        .textContent =
         Math.floor(
-            (distance%(1000*60))/1000
+            (
+                distance %
+                (1000*60)
+            ) /
+            1000
         );
 
 }
 
+
 updateCountdown();
 
-setInterval(updateCountdown,1000);
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
 /* =========================================================
@@ -1658,64 +3066,143 @@ setInterval(updateCountdown,1000);
 
 function sendWhatsApp(){
 
-    const nome=
-        document.getElementById("nome").value.trim();
+    const nome =
+        document
+            .getElementById("nome")
+            .value
+            .trim();
 
-    const presenza=
+
+    const presenza =
         document.querySelector(
             'input[name="presenza"]:checked'
         );
 
+
     if(!nome){
 
-        alert("Scrivi prima il tuo nome 👤");
+        alert(
+            "Scrivi prima il tuo nome 👤"
+        );
 
         return;
+
     }
+
 
     if(!presenza){
 
-        alert("Seleziona se ci sarai 🎉");
+        alert(
+            "Seleziona se ci sarai 🎉"
+        );
 
         return;
+
     }
 
 
     const cibo=[];
 
-    if(quantities.wurstel>0)
-        cibo.push(`🌭 Wurstel × ${quantities.wurstel}`);
 
-    if(quantities.spiedini>0)
-        cibo.push(`🍢 Spiedini × ${quantities.spiedini}`);
+    if(
+        quantities.wurstel>0
+    ){
 
-    if(quantities.arrosticini>0)
-        cibo.push(`🔥 Arrosticini × ${quantities.arrosticini}`);
+        cibo.push(
+            `🌭 Wurstel × ${quantities.wurstel}`
+        );
 
-    if(quantities.costine>0)
-        cibo.push(`🥩 Costine × ${quantities.costine}`);
+    }
+
+
+    if(
+        quantities.spiedini>0
+    ){
+
+        cibo.push(
+            `🍢 Spiedini × ${quantities.spiedini}`
+        );
+
+    }
+
+
+    if(
+        quantities.arrosticini>0
+    ){
+
+        cibo.push(
+            `🔥 Arrosticini × ${quantities.arrosticini}`
+        );
+
+    }
+
+
+    if(
+        quantities.costine>0
+    ){
+
+        cibo.push(
+            `🥩 Costine × ${quantities.costine}`
+        );
+
+    }
 
 
     const bevande=[];
 
-    if(quantities.birra>0)
-        bevande.push(`🍺 Birra × ${quantities.birra}`);
 
-    if(quantities.aperol>0)
-        bevande.push(`🍹 Aperol Spritz × ${quantities.aperol}`);
+    if(
+        quantities.birra>0
+    ){
 
-    if(quantities.verdone>0)
-        bevande.push(`🍸 Verdone × ${quantities.verdone}`);
+        bevande.push(
+            `🍺 Birra × ${quantities.birra}`
+        );
 
-    if(quantities.passoa>0)
-        bevande.push(`🥭 Passoã × ${quantities.passoa}`);
-
-
-    const note=
-        document.getElementById("note").value.trim();
+    }
 
 
-    const messaggio=
+    if(
+        quantities.aperol>0
+    ){
+
+        bevande.push(
+            `🍹 Aperol Spritz × ${quantities.aperol}`
+        );
+
+    }
+
+
+    if(
+        quantities.verdone>0
+    ){
+
+        bevande.push(
+            `🍸 Verdone × ${quantities.verdone}`
+        );
+
+    }
+
+
+    if(
+        quantities.passoa>0
+    ){
+
+        bevande.push(
+            `🥭 Passoã × ${quantities.passoa}`
+        );
+
+    }
+
+
+    const note =
+        document
+            .getElementById("note")
+            .value
+            .trim();
+
+
+    const messaggio =
 
 `🎂 *COMPLEANNO MATTEO* 🎂
 
@@ -1728,6 +3215,7 @@ function sendWhatsApp(){
 }
 
 🍖 *CIBO*
+
 ${
     cibo.length
     ? cibo.join("\n")
@@ -1735,6 +3223,7 @@ ${
 }
 
 🍻 *BEVANDE*
+
 ${
     bevande.length
     ? bevande.join("\n")
@@ -1742,153 +3231,25 @@ ${
 }
 
 💬 *NOTE*
+
 ${note || "Nessuna"}
 
 🔥 Ci vediamo alla festa!`;
 
 
-    const url=
-        "https://wa.me/"+
-        NUMERO_WHATSAPP+
-        "?text="+
-        encodeURIComponent(messaggio);
+    const url =
+        "https://wa.me/" +
+        NUMERO_WHATSAPP +
+        "?text=" +
+        encodeURIComponent(
+            messaggio
+        );
 
 
-    window.open(url,"_blank");
-
-}
-
-
-/* =========================================================
-   YOUTUBE
-========================================================= */
-
-let player=null;
-let musicStarted=false;
-
-
-/*
-   ID DEL VIDEO:
-
-   https://youtu.be/JFOLJwOoorQ
-
-   ↓
-
-   JFOLJwOoorQ
-*/
-
-
-const YOUTUBE_VIDEO_ID="JFOLJwOoorQ";
-
-
-function loadYouTubeAPI(){
-
-    const tag=document.createElement("script");
-
-    tag.src=
-        "https://www.youtube.com/iframe_api";
-
-    document.head.appendChild(tag);
-
-}
-
-
-function onYouTubeIframeAPIReady(){
-
-    player=new YT.Player(
-        "youtubePlayer",
-        {
-
-            height:"124",
-            width:"220",
-
-            videoId:YOUTUBE_VIDEO_ID,
-
-            playerVars:{
-
-                autoplay:0,
-                controls:1,
-                rel:0,
-                playsinline:1
-
-            },
-
-            events:{
-
-                onReady:function(){
-
-                    console.log(
-                        "YouTube pronto"
-                    );
-
-                }
-
-            }
-
-        }
+    window.open(
+        url,
+        "_blank"
     );
-
-}
-
-
-loadYouTubeAPI();
-
-
-function firstTouchMusic(){
-
-    if(!musicStarted){
-
-        startMusic();
-
-    }
-
-}
-
-
-function startMusic(){
-
-    if(!player){
-        return;
-    }
-
-    player.playVideo();
-
-    musicStarted=true;
-
-    document.getElementById(
-        "musicButton"
-    ).textContent="🔊 MUSICA ON";
-
-}
-
-
-function toggleMusic(){
-
-    if(!player){
-        return;
-    }
-
-    if(!musicStarted){
-
-        player.playVideo();
-
-        musicStarted=true;
-
-        document.getElementById(
-            "musicButton"
-        ).textContent="🔊 MUSICA ON";
-
-    }else{
-
-        player.pauseVideo();
-
-        musicStarted=false;
-
-        document.getElementById(
-            "musicButton"
-        ).textContent="🎵 AVVIA MUSICA";
-
-    }
 
 }
 
@@ -1899,42 +3260,77 @@ function toggleMusic(){
 
 function createConfetti(){
 
-    const piece=
-        document.createElement("div");
+    const piece =
+        document.createElement(
+            "div"
+        );
 
-    piece.className="confetti";
+
+    piece.className =
+        "confetti";
+
 
     const colors=[
+
         "#ff3b30",
+
         "#ffb300",
+
         "#ff3b81",
+
         "#ffffff",
+
         "#ff6b35"
+
     ];
 
-    piece.style.background=
+
+    piece.style.background =
         colors[
             Math.floor(
-                Math.random()*colors.length
+                Math.random() *
+                colors.length
             )
         ];
 
-    piece.style.left=
-        Math.random()*100+"vw";
 
-    piece.style.animationDuration=
-        (Math.random()*3+3)+"s";
+    piece.style.left =
+        Math.random()*100 +
+        "vw";
 
-    piece.style.width=
-        (Math.random()*6+5)+"px";
 
-    piece.style.height=
-        (Math.random()*8+8)+"px";
+    piece.style.animationDuration =
+        (
+            Math.random()*3+3
+        ) +
+        "s";
 
-    document.body.appendChild(piece);
+
+    piece.style.width =
+        (
+            Math.random()*6+5
+        ) +
+        "px";
+
+
+    piece.style.height =
+        (
+            Math.random()*8+8
+        ) +
+        "px";
+
+
+    document.body.appendChild(
+        piece
+    );
+
 
     setTimeout(
-        ()=>piece.remove(),
+        function(){
+
+            piece.remove();
+
+        },
         7000
     );
 
@@ -1942,5 +3338,7 @@ function createConfetti(){
 
 </script>
 
+
 </body>
+
 </html>
