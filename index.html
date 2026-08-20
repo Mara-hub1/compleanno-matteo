@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="theme-color" content="#050505">
-
-<!-- ANTEPRIMA WHATSAPP -->
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="🎂 Matteo's Birthday Party">
@@ -24,975 +19,635 @@
 
 <title>Matteo's Birthday 🎂</title>
 
-
 <style>
 
-/* =========================
-   BASE
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #050505;
-    color: white;
-    overflow-x: hidden;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
     background:
-        radial-gradient(circle at 20% 10%, rgba(255,60,0,.20), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(255,170,0,.15), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(255,0,90,.14), transparent 35%);
-
-    animation: backgroundMove 12s infinite alternate ease-in-out;
+        radial-gradient(circle at 20% 10%,rgba(255,60,0,.20),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(255,170,0,.15),transparent 30%),
+        radial-gradient(circle at 50% 80%,rgba(255,0,90,.14),transparent 35%);
+    animation:bgmove 12s infinite alternate ease-in-out;
 }
 
-@keyframes backgroundMove {
-    from { transform: scale(1); }
-    to { transform: scale(1.15); }
+@keyframes bgmove{
+    from{transform:scale(1)}
+    to{transform:scale(1.15)}
 }
 
 
-/* =========================
-   PASSWORD
-========================= */
+/* PASSWORD */
 
-#password-screen {
-    position: fixed;
-    inset: 0;
-    z-index: 20000;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
+#password-screen{
+    position:fixed;
+    inset:0;
+    z-index:20000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
     background:
-        radial-gradient(circle at center, rgba(255,120,0,.15), transparent 60%),
+        radial-gradient(circle at center,rgba(255,120,0,.15),transparent 60%),
         #050505;
 }
 
-.password-box {
-    width: 100%;
-    max-width: 430px;
-
-    padding: 45px 25px;
-
-    text-align: center;
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow: 0 30px 80px rgba(0,0,0,.6);
-
-    animation: passwordAppear 1s ease;
+.password-box{
+    width:100%;
+    max-width:430px;
+    padding:45px 25px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+    animation:appear 1s ease;
 }
 
-.lock {
-    font-size: 60px;
-    margin-bottom: 20px;
-
-    animation: lockPulse 2s infinite;
+.lock{
+    font-size:60px;
+    margin-bottom:20px;
+    animation:pulse 2s infinite;
 }
 
-.password-small {
-    color: #ffb300;
-    letter-spacing: 4px;
-    font-size: 12px;
-    margin-bottom: 15px;
+.password-small{
+    color:#ffb300;
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:15px;
 }
 
-.password-box h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
+.password-box h1{
+    font-size:32px;
+    margin-bottom:12px;
 }
 
-.password-box p {
-    color: #999;
-    line-height: 1.5;
-    margin-bottom: 25px;
+.password-box p{
+    color:#999;
+    line-height:1.5;
+    margin-bottom:25px;
 }
 
-.password-box input {
-    width: 100%;
-
-    padding: 17px;
-
-    border-radius: 15px;
-
-    border: 1px solid rgba(255,255,255,.15);
-
-    background: rgba(0,0,0,.45);
-
-    color: white;
-
-    text-align: center;
-
-    font-size: 17px;
-
-    outline: none;
+.password-box input{
+    width:100%;
+    padding:17px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.45);
+    color:white;
+    text-align:center;
+    font-size:17px;
+    outline:none;
 }
 
-.password-box input:focus {
-    border-color: #ffb300;
+.password-box button{
+    width:100%;
+    margin-top:15px;
+    padding:17px;
+    border:0;
+    border-radius:15px;
+    background:linear-gradient(90deg,#ff3b30,#ffb300);
+    color:white;
+    font-weight:900;
+    font-size:15px;
+    cursor:pointer;
 }
 
-.password-box button {
-    width: 100%;
-
-    margin-top: 15px;
-
-    padding: 17px;
-
-    border: none;
-
-    border-radius: 15px;
-
-    background: linear-gradient(90deg,#ff3b30,#ffb300);
-
-    color: white;
-
-    font-weight: 900;
-
-    font-size: 15px;
-
-    cursor: pointer;
+#password-error{
+    display:none;
+    color:#ff4b4b;
+    margin-top:15px;
 }
 
-#password-error {
-    display: none;
-
-    color: #ff4b4b;
-
-    margin-top: 15px;
-
-    font-size: 14px;
-}
-
-@keyframes passwordAppear {
-    from {
-        opacity: 0;
-        transform: scale(.8) translateY(30px);
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:scale(.8) translateY(30px);
     }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
     }
 }
 
-@keyframes lockPulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.12); }
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.12)}
 }
 
 
-/* =========================
-   MUSIC
-========================= */
+/* MUSIC */
 
-#music-button {
-    position: fixed;
-
-    top: 20px;
-    right: 20px;
-
-    z-index: 1000;
-
-    border: 1px solid rgba(255,255,255,.15);
-
-    background: rgba(0,0,0,.55);
-
-    color: white;
-
-    backdrop-filter: blur(10px);
-
-    border-radius: 100px;
-
-    padding: 12px 16px;
-
-    font-size: 14px;
-
-    cursor: pointer;
+#music-button{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.55);
+    color:white;
+    backdrop-filter:blur(10px);
+    border-radius:100px;
+    padding:12px 16px;
+    font-size:14px;
+    cursor:pointer;
 }
 
-#music-button.playing {
-    background: linear-gradient(
-        90deg,
-        rgba(255,59,48,.7),
-        rgba(255,179,0,.7)
-    );
-
-    animation: musicPulse 1.5s infinite;
+#music-button.playing{
+    background:linear-gradient(90deg,rgba(255,59,48,.7),rgba(255,179,0,.7));
+    animation:musicpulse 1.5s infinite;
 }
 
-@keyframes musicPulse {
-    0%,100% {
-        box-shadow: 0 0 0 rgba(255,179,0,0);
+@keyframes musicpulse{
+    0%,100%{box-shadow:0 0 0 rgba(255,179,0,0)}
+    50%{box-shadow:0 0 25px rgba(255,179,0,.35)}
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    position:relative;
+}
+
+.hero-content{
+    animation:heroappear 1.5s ease .5s both;
+}
+
+.hero-label{
+    color:#ffb300;
+    letter-spacing:5px;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(55px,15vw,140px);
+    font-weight:1000;
+    line-height:.8;
+    background:linear-gradient(90deg,#ff3b30,#ffb300,#ff3b81,#ff3b30);
+    background-size:300%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:gradient 5s linear infinite;
+}
+
+.hero h2{
+    margin-top:25px;
+    font-size:clamp(24px,6vw,50px);
+}
+
+.hero p{
+    margin-top:20px;
+    color:#aaa;
+    font-size:17px;
+}
+
+@keyframes heroappear{
+    from{
+        opacity:0;
+        transform:translateY(40px);
     }
-
-    50% {
-        box-shadow: 0 0 25px rgba(255,179,0,.35);
-    }
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 30px;
-
-    position: relative;
-}
-
-.hero-content {
-    animation: heroAppear 1.5s ease .5s both;
-}
-
-.hero-label {
-    color: #ffb300;
-
-    letter-spacing: 5px;
-
-    font-size: 14px;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(55px,15vw,140px);
-
-    font-weight: 1000;
-
-    line-height: .8;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300,
-            #ff3b81,
-            #ff3b30
-        );
-
-    background-size: 300%;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    animation: gradientMove 5s linear infinite;
-}
-
-.hero h2 {
-    margin-top: 25px;
-
-    font-size: clamp(24px,6vw,50px);
-}
-
-.hero p {
-    margin-top: 20px;
-
-    color: #aaa;
-
-    font-size: 17px;
-}
-
-@keyframes heroAppear {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-@keyframes gradientMove {
-    from { background-position: 0%; }
-    to { background-position: 300%; }
+@keyframes gradient{
+    from{background-position:0}
+    to{background-position:300%}
 }
 
-.scroll {
-    position: absolute;
-
-    bottom: 30px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    color: #888;
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    animation: scrollBounce 2s infinite;
+.scroll{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#888;
+    font-size:12px;
+    letter-spacing:3px;
+    animation:scrollbounce 2s infinite;
 }
 
-@keyframes scrollBounce {
-    0%,100% {
-        transform: translate(-50%,0);
+@keyframes scrollbounce{
+    0%,100%{transform:translate(-50%,0)}
+    50%{transform:translate(-50%,-10px)}
+}
+
+
+/* SEZIONI */
+
+section{
+    max-width:1050px;
+    margin:auto;
+    padding:100px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:clamp(32px,7vw,55px);
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:#ffb300;
+}
+
+
+/* DATA */
+
+.date-box{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.date-card{
+    padding:40px 20px;
+    text-align:center;
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.12);
+    transition:.4s;
+}
+
+.date-card:hover{
+    transform:translateY(-10px);
+    border-color:#ffb300;
+}
+
+.date-icon{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.date-card h3{
+    font-size:28px;
+}
+
+.date-card p{
+    color:#999;
+    margin-top:10px;
+}
+
+
+/* COUNTDOWN */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    max-width:750px;
+    margin:50px auto 0;
+}
+
+.count{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:25px 10px;
+    text-align:center;
+}
+
+.count-number{
+    font-size:clamp(30px,7vw,55px);
+    font-weight:900;
+    color:#ffb300;
+}
+
+.count-label{
+    color:#777;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+
+/* GRIGLIATA */
+
+.grill{
+    padding:50px 20px;
+    border-radius:35px;
+    background:linear-gradient(135deg,rgba(255,80,0,.12),rgba(255,160,0,.04));
+    border:1px solid rgba(255,100,0,.2);
+}
+
+.fire{
+    text-align:center;
+    font-size:80px;
+    animation:fire 1s infinite alternate;
+}
+
+@keyframes fire{
+    from{transform:scale(1) rotate(-2deg)}
+    to{transform:scale(1.12) rotate(2deg)}
+}
+
+.grill-title{
+    text-align:center;
+    font-size:28px;
+    margin-top:15px;
+}
+
+.grill-sub{
+    text-align:center;
+    color:#999;
+    margin-top:10px;
+}
+
+.food-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.food{
+    text-align:center;
+    padding:25px 10px;
+    border-radius:22px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.4s;
+}
+
+.food:hover{
+    transform:translateY(-10px) rotate(-2deg);
+    border-color:#ff5a30;
+}
+
+.food-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+
+/* DRINK */
+
+.drinks{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.drink{
+    padding:18px 25px;
+    border-radius:100px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.3s;
+}
+
+.drink:hover{
+    transform:scale(1.08);
+    background:rgba(255,179,0,.12);
+    border-color:#ffb300;
+}
+
+
+/* FORM */
+
+.form-container{
+    padding:40px 25px;
+    border-radius:35px;
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.form-intro{
+    text-align:center;
+    color:#999;
+    margin-bottom:35px;
+    line-height:1.6;
+}
+
+.form-group{
+    margin-bottom:30px;
+}
+
+.form-label{
+    display:block;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.required{
+    color:#ffb300;
+}
+
+.text-input{
+    width:100%;
+    padding:17px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(0,0,0,.35);
+    color:white;
+    font-size:16px;
+    outline:none;
+    font-family:inherit;
+}
+
+textarea{
+    resize:vertical;
+}
+
+.text-input:focus{
+    border-color:#ffb300;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.option input{
+    position:absolute;
+    opacity:0;
+}
+
+.option label{
+    display:block;
+    padding:18px 15px;
+    border-radius:16px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+    cursor:pointer;
+    transition:.25s;
+    text-align:center;
+}
+
+.option input:checked + label{
+    background:rgba(255,179,0,.15);
+    border-color:#ffb300;
+    box-shadow:0 0 20px rgba(255,179,0,.12);
+    transform:scale(1.02);
+}
+
+.form-submit{
+    width:100%;
+    padding:20px;
+    border:0;
+    border-radius:18px;
+    background:linear-gradient(90deg,#25D366,#128C7E);
+    color:white;
+    font-size:17px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.form-submit:hover{
+    transform:scale(1.02);
+}
+
+.form-note{
+    text-align:center;
+    color:#666;
+    font-size:12px;
+    margin-top:15px;
+}
+
+
+/* TORTA */
+
+.cake-section{
+    text-align:center;
+}
+
+.cake{
+    display:inline-block;
+    margin-top:30px;
+    font-size:120px;
+    animation:cakefloat 3s infinite ease-in-out;
+}
+
+@keyframes cakefloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+
+/* FINALE */
+
+.final{
+    text-align:center;
+    padding:120px 20px;
+}
+
+.final-emojis{
+    font-size:45px;
+    margin-bottom:30px;
+}
+
+.final h2{
+    font-size:clamp(35px,8vw,70px);
+    background:linear-gradient(90deg,#ff3b30,#ffb300,#ff3b81);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.final p{
+    margin-top:20px;
+    color:#999;
+    font-size:18px;
+    line-height:1.8;
+}
+
+footer{
+    text-align:center;
+    padding:40px 20px 70px;
+    color:#555;
+    font-size:12px;
+}
+
+
+/* CONFETTI */
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    width:8px;
+    height:14px;
+    pointer-events:none;
+    z-index:15000;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-20px) rotate(0deg);
+        opacity:1;
     }
-
-    50% {
-        transform: translate(-50%,-10px);
-    }
-}
-
-
-/* =========================
-   SEZIONI
-========================= */
-
-section {
-    max-width: 1050px;
-
-    margin: auto;
-
-    padding: 100px 20px;
-}
-
-.section-title {
-    text-align: center;
-
-    font-size: clamp(32px,7vw,55px);
-
-    margin-bottom: 50px;
-}
-
-.section-title span {
-    color: #ffb300;
-}
-
-
-/* =========================
-   DATA
-========================= */
-
-.date-box {
-    display: grid;
-
-    grid-template-columns: repeat(2,1fr);
-
-    gap: 20px;
-}
-
-.date-card {
-    padding: 40px 20px;
-
-    text-align: center;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.02)
-        );
-
-    border: 1px solid rgba(255,255,255,.12);
-
-    transition: .4s;
-}
-
-.date-card:hover {
-    transform: translateY(-10px);
-
-    border-color: #ffb300;
-
-    box-shadow:
-        0 20px 50px rgba(255,150,0,.12);
-}
-
-.date-icon {
-    font-size: 50px;
-
-    margin-bottom: 20px;
-}
-
-.date-card h3 {
-    font-size: 28px;
-}
-
-.date-card p {
-    color: #999;
-
-    margin-top: 10px;
-}
-
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-.countdown {
-    display: grid;
-
-    grid-template-columns: repeat(4,1fr);
-
-    gap: 12px;
-
-    max-width: 750px;
-
-    margin: 50px auto 0;
-}
-
-.count {
-    background: rgba(255,255,255,.05);
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    border-radius: 20px;
-
-    padding: 25px 10px;
-
-    text-align: center;
-}
-
-.count-number {
-    font-size: clamp(30px,7vw,55px);
-
-    font-weight: 900;
-
-    color: #ffb300;
-}
-
-.count-label {
-    color: #777;
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-}
-
-
-/* =========================
-   GRIGLIATA
-========================= */
-
-.grill {
-    position: relative;
-
-    padding: 50px 20px;
-
-    border-radius: 35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,80,0,.12),
-            rgba(255,160,0,.04)
-        );
-
-    border: 1px solid rgba(255,100,0,.2);
-}
-
-.fire {
-    text-align: center;
-
-    font-size: 80px;
-
-    animation: fireMove 1s infinite alternate;
-}
-
-@keyframes fireMove {
-    from {
-        transform: scale(1) rotate(-2deg);
-    }
-
-    to {
-        transform: scale(1.12) rotate(2deg);
-    }
-}
-
-.grill-title {
-    text-align: center;
-
-    font-size: 28px;
-
-    margin-top: 15px;
-}
-
-.grill-sub {
-    text-align: center;
-
-    color: #999;
-
-    margin-top: 10px;
-}
-
-.food-grid {
-    margin-top: 40px;
-
-    display: grid;
-
-    grid-template-columns: repeat(5,1fr);
-
-    gap: 15px;
-}
-
-.food {
-    text-align: center;
-
-    padding: 25px 10px;
-
-    border-radius: 22px;
-
-    background: rgba(255,255,255,.05);
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    transition: .4s;
-}
-
-.food:hover {
-    transform: translateY(-10px) rotate(-2deg);
-
-    border-color: #ff5a30;
-}
-
-.food-icon {
-    font-size: 42px;
-
-    margin-bottom: 15px;
-}
-
-.food-name {
-    font-weight: bold;
-}
-
-
-/* =========================
-   DRINK
-========================= */
-
-.drinks {
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-}
-
-.drink {
-    padding: 18px 25px;
-
-    border-radius: 100px;
-
-    background: rgba(255,255,255,.06);
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    transition: .3s;
-}
-
-.drink:hover {
-    transform: scale(1.08);
-
-    background: rgba(255,179,0,.12);
-
-    border-color: #ffb300;
-}
-
-
-/* =========================
-   FORM
-========================= */
-
-.form-container {
-    padding: 40px 25px;
-
-    border-radius: 35px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.025)
-        );
-
-    border: 1px solid rgba(255,255,255,.12);
-
-    box-shadow: 0 25px 70px rgba(0,0,0,.3);
-}
-
-.form-intro {
-    text-align: center;
-
-    color: #999;
-
-    margin-top: -25px;
-
-    margin-bottom: 35px;
-
-    line-height: 1.6;
-}
-
-.form-group {
-    margin-bottom: 30px;
-}
-
-.form-label {
-    display: block;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    margin-bottom: 15px;
-}
-
-.required {
-    color: #ffb300;
-}
-
-.text-input {
-    width: 100%;
-
-    padding: 17px;
-
-    border-radius: 15px;
-
-    border: 1px solid rgba(255,255,255,.12);
-
-    background: rgba(0,0,0,.35);
-
-    color: white;
-
-    font-size: 16px;
-
-    outline: none;
-}
-
-.text-input:focus {
-    border-color: #ffb300;
-}
-
-.options {
-    display: grid;
-
-    grid-template-columns: repeat(2,1fr);
-
-    gap: 12px;
-}
-
-.option {
-    position: relative;
-}
-
-.option input {
-    position: absolute;
-
-    opacity: 0;
-}
-
-.option label {
-    display: block;
-
-    padding: 18px 15px;
-
-    border-radius: 16px;
-
-    background: rgba(255,255,255,.04);
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    cursor: pointer;
-
-    transition: .25s;
-
-    text-align: center;
-}
-
-.option input:checked + label {
-    background: rgba(255,179,0,.15);
-
-    border-color: #ffb300;
-
-    box-shadow:
-        0 0 20px rgba(255,179,0,.12);
-
-    transform: scale(1.02);
-}
-
-.quantity {
-    margin-top: 12px;
-
-    display: none;
-}
-
-.quantity.show {
-    display: block;
-}
-
-.quantity input {
-    width: 100%;
-
-    padding: 12px;
-
-    border-radius: 12px;
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    background: rgba(0,0,0,.35);
-
-    color: white;
-
-    text-align: center;
-
-    font-size: 16px;
-}
-
-.form-submit {
-    width: 100%;
-
-    padding: 20px;
-
-    border: none;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300
-        );
-
-    color: white;
-
-    font-size: 17px;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.form-submit:hover {
-    transform: scale(1.02);
-}
-
-.form-submit:disabled {
-    opacity: .6;
-
-    cursor: wait;
-}
-
-.form-message {
-    display: none;
-
-    margin-top: 25px;
-
-    padding: 25px;
-
-    border-radius: 20px;
-
-    text-align: center;
-
-    background: rgba(0,255,120,.08);
-
-    border: 1px solid rgba(0,255,120,.25);
-
-    color: #8dffb2;
-
-    line-height: 1.6;
-}
-
-
-/* =========================
-   TORTA
-========================= */
-
-.cake-section {
-    text-align: center;
-}
-
-.cake {
-    display: inline-block;
-
-    margin-top: 30px;
-
-    font-size: 120px;
-
-    animation: cakeFloat 3s infinite ease-in-out;
-}
-
-@keyframes cakeFloat {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-.cake-text {
-    margin-top: 25px;
-
-    color: #aaa;
-}
-
-
-/* =========================
-   FINALE
-========================= */
-
-.final {
-    text-align: center;
-
-    padding: 120px 20px;
-}
-
-.final-emojis {
-    font-size: 45px;
-
-    margin-bottom: 30px;
-}
-
-.final h2 {
-    font-size: clamp(35px,8vw,70px);
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff3b30,
-            #ffb300,
-            #ff3b81
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.final p {
-    margin-top: 20px;
-
-    color: #999;
-
-    font-size: 18px;
-
-    line-height: 1.8;
-}
-
-footer {
-    text-align: center;
-
-    padding: 40px 20px 70px;
-
-    color: #555;
-
-    font-size: 12px;
-}
-
-
-/* =========================
-   CORIANDOLI
-========================= */
-
-.confetti {
-    position: fixed;
-
-    top: -20px;
-
-    width: 8px;
-    height: 14px;
-
-    pointer-events: none;
-
-    z-index: 15000;
-
-    animation: confettiFall linear forwards;
-}
-
-@keyframes confettiFall {
-    from {
-        transform: translateY(-20px) rotate(0deg);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0;
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
     }
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
-@media(max-width:700px) {
+@media(max-width:700px){
 
-    section {
-        padding: 75px 18px;
+    section{
+        padding:75px 18px;
     }
 
-    .date-box {
-        grid-template-columns: 1fr;
+    .date-box{
+        grid-template-columns:1fr;
     }
 
-    .countdown {
-        grid-template-columns: repeat(2,1fr);
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .food-grid {
-        grid-template-columns: repeat(2,1fr);
+    .food-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .food:last-child {
-        grid-column: span 2;
+    .food:last-child{
+        grid-column:span 2;
     }
 
-    .options {
-        grid-template-columns: 1fr;
+    .options{
+        grid-template-columns:1fr;
     }
 
-    .cake {
-        font-size: 95px;
+    .cake{
+        font-size:95px;
     }
 
 }
@@ -1001,21 +656,16 @@ footer {
 
 </head>
 
-
 <body>
 
 
-<!-- =========================
-     PASSWORD
-========================= -->
+<!-- PASSWORD -->
 
 <div id="password-screen">
 
     <div class="password-box">
 
-        <div class="lock">
-            🔒
-        </div>
+        <div class="lock">🔒</div>
 
         <div class="password-small">
             ACCESSO PRIVATO
@@ -1049,9 +699,7 @@ footer {
 </div>
 
 
-<!-- =========================
-     MUSIC
-========================= -->
+<!-- MUSICA -->
 
 <button
     id="music-button"
@@ -1063,9 +711,7 @@ footer {
 </button>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <header class="hero">
 
@@ -1096,9 +742,7 @@ footer {
 </header>
 
 
-<!-- =========================
-     DATA
-========================= -->
+<!-- DATA -->
 
 <section>
 
@@ -1110,33 +754,21 @@ footer {
 
         <div class="date-card">
 
-            <div class="date-icon">
-                📅
-            </div>
+            <div class="date-icon">📅</div>
 
-            <h3>
-                26 AGOSTO
-            </h3>
+            <h3>26 AGOSTO</h3>
 
-            <p>
-                Mercoledì
-            </p>
+            <p>Mercoledì</p>
 
         </div>
 
         <div class="date-card">
 
-            <div class="date-icon">
-                🕢
-            </div>
+            <div class="date-icon">🕢</div>
 
-            <h3>
-                19:30
-            </h3>
+            <h3>19:30</h3>
 
-            <p>
-                Si parte!
-            </p>
+            <p>Si parte!</p>
 
         </div>
 
@@ -1170,9 +802,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     GRIGLIATA
-========================= -->
+<!-- GRIGLIATA -->
 
 <section>
 
@@ -1182,9 +812,7 @@ footer {
 
     <div class="grill">
 
-        <div class="fire">
-            🔥
-        </div>
+        <div class="fire">🔥</div>
 
         <div class="grill-title">
             STASERA SI MANGIA SERIO
@@ -1198,27 +826,27 @@ footer {
 
             <div class="food">
                 <div class="food-icon">🌭</div>
-                <div class="food-name">Wurstel</div>
+                <div>Wurstel</div>
             </div>
 
             <div class="food">
                 <div class="food-icon">🥩</div>
-                <div class="food-name">Costine</div>
+                <div>Costine</div>
             </div>
 
             <div class="food">
                 <div class="food-icon">🍢</div>
-                <div class="food-name">Arrosticini</div>
+                <div>Arrosticini</div>
             </div>
 
             <div class="food">
                 <div class="food-icon">🌭</div>
-                <div class="food-name">Luganeghe</div>
+                <div>Luganeghe</div>
             </div>
 
             <div class="food">
                 <div class="food-icon">🍢</div>
-                <div class="food-name">Spiedini</div>
+                <div>Spiedini</div>
             </div>
 
         </div>
@@ -1228,9 +856,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     DRINK
-========================= -->
+<!-- DRINK -->
 
 <section>
 
@@ -1250,9 +876,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     MODULO
-========================= -->
+<!-- MODULO -->
 
 <section id="modulo">
 
@@ -1263,312 +887,184 @@ footer {
     <div class="form-container">
 
         <p class="form-intro">
-            Compila il modulo così riesco a capire
-            quante persone saremo e quanta roba prendere. 🍖🍻
+            Compila il modulo e inviami direttamente la tua risposta su WhatsApp. 🍖🍻
         </p>
 
 
-        <form id="birthday-form">
+        <!-- NOME -->
+
+        <div class="form-group">
+
+            <label class="form-label">
+                👤 Il tuo nome <span class="required">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                class="text-input"
+                placeholder="Scrivi il tuo nome"
+            >
+
+        </div>
 
 
-            <!-- NOME -->
+        <!-- PRESENZA -->
 
-            <div class="form-group">
+        <div class="form-group">
 
-                <label class="form-label">
-                    👤 Il tuo nome <span class="required">*</span>
-                </label>
+            <label class="form-label">
+                🎉 Ci sarai? <span class="required">*</span>
+            </label>
 
-                <input
-                    type="text"
-                    id="nome"
-                    class="text-input"
-                    placeholder="Scrivi il tuo nome"
-                    required
-                >
+            <div class="options">
 
-            </div>
+                <div class="option">
 
+                    <input
+                        type="radio"
+                        name="presenza"
+                        id="presente"
+                        value="SI"
+                    >
 
-            <!-- EMAIL -->
+                    <label for="presente">
+                        ✅ Sì, ci sono!
+                    </label>
 
-            <div class="form-group">
+                </div>
 
-                <label class="form-label">
-                    📧 Email
-                </label>
+                <div class="option">
 
-                <input
-                    type="email"
-                    id="email"
-                    class="text-input"
-                    placeholder="La tua email"
-                >
+                    <input
+                        type="radio"
+                        name="presenza"
+                        id="assente"
+                        value="NO"
+                    >
 
-            </div>
-
-
-            <!-- PRESENZA -->
-
-            <div class="form-group">
-
-                <label class="form-label">
-                    🎉 Ci sarai? <span class="required">*</span>
-                </label>
-
-                <div class="options">
-
-                    <div class="option">
-
-                        <input
-                            type="radio"
-                            name="presenza"
-                            id="presente"
-                            value="SI"
-                            required
-                        >
-
-                        <label for="presente">
-                            ✅ Sì, ci sono!
-                        </label>
-
-                    </div>
-
-                    <div class="option">
-
-                        <input
-                            type="radio"
-                            name="presenza"
-                            id="assente"
-                            value="NO"
-                        >
-
-                        <label for="assente">
-                            ❌ Non riesco
-                        </label>
-
-                    </div>
+                    <label for="assente">
+                        ❌ Non riesco
+                    </label>
 
                 </div>
 
             </div>
 
-
-            <!-- CIBO -->
-
-            <div class="form-group">
-
-                <label class="form-label">
-                    🍖 Cosa vuoi mangiare?
-                </label>
-
-                <div class="options">
+        </div>
 
 
-                    <div class="option">
+        <!-- CIBO -->
 
-                        <input
-                            type="checkbox"
-                            id="wurstel"
-                        >
+        <div class="form-group">
 
-                        <label for="wurstel">
-                            🌭 Wurstel
-                        </label>
+            <label class="form-label">
+                🍖 Cosa vuoi mangiare?
+            </label>
 
-                    </div>
+            <div class="options">
 
+                <div class="option">
+                    <input type="checkbox" id="wurstel">
+                    <label for="wurstel">🌭 Wurstel</label>
+                </div>
 
-                    <div class="option">
+                <div class="option">
+                    <input type="checkbox" id="costine">
+                    <label for="costine">🥩 Costine</label>
+                </div>
 
-                        <input
-                            type="checkbox"
-                            id="costine"
-                        >
+                <div class="option">
+                    <input type="checkbox" id="arrosticini">
+                    <label for="arrosticini">🍢 Arrosticini</label>
+                </div>
 
-                        <label for="costine">
-                            🥩 Costine
-                        </label>
+                <div class="option">
+                    <input type="checkbox" id="luganeghe">
+                    <label for="luganeghe">🌭 Luganeghe</label>
+                </div>
 
-                    </div>
-
-
-                    <div class="option">
-
-                        <input
-                            type="checkbox"
-                            id="arrosticini"
-                        >
-
-                        <label for="arrosticini">
-                            🍢 Arrosticini
-                        </label>
-
-                    </div>
-
-
-                    <div class="option">
-
-                        <input
-                            type="checkbox"
-                            id="luganeghe"
-                        >
-
-                        <label for="luganeghe">
-                            🌭 Luganeghe
-                        </label>
-
-                    </div>
-
-
-                    <div class="option">
-
-                        <input
-                            type="checkbox"
-                            id="spiedini"
-                        >
-
-                        <label for="spiedini">
-                            🍢 Spiedini
-                        </label>
-
-                    </div>
-
+                <div class="option">
+                    <input type="checkbox" id="spiedini">
+                    <label for="spiedini">🍢 Spiedini</label>
                 </div>
 
             </div>
 
-
-            <!-- BEVANDE -->
-
-            <div class="form-group">
-
-                <label class="form-label">
-                    🍻 Cosa bevi?
-                </label>
-
-                <div class="options">
+        </div>
 
 
-                    <div class="option">
+        <!-- BEVANDE -->
 
-                        <input
-                            type="checkbox"
-                            id="birra"
-                        >
+        <div class="form-group">
 
-                        <label for="birra">
-                            🍺 Birra
-                        </label>
+            <label class="form-label">
+                🍻 Cosa bevi?
+            </label>
 
-                    </div>
+            <div class="options">
 
+                <div class="option">
+                    <input type="checkbox" id="birra">
+                    <label for="birra">🍺 Birra</label>
+                </div>
 
-                    <div class="option">
+                <div class="option">
+                    <input type="checkbox" id="aperol">
+                    <label for="aperol">🍹 Aperol Spritz</label>
+                </div>
 
-                        <input
-                            type="checkbox"
-                            id="aperol"
-                        >
+                <div class="option">
+                    <input type="checkbox" id="verdone">
+                    <label for="verdone">🍸 Verdone</label>
+                </div>
 
-                        <label for="aperol">
-                            🍹 Aperol Spritz
-                        </label>
-
-                    </div>
-
-
-                    <div class="option">
-
-                        <input
-                            type="checkbox"
-                            id="verdone"
-                        >
-
-                        <label for="verdone">
-                            🍸 Verdone
-                        </label>
-
-                    </div>
-
-
-                    <div class="option">
-
-                        <input
-                            type="checkbox"
-                            id="passoa"
-                        >
-
-                        <label for="passoa">
-                            🥭 Passoã
-                        </label>
-
-                    </div>
-
+                <div class="option">
+                    <input type="checkbox" id="passoa">
+                    <label for="passoa">🥭 Passoã</label>
                 </div>
 
             </div>
 
-
-            <!-- NOTE -->
-
-            <div class="form-group">
-
-                <label class="form-label">
-                    💬 Note
-                </label>
-
-                <textarea
-                    id="note"
-                    class="text-input"
-                    rows="4"
-                    placeholder="Qualcosa che devo sapere?"
-                ></textarea>
-
-            </div>
+        </div>
 
 
-            <button
-                type="submit"
-                class="form-submit"
-                id="submit-button">
+        <!-- NOTE -->
 
-                🔥 CONFERMA PARTECIPAZIONE 🔥
+        <div class="form-group">
 
-            </button>
+            <label class="form-label">
+                💬 Note
+            </label>
 
+            <textarea
+                id="note"
+                class="text-input"
+                rows="4"
+                placeholder="Qualcosa che devo sapere?"
+            ></textarea>
 
-            <div
-                class="form-message"
-                id="form-message">
-
-                <div style="font-size:45px;">
-                    🎉
-                </div>
-
-                <strong>
-                    RISPOSTA REGISTRATA!
-                </strong>
-
-                <br><br>
-
-                Grazie!
-                <br>
-                Ci vediamo alla festa 🍻🔥
-
-            </div>
+        </div>
 
 
-        </form>
+        <button
+            class="form-submit"
+            onclick="sendWhatsApp()">
+
+            💚 INVIA RISPOSTA SU WHATSAPP
+
+        </button>
+
+        <div class="form-note">
+            Si aprirà WhatsApp con il messaggio già pronto.
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     TORTA
-========================= -->
+<!-- TORTA -->
 
 <section class="cake-section">
 
@@ -1580,16 +1076,14 @@ footer {
         🎂
     </div>
 
-    <div class="cake-text">
+    <p style="color:#aaa;margin-top:25px;">
         Una candela in più. Una festa in più. 🔥
-    </div>
+    </p>
 
 </section>
 
 
-<!-- =========================
-     FINALE
-========================= -->
+<!-- FINALE -->
 
 <section class="final">
 
@@ -1618,13 +1112,36 @@ footer {
 <script>
 
 
-/* =========================
+/* ==================================
+   NUMERO WHATSAPP
+================================== */
+
+/*
+   METTI QUI IL TUO NUMERO.
+
+   Esempio:
+   Italia 340 1234567
+
+   diventa:
+
+   393401234567
+
+   NON mettere:
+   +39
+   spazi
+   trattini
+*/
+
+const NUMERO_WHATSAPP = "393518019649";
+
+
+/* ==================================
    PASSWORD
-========================= */
+================================== */
 
-function checkPassword() {
+function checkPassword(){
 
-    const input =
+    const password =
         document.getElementById(
             "password-input"
         ).value;
@@ -1634,8 +1151,7 @@ function checkPassword() {
             "password-error"
         );
 
-
-    if (input === "luna") {
+    if(password === "luna"){
 
         document.getElementById(
             "password-screen"
@@ -1647,21 +1163,16 @@ function checkPassword() {
             "music-button"
         ).style.display = "block";
 
-
-        for (
-            let i = 0;
-            i < 120;
-            i++
-        ) {
+        for(let i=0;i<100;i++){
 
             setTimeout(
                 createConfetti,
-                i * 20
+                i*20
             );
 
         }
 
-    } else {
+    }else{
 
         error.style.display = "block";
 
@@ -1678,9 +1189,9 @@ document.getElementById(
     "password-input"
 ).addEventListener(
     "keydown",
-    function(event) {
+    function(e){
 
-        if (event.key === "Enter") {
+        if(e.key === "Enter"){
             checkPassword();
         }
 
@@ -1688,9 +1199,9 @@ document.getElementById(
 );
 
 
-/* =========================
+/* ==================================
    COUNTDOWN
-========================= */
+================================== */
 
 const partyDate =
     new Date(
@@ -1698,7 +1209,7 @@ const partyDate =
     ).getTime();
 
 
-function updateCountdown() {
+function updateCountdown(){
 
     const now =
         new Date().getTime();
@@ -1707,21 +1218,33 @@ function updateCountdown() {
         partyDate - now;
 
 
-    if (distance <= 0) {
+    if(distance <= 0){
 
-        document.getElementById("days").textContent = "🎉";
-        document.getElementById("hours").textContent = "🎉";
-        document.getElementById("minutes").textContent = "🎉";
-        document.getElementById("seconds").textContent = "🎉";
+        document.getElementById(
+            "days"
+        ).textContent = "🎉";
+
+        document.getElementById(
+            "hours"
+        ).textContent = "🎉";
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "🎉";
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "🎉";
 
         return;
+
     }
 
 
     const days =
         Math.floor(
             distance /
-            (1000 * 60 * 60 * 24)
+            (1000*60*60*24)
         );
 
 
@@ -1729,9 +1252,9 @@ function updateCountdown() {
         Math.floor(
             (
                 distance %
-                (1000 * 60 * 60 * 24)
+                (1000*60*60*24)
             ) /
-            (1000 * 60 * 60)
+            (1000*60*60)
         );
 
 
@@ -1739,9 +1262,9 @@ function updateCountdown() {
         Math.floor(
             (
                 distance %
-                (1000 * 60 * 60)
+                (1000*60*60)
             ) /
-            (1000 * 60)
+            (1000*60)
         );
 
 
@@ -1749,7 +1272,7 @@ function updateCountdown() {
         Math.floor(
             (
                 distance %
-                (1000 * 60)
+                (1000*60)
             ) /
             1000
         );
@@ -1782,218 +1305,196 @@ setInterval(
 );
 
 
-/* =========================
-   GOOGLE SHEETS
-========================= */
+/* ==================================
+   WHATSAPP
+================================== */
 
-const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzcHImH5bAfwiYBl08KRdjOoiN65fL5oGOuVLBIOeQMzQ6wE4LEgeSKMHh-tCu_eJL2zA/exec";
+function sendWhatsApp(){
 
-
-document.getElementById(
-    "birthday-form"
-).addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
+    const nome =
+        document.getElementById(
+            "nome"
+        ).value.trim();
 
 
-        const button =
-            document.getElementById(
-                "submit-button"
-            );
-
-        const message =
-            document.getElementById(
-                "form-message"
-            );
+    const presenza =
+        document.querySelector(
+            'input[name="presenza"]:checked'
+        );
 
 
-        button.disabled = true;
+    if(!nome){
 
-        button.textContent =
-            "⏳ INVIO IN CORSO...";
+        alert(
+            "Inserisci il tuo nome! 👤"
+        );
 
-
-        const presenza =
-            document.querySelector(
-                'input[name="presenza"]:checked'
-            );
-
-
-        const data = {
-
-            nome:
-                document.getElementById(
-                    "nome"
-                ).value,
-
-            email:
-                document.getElementById(
-                    "email"
-                ).value,
-
-            presenza:
-                presenza
-                ? presenza.value
-                : "",
-
-            wurstel:
-                document.getElementById(
-                    "wurstel"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            costine:
-                document.getElementById(
-                    "costine"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            arrosticini:
-                document.getElementById(
-                    "arrosticini"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            luganeghe:
-                document.getElementById(
-                    "luganeghe"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            spiedini:
-                document.getElementById(
-                    "spiedini"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            birra:
-                document.getElementById(
-                    "birra"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            aperol:
-                document.getElementById(
-                    "aperol"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            verdone:
-                document.getElementById(
-                    "verdone"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            passoa:
-                document.getElementById(
-                    "passoa"
-                ).checked
-                ? "SI"
-                : "NO",
-
-            note:
-                document.getElementById(
-                    "note"
-                ).value
-
-        };
-
-
-        try {
-
-            await fetch(
-                SCRIPT_URL,
-                {
-                    method: "POST",
-
-                    mode: "no-cors",
-
-                    headers: {
-                        "Content-Type":
-                            "text/plain;charset=utf-8"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-                }
-            );
-
-
-            message.style.display =
-                "block";
-
-
-            button.style.display =
-                "none";
-
-
-            message.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-
-            for (
-                let i = 0;
-                i < 60;
-                i++
-            ) {
-
-                setTimeout(
-                    createConfetti,
-                    i * 30
-                );
-
-            }
-
-
-        } catch (error) {
-
-            button.disabled = false;
-
-            button.textContent =
-                "🔥 RIPROVA L'INVIO 🔥";
-
-
-            alert(
-                "Si è verificato un errore. Riprova."
-            );
-
-        }
+        return;
 
     }
-);
 
 
-/* =========================
+    if(!presenza){
+
+        alert(
+            "Seleziona se ci sarai! 🎉"
+        );
+
+        return;
+
+    }
+
+
+    const cibo = [];
+
+    if(
+        document.getElementById(
+            "wurstel"
+        ).checked
+    ){
+        cibo.push("Wurstel");
+    }
+
+    if(
+        document.getElementById(
+            "costine"
+        ).checked
+    ){
+        cibo.push("Costine");
+    }
+
+    if(
+        document.getElementById(
+            "arrosticini"
+        ).checked
+    ){
+        cibo.push("Arrosticini");
+    }
+
+    if(
+        document.getElementById(
+            "luganeghe"
+        ).checked
+    ){
+        cibo.push("Luganeghe");
+    }
+
+    if(
+        document.getElementById(
+            "spiedini"
+        ).checked
+    ){
+        cibo.push("Spiedini");
+    }
+
+
+    const bevande = [];
+
+    if(
+        document.getElementById(
+            "birra"
+        ).checked
+    ){
+        bevande.push("Birra");
+    }
+
+    if(
+        document.getElementById(
+            "aperol"
+        ).checked
+    ){
+        bevande.push("Aperol Spritz");
+    }
+
+    if(
+        document.getElementById(
+            "verdone"
+        ).checked
+    ){
+        bevande.push("Verdone");
+    }
+
+    if(
+        document.getElementById(
+            "passoa"
+        ).checked
+    ){
+        bevande.push("Passoã");
+    }
+
+
+    const note =
+        document.getElementById(
+            "note"
+        ).value.trim();
+
+
+    let messaggio =
+`🎂 *COMPLEANNO MATTEO* 🎂
+
+👤 *Nome:* ${nome}
+
+🎉 *Presenza:* ${
+    presenza.value === "SI"
+    ? "Sì, ci sono!"
+    : "No, non riesco"
+}
+
+🍖 *Cibo:*
+${
+    cibo.length
+    ? cibo.map(x => "• " + x).join("\n")
+    : "Niente selezionato"
+}
+
+🍻 *Bevande:*
+${
+    bevande.length
+    ? bevande.map(x => "• " + x).join("\n")
+    : "Niente selezionato"
+}
+
+💬 *Note:*
+${note || "Nessuna"}
+
+🔥 Ci vediamo alla festa!`;
+
+
+    const url =
+        "https://wa.me/" +
+        NUMERO_WHATSAPP +
+        "?text=" +
+        encodeURIComponent(
+            messaggio
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* ==================================
    MUSICA
-========================= */
+================================== */
 
 let audioContext = null;
 let musicPlaying = false;
 let musicTimer = null;
 
 
-function startMusic() {
+function startMusic(){
 
-    if (musicPlaying) {
+    if(musicPlaying){
         return;
     }
 
 
     audioContext =
-        new (
+        new(
             window.AudioContext ||
             window.webkitAudioContext
         )();
@@ -2002,9 +1503,7 @@ function startMusic() {
     const master =
         audioContext.createGain();
 
-
-    master.gain.value = 0.06;
-
+    master.gain.value = .06;
 
     master.connect(
         audioContext.destination
@@ -2014,9 +1513,9 @@ function startMusic() {
     const notes = [
         261.63,
         329.63,
-        392.00,
+        392,
         523.25,
-        392.00,
+        392,
         329.63
     ];
 
@@ -2024,16 +1523,15 @@ function startMusic() {
     let index = 0;
 
 
-    function playNote() {
+    function playNote(){
 
-        if (!musicPlaying) {
+        if(!musicPlaying){
             return;
         }
 
 
         const oscillator =
             audioContext.createOscillator();
-
 
         const gain =
             audioContext.createGain();
@@ -2050,16 +1548,14 @@ function startMusic() {
             audioContext.currentTime
         );
 
-
         gain.gain.linearRampToValueAtTime(
-            0.7,
-            audioContext.currentTime + 0.03
+            .7,
+            audioContext.currentTime+.03
         );
 
-
         gain.gain.exponentialRampToValueAtTime(
-            0.001,
-            audioContext.currentTime + 0.45
+            .001,
+            audioContext.currentTime+.45
         );
 
 
@@ -2067,17 +1563,15 @@ function startMusic() {
 
         gain.connect(master);
 
-
         oscillator.start();
 
         oscillator.stop(
-            audioContext.currentTime + 0.5
+            audioContext.currentTime+.5
         );
 
 
         index =
-            (index + 1) %
-            notes.length;
+            (index+1)%notes.length;
 
 
         musicTimer =
@@ -2096,17 +1590,15 @@ function startMusic() {
 }
 
 
-function stopMusic() {
+function stopMusic(){
 
     musicPlaying = false;
 
-
-    if (musicTimer) {
+    if(musicTimer){
         clearTimeout(musicTimer);
     }
 
-
-    if (audioContext) {
+    if(audioContext){
 
         audioContext.close();
 
@@ -2117,7 +1609,7 @@ function stopMusic() {
 }
 
 
-function toggleMusic() {
+function toggleMusic(){
 
     const button =
         document.getElementById(
@@ -2125,7 +1617,7 @@ function toggleMusic() {
         );
 
 
-    if (!musicPlaying) {
+    if(!musicPlaying){
 
         startMusic();
 
@@ -2136,7 +1628,7 @@ function toggleMusic() {
             "playing"
         );
 
-    } else {
+    }else{
 
         stopMusic();
 
@@ -2152,11 +1644,11 @@ function toggleMusic() {
 }
 
 
-/* =========================
-   CORIANDOLI
-========================= */
+/* ==================================
+   CONFETTI
+================================== */
 
-function createConfetti() {
+function createConfetti(){
 
     const piece =
         document.createElement(
@@ -2180,32 +1672,31 @@ function createConfetti() {
     piece.style.background =
         colors[
             Math.floor(
-                Math.random() *
-                colors.length
+                Math.random()*colors.length
             )
         ];
 
 
     piece.style.left =
-        Math.random() * 100 + "vw";
+        Math.random()*100+"vw";
 
 
     piece.style.animationDuration =
         (
-            Math.random() * 3 + 3
-        ) + "s";
+            Math.random()*3+3
+        )+"s";
 
 
     piece.style.width =
         (
-            Math.random() * 6 + 5
-        ) + "px";
+            Math.random()*6+5
+        )+"px";
 
 
     piece.style.height =
         (
-            Math.random() * 8 + 8
-        ) + "px";
+            Math.random()*8+8
+        )+"px";
 
 
     document.body.appendChild(
@@ -2223,5 +1714,4 @@ function createConfetti() {
 </script>
 
 </body>
-
 </html>
